@@ -1,0 +1,160 @@
+﻿// find3.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+#include <iostream>
+#include <set>
+#include <string>
+#include <vector>
+#include <map>
+#include <algorithm>
+//#include <numeric>
+const int  MAX_RESULT_DOCUMENT_COUNT = 5;//константная переменная определяет количество топов
+
+struct DocumentContent {int id; vector<string> words;}; //переменная struct - -  структура
+
+//--------------
+using namespace std;
+//-----чтение и возврат строки---------------------------------------------------------------------
+string ReadLine() {
+    string s;
+    getline(cin, s);
+    return s;
+}
+//-----чтение и возврат количества строк в тексте и самой строки-----------------------------------
+int ReadLineWithNumber() {
+    int result = 0;
+    cin >> result;
+    ReadLine();
+    return result;
+}
+//-----разбиение строки на слова по пробелам и формирование вектора слов---------------------------
+vector<string> SplitIntoWords(const string& text) {
+    vector<string> words;
+    string word;
+    for (const char c : text) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
+            }
+        }
+        else {
+            word += c;
+        }
+    }
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+
+    return words;
+}
+//-----создание контейнера Стоп слов---------------------------------------------------------------
+set<string> ParseStopWords(const string& text) {
+    set<string> stop_words;
+    for (const string& word : SplitIntoWords(text)) {
+        stop_words.insert(word);
+    }
+    return stop_words;
+}
+//-----создание вектора слов исходного текста за вычетом стоп слов---------------------------------
+vector<string> SplitIntoWordsNoStop(const string& text, const set<string>& stop_words) {
+    vector<string> words;
+    for (const string& word : SplitIntoWords(text)) {
+        if (stop_words.count(word) == 0) {
+            words.push_back(word);
+        }
+    }
+    return words;
+}
+//-----создание и добавление к вектору из пар {id и вектор строки} новой пары в конец вектора------ 
+void AddDocument(DocumentContent&                     documents,
+                             const set<string>&       stop_words,
+                             int 				      document_id,
+                             const string&            document) {
+
+    const vector<string> words = SplitIntoWordsNoStop(document, stop_words);
+    documents.id = document_id;
+    documents.words =words;
+}
+//-----создание контейнера слов поискового запроса за вычетом стоп слов----------------------------
+set<string> ParseQuery(const string& text, const set<string>& stop_words) {
+    set<string> query_words;
+    for (const string& word : SplitIntoWordsNoStop(text, stop_words)) {
+        query_words.insert(word);
+    }
+    return query_words;
+}
+//-----возврат релевантности в паре {id и вектор строки} по запросу с проверкой пустого запроса и повторов слов в в тексте---
+int MatchDocument(const DocumentContent& content, const set<string>& query_words) {
+    if (query_words.empty()) {
+        return 0;
+    }
+    set<string> matched_words;
+    for (const string& word : content.words) {
+        if (matched_words.count(word) != 0) {
+            continue;
+        }
+        if (query_words.count(word) != 0) {
+            matched_words.insert(word);
+        }
+    }
+    /*int res = 0;
+    for (const string& word : content.second) {
+        if (query_words.count(word) != 0) {
+            ++res;
+        }
+    }*/
+
+    // Преобразовываем беззнаковое число типа size_t в int используя
+    // static_cast<int>
+    return static_cast<int>(matched_words.size());
+}
+//-----для каждого найденного документа возвращает его id и релеватность {релевантность, id}-------
+vector<pair<int, int> > FindAllDocuments(const DocumentContent& documents,
+                                         const set<string>&     query_words)
+{
+    vector<pair<int, int> > matched_documents;
+    vector<DocumentContent> docum;
+    int document_rel = 0;
+    for (const auto& document : docum ) {
+        document_rel = MatchDocument(document , query_words);
+        if (document_rel > 0) {
+            matched_documents.push_back(pair<int, int>(document_rel, document.id));
+        }
+    }
+    return matched_documents;
+}
+// Возвращает топ-5 самых релевантных документов в виде пар: {id, релевантность}
+vector<pair<int, int>> FindTopDocuments(const DocumentContent& documents,
+    const set<string>& stop_words,
+    const string& raw_query)
+{
+    vector<pair<int, int>> fad;
+    fad = FindAllDocuments(documents, stop_words);
+    sort(fad.begin(), fad.end());//сортировка по релевантности {релевантность, id}
+    reverse(fad.begin(), fad.end());//пересортировка по убыванию релевантности {релевантность, id}
+
+    if (MAX_RESULT_DOCUMENT_COUNT < fad.size()) { fad.resize(MAX_RESULT_DOCUMENT_COUNT);; }
+
+    return fad;
+    // Напишите функцию, используя FindAllDocuments
+}
+
+//-------------------------------
+int main() {
+    const string stop_words_joined = ReadLine();
+    const set<string> stop_words = ParseStopWords(stop_words_joined);
+
+    // Read documents
+   //vector<pair<int, vector<string> > > documents;
+   DocumentContent documents;
+    const int document_count = ReadLineWithNumber();
+    for (int document_id = 0; document_id < document_count; ++document_id) {
+    //    AddDocument(documents, stop_words, ReadLine());
+        AddDocument(documents, stop_words, document_id, ReadLine());
+    }
+
+    const string query = ReadLine();
+
+    for (const auto& document_id : FindTopDocuments(documents, stop_words, query)) {
+        cout << "{ document_id = "s << document_id.second << ", relevance = "s << document_id.first << " }"s << endl;
+    }
+}
