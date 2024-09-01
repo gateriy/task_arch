@@ -1,6 +1,6 @@
 #include "Parallelogram.h"
 
-//параллелограмм(стороны a, c и b, d попарно равны, углы A, C и B, D попарно равны);
+//РїР°СЂР°Р»Р»РµР»РѕРіСЂР°РјРј(СЃС‚РѕСЂРѕРЅС‹ a, c Рё b, d РїРѕРїР°СЂРЅРѕ СЂР°РІРЅС‹, СѓРіР»С‹ A, C Рё B, D РїРѕРїР°СЂРЅРѕ СЂР°РІРЅС‹);
 Parallelogram::Parallelogram(double a, double b, double A, double B) :
 	Quadrangle(a, b, c, d, A, B, C, D)
 {
@@ -8,18 +8,18 @@ Parallelogram::Parallelogram(double a, double b, double A, double B) :
 	d = b;
 	C = A;
 	D = B;
-	text_var = "Параллелограмм: ";
+	text_var = "РџР°СЂР°Р»Р»РµР»РѕРіСЂР°РјРј: ";
 	count = 8;
 }
-//функция вывода в консоль используется по условиям для 3 задания
+//С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РІ РєРѕРЅСЃРѕР»СЊ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕ СѓСЃР»РѕРІРёСЏРј РґР»СЏ 3 Р·Р°РґР°РЅРёСЏ
 void Parallelogram::print_info() {
 
 	std::cout << text_var << std::endl;
-	if (check() == true) { std::cout << "Правильная" << std::endl; }
-	else { std::cout << "Не правильная" << std::endl; }
+	if (check() == true) { std::cout << "РџСЂР°РІРёР»СЊРЅР°СЏ" << std::endl; }
+	else { std::cout << "РќРµ РїСЂР°РІРёР»СЊРЅР°СЏ" << std::endl; }
 	get_var_task_3(4);
 };
-//функция проверки правильности используется по условиям для 3 задания
+//С„СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂРєРё РїСЂР°РІРёР»СЊРЅРѕСЃС‚Рё РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕ СѓСЃР»РѕРІРёСЏРј РґР»СЏ 3 Р·Р°РґР°РЅРёСЏ
 bool Parallelogram::check() {
 
 	return (a == c && b == d && (a + c) == (b + d) && A == C && B == D && (A + C) == (B + D));

@@ -1,4 +1,4 @@
-﻿// find11.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+п»ї// find11.cpp : Р­С‚РѕС‚ С„Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ С„СѓРЅРєС†РёСЋ "main". Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ Рё Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹.
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -77,7 +77,7 @@ public:
         }
         documents_.emplace(document_id, DocumentData{ ComputeAverageRating(ratings), status });
     }
-    //количество документов в системе
+    //РєРѕР»РёС‡РµСЃС‚РІРѕ РґРѕРєСѓРјРµРЅС‚РѕРІ РІ СЃРёСЃС‚РµРјРµ
     int GetDocumentCount() const {
         return  document_count_;
     }
@@ -123,10 +123,10 @@ public:
        return { plus_words, documents_.at(document_id).status };
         
        // return { word.plus_words, }
-        /*В первом элементе кортежа верните все плюс-слова запроса, содержащиеся в документе.
-        Слова не должны дублироваться. Пусть они будут отсортированы по возрастанию.
-        Если документ не соответствует запросу (нет пересечений по плюс-словам или есть минус-слово),
-        вектор слов нужно вернуть пустым.*/
+        /*Р’ РїРµСЂРІРѕРј СЌР»РµРјРµРЅС‚Рµ РєРѕСЂС‚РµР¶Р° РІРµСЂРЅРёС‚Рµ РІСЃРµ РїР»СЋСЃ-СЃР»РѕРІР° Р·Р°РїСЂРѕСЃР°, СЃРѕРґРµСЂР¶Р°С‰РёРµСЃСЏ РІ РґРѕРєСѓРјРµРЅС‚Рµ.
+        РЎР»РѕРІР° РЅРµ РґРѕР»Р¶РЅС‹ РґСѓР±Р»РёСЂРѕРІР°С‚СЊСЃСЏ. РџСѓСЃС‚СЊ РѕРЅРё Р±СѓРґСѓС‚ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅС‹ РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ.
+        Р•СЃР»Рё РґРѕРєСѓРјРµРЅС‚ РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ Р·Р°РїСЂРѕСЃСѓ (РЅРµС‚ РїРµСЂРµСЃРµС‡РµРЅРёР№ РїРѕ РїР»СЋСЃ-СЃР»РѕРІР°Рј РёР»Рё РµСЃС‚СЊ РјРёРЅСѓСЃ-СЃР»РѕРІРѕ),
+        РІРµРєС‚РѕСЂ СЃР»РѕРІ РЅСѓР¶РЅРѕ РІРµСЂРЅСѓС‚СЊ РїСѓСЃС‚С‹Рј.*/
 
 
     };
@@ -256,14 +256,14 @@ void PrintMatchDocumentResult(int document_id, const vector<string>& words, Docu
 }
 int main() {
     SearchServer search_server;
-    search_server.SetStopWords("и в на"s);
-    search_server.AddDocument(0, "белый кот и модный ошейник"s, DocumentStatus::ACTUAL, { 8, -3 });
-    search_server.AddDocument(1, "пушистый кот пушистый хвост"s, DocumentStatus::ACTUAL, { 7, 2, 7 });
-    search_server.AddDocument(2, "ухоженный пёс выразительные глаза"s, DocumentStatus::ACTUAL, { 5, -12, 2, 1 });
-    search_server.AddDocument(3, "ухоженный скворец евгений"s, DocumentStatus::BANNED, { 9 });
+    search_server.SetStopWords("Рё РІ РЅР°"s);
+    search_server.AddDocument(0, "Р±РµР»С‹Р№ РєРѕС‚ Рё РјРѕРґРЅС‹Р№ РѕС€РµР№РЅРёРє"s, DocumentStatus::ACTUAL, { 8, -3 });
+    search_server.AddDocument(1, "РїСѓС€РёСЃС‚С‹Р№ РєРѕС‚ РїСѓС€РёСЃС‚С‹Р№ С…РІРѕСЃС‚"s, DocumentStatus::ACTUAL, { 7, 2, 7 });
+    search_server.AddDocument(2, "СѓС…РѕР¶РµРЅРЅС‹Р№ РїС‘СЃ РІС‹СЂР°Р·РёС‚РµР»СЊРЅС‹Рµ РіР»Р°Р·Р°"s, DocumentStatus::ACTUAL, { 5, -12, 2, 1 });
+    search_server.AddDocument(3, "СѓС…РѕР¶РµРЅРЅС‹Р№ СЃРєРІРѕСЂРµС† РµРІРіРµРЅРёР№"s, DocumentStatus::BANNED, { 9 });
     const int document_count = search_server.GetDocumentCount();
     for (int document_id = 0; document_id < document_count; ++document_id) {
-        const auto [words, status] = search_server.MatchDocument("пушистый кот"s, document_id);
+        const auto [words, status] = search_server.MatchDocument("РїСѓС€РёСЃС‚С‹Р№ РєРѕС‚"s, document_id);
         PrintMatchDocumentResult(document_id, words, status);
     }
 }

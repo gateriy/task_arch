@@ -1,11 +1,11 @@
-﻿// Task_1_(file).cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+п»ї// Task_1_(file).cpp : Р­С‚РѕС‚ С„Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ С„СѓРЅРєС†РёСЋ "main". Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ Рё Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹.
 
 #include <iostream>
 #include <Windows.h>
-#include <fstream> //для работы с файлами
+#include <fstream> //РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ С„Р°Р№Р»Р°РјРё
 #include <string>
 
-// функция выхода из программы
+// С„СѓРЅРєС†РёСЏ РІС‹С…РѕРґР° РёР· РїСЂРѕРіСЂР°РјРјС‹
 bool UserWantExitProgram()
 {
     std::string exit_Y_N{};
@@ -44,12 +44,12 @@ class InOutFileArr {
 
 public:
 
-    //счиывание преобразование / или \ в "\\" пути к файлу с консоли
+    //СЃС‡РёС‹РІР°РЅРёРµ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ / РёР»Рё \ РІ "\\" РїСѓС‚Рё Рє С„Р°Р№Р»Сѓ СЃ РєРѕРЅСЃРѕР»Рё
     std::string InputTransformWay() {
         std::string way{ "" };
         std::string way_file{ "" };
 
-        std::cout << "Введите путь к файлу (если файл не в корневом каталоге программы): ";
+        std::cout << "Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ (РµСЃР»Рё С„Р°Р№Р» РЅРµ РІ РєРѕСЂРЅРµРІРѕРј РєР°С‚Р°Р»РѕРіРµ РїСЂРѕРіСЂР°РјРјС‹): ";
         getline(std::cin >> std::ws, way_file);
       
         for (auto& ch : way_file) {
@@ -65,7 +65,7 @@ public:
         return way;
     }
  
-    //шаблонная функцие создания одномерного массива
+    //С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёРµ СЃРѕР·РґР°РЅРёСЏ РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
     template<typename T>
     T* CreateOneArr(const int& cells, const T& type_arr) {
 
@@ -73,14 +73,14 @@ public:
         return arr;
     }     
 
-    //шаблонная функцие удаления одномерного массива
+    //С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёРµ СѓРґР°Р»РµРЅРёСЏ РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
     template<typename T>
     void DeleteeOneArr(T* arr) {
 
           delete[] arr;
     }
 
-    //шаблонная функцие создания двумерного массива
+    //С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёРµ СЃРѕР·РґР°РЅРёСЏ РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
     template<typename T>
     T** CreateDoublArr(const int& rows, const int& cells, const T& type_arr) {
 
@@ -92,7 +92,7 @@ public:
         return arr;
     }  
 
-    //шаблонная функцие удаления двумерного массива
+    //С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёРµ СѓРґР°Р»РµРЅРёСЏ РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
     template<typename T>
     void DeleteDoubleArr(T** arr, const int& rows ){
    
@@ -103,7 +103,7 @@ public:
             delete[] arr;       
     }
 
-    //шаблонная функцие печати одномерного массива в консоль
+    //С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёРµ РїРµС‡Р°С‚Рё РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ
     template< typename T>
     void PrintArr(T* arr, const int& cells) {
 
@@ -114,7 +114,7 @@ public:
         std::cout << std::endl;
     }
 
-    //шаблонная функцие печати двумерного массива в консоль
+    //С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёРµ РїРµС‡Р°С‚Рё РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ
     template< typename T>
     void PrintDoubleArr(T** arr, const int& rows, const int& cells) {
 
@@ -140,18 +140,18 @@ int main()
         InOutFileArr ProgrammArr;
 
         int size_x{ 0 }, type_arr_x{ 1 };
-        int cel{ 0 };   //столбцы массива
-        int row{ 0 };   //строки массива
+        int cel{ 0 };   //СЃС‚РѕР»Р±С†С‹ РјР°СЃСЃРёРІР°
+        int row{ 0 };   //СЃС‚СЂРѕРєРё РјР°СЃСЃРёРІР°
         int task{ 0 };  //
-        int x_line{ 0 }; //счетчик количества строк или слов в файле
-        std::string typ_ar{ "" }; //переменная задающая тип переменных массива
-        std::string x_text { "" }; //считывание слов или строк из файла
+        int x_line{ 0 }; //СЃС‡РµС‚С‡РёРє РєРѕР»РёС‡РµСЃС‚РІР° СЃС‚СЂРѕРє РёР»Рё СЃР»РѕРІ РІ С„Р°Р№Р»Рµ
+        std::string typ_ar{ "" }; //РїРµСЂРµРјРµРЅРЅР°СЏ Р·Р°РґР°СЋС‰Р°СЏ С‚РёРї РїРµСЂРµРјРµРЅРЅС‹С… РјР°СЃСЃРёРІР°
+        std::string x_text { "" }; //СЃС‡РёС‚С‹РІР°РЅРёРµ СЃР»РѕРІ РёР»Рё СЃС‚СЂРѕРє РёР· С„Р°Р№Р»Р°
         std::string* arr;
         std::string** arr_doubl;
 
         do {
-            std::cout << "\033c";//очистка консоли
-            std::cout << "Введите номер задания (1-4): ";
+            std::cout << "\033c";//РѕС‡РёСЃС‚РєР° РєРѕРЅСЃРѕР»Рё
+            std::cout << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ Р·Р°РґР°РЅРёСЏ (1-4): ";
             std::cin >> task;
 
 //-------------------------------------------
@@ -161,30 +161,30 @@ int main()
 
                 do {
                     x_line = 0;
-                    std::ifstream  f_in(ProgrammArr.InputTransformWay()); // открыли файл по заданному пути на чтение
+                    std::ifstream  f_in(ProgrammArr.InputTransformWay()); // РѕС‚РєСЂС‹Р»Рё С„Р°Р№Р» РїРѕ Р·Р°РґР°РЅРЅРѕРјСѓ РїСѓС‚Рё РЅР° С‡С‚РµРЅРёРµ
                     if (f_in.is_open()) {
 
                         do {
                             f_in >> x_text;
-                            ++x_line; //проход по файлу в режиме считывания и подсчет элементов
+                            ++x_line; //РїСЂРѕС…РѕРґ РїРѕ С„Р°Р№Р»Сѓ РІ СЂРµР¶РёРјРµ СЃС‡РёС‚С‹РІР°РЅРёСЏ Рё РїРѕРґСЃС‡РµС‚ СЌР»РµРјРµРЅС‚РѕРІ
                         } while (!f_in.eof());
 
                         cel = x_line;
-                        arr = ProgrammArr.CreateOneArr(cel, typ_ar);//создание одномерного динамического массива по количеству элементов считывания
-                        f_in.clear(); //очистка потока ввода из файла
-                        f_in.seekg(0, std::ios::beg);//возврат курсора в начало файла
+                        arr = ProgrammArr.CreateOneArr(cel, typ_ar);//СЃРѕР·РґР°РЅРёРµ РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ РјР°СЃСЃРёРІР° РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ СЌР»РµРјРµРЅС‚РѕРІ СЃС‡РёС‚С‹РІР°РЅРёСЏ
+                        f_in.clear(); //РѕС‡РёСЃС‚РєР° РїРѕС‚РѕРєР° РІРІРѕРґР° РёР· С„Р°Р№Р»Р°
+                        f_in.seekg(0, std::ios::beg);//РІРѕР·РІСЂР°С‚ РєСѓСЂСЃРѕСЂР° РІ РЅР°С‡Р°Р»Рѕ С„Р°Р№Р»Р°
 
                         for (int i = 0; i < cel; ++i) {
                             f_in >> arr[i];
                         };
 
                         f_in.close();
-                        std::cout << "Файл успешно прочитан!" << std::endl;
+                        std::cout << "Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ РїСЂРѕС‡РёС‚Р°РЅ!" << std::endl;
                         std::cout << std::endl;
                         break;
                     }
                     else {
-                        std::cout << "Файл не найден! Повторите ввод пути к файлу." << std::endl;
+                        std::cout << "Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ! РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ РїСѓС‚Рё Рє С„Р°Р№Р»Сѓ." << std::endl;
                     }
                 } while (true);
 
@@ -192,7 +192,7 @@ int main()
                     std::cout << arr[i] << std::endl;
                 }
                 std::cout << std::endl;
-                ProgrammArr.DeleteeOneArr(arr); //удаление массива освобождение памяти
+                ProgrammArr.DeleteeOneArr(arr); //СѓРґР°Р»РµРЅРёРµ РјР°СЃСЃРёРІР° РѕСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
             }
 
  //---------------------------------------------
@@ -204,7 +204,7 @@ int main()
                 do
                 {
                     x_line = 0;
-                    std::ifstream  f_in(ProgrammArr.InputTransformWay()); // открыли файл по заданному пути на чтение
+                    std::ifstream  f_in(ProgrammArr.InputTransformWay()); // РѕС‚РєСЂС‹Р»Рё С„Р°Р№Р» РїРѕ Р·Р°РґР°РЅРЅРѕРјСѓ РїСѓС‚Рё РЅР° С‡С‚РµРЅРёРµ
                     if (f_in.is_open()) {
                         
                         f_in >> cel;   
@@ -216,12 +216,12 @@ int main()
                         };
 
                         f_in.close();
-                        std::cout << "Файл успешно прочитан!" << std::endl;
+                        std::cout << "Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ РїСЂРѕС‡РёС‚Р°РЅ!" << std::endl;
                         std::cout << std::endl;
                         break;
                     }
                     else {
-                        std::cout << "Файл не найден! Повторите ввод пути к файлу." << std::endl;
+                        std::cout << "Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ! РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ РїСѓС‚Рё Рє С„Р°Р№Р»Сѓ." << std::endl;
                     }
                 } while (true);
 
@@ -237,7 +237,7 @@ int main()
                 for (int i = 0; i < cel; ++i) {
                     arr[i] = arr_2[i];
                 }
-                ProgrammArr.DeleteeOneArr(arr_2); //удаление массива освобождение памяти
+                ProgrammArr.DeleteeOneArr(arr_2); //СѓРґР°Р»РµРЅРёРµ РјР°СЃСЃРёРІР° РѕСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
 
 
                 for (int i = 0; i < cel; ++i) {
@@ -250,7 +250,7 @@ int main()
                     }
                 }
                 std::cout << std::endl;
-                ProgrammArr.DeleteeOneArr(arr); //удаление массива освобождение памяти
+                ProgrammArr.DeleteeOneArr(arr); //СѓРґР°Р»РµРЅРёРµ РјР°СЃСЃРёРІР° РѕСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
 
             }                    
         
@@ -259,7 +259,7 @@ int main()
                 std::cout << "Task 3 (file)";
                 std::cout << "\n" << std::endl;
 
-                std::cout << "Введите размер массива: ";
+                std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°: ";
                 std::cin >> cel;
                 std::cout << std::endl;
                 arr = ProgrammArr.CreateOneArr(cel, typ_ar);
@@ -282,10 +282,10 @@ int main()
                 for (int i = 0; i < cel; ++i) {
                     arr[i] = arr_2[i];
                 }
-                ProgrammArr.DeleteeOneArr(arr_2); //удаление массива освобождение памяти
+                ProgrammArr.DeleteeOneArr(arr_2); //СѓРґР°Р»РµРЅРёРµ РјР°СЃСЃРёРІР° РѕСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
 
                 do {
-                    std::ofstream  f_oupen(ProgrammArr.InputTransformWay()); // открыли файл по заданному пути на запись
+                    std::ofstream  f_oupen(ProgrammArr.InputTransformWay()); // РѕС‚РєСЂС‹Р»Рё С„Р°Р№Р» РїРѕ Р·Р°РґР°РЅРЅРѕРјСѓ РїСѓС‚Рё РЅР° Р·Р°РїРёСЃСЊ
                     if (f_oupen.is_open()) {
 
                         f_oupen << cel << std::endl;
@@ -301,12 +301,12 @@ int main()
                         f_oupen << std::endl;
 
                         f_oupen.close();
-                        std::cout << "Файл успешно записан!" << std::endl;
+                        std::cout << "Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ Р·Р°РїРёСЃР°РЅ!" << std::endl;
                        // std::cout << std::endl;
                         break;
                     }
                     else {
-                        std::cout << "Файл не найден! Повторите ввод пути к файлу." << std::endl;
+                        std::cout << "Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ! РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ РїСѓС‚Рё Рє С„Р°Р№Р»Сѓ." << std::endl;
                     }
                 } while (true);
             }
@@ -319,7 +319,7 @@ int main()
 
                     do {
                         x_line = 0;
-                        std::ifstream  f_in(ProgrammArr.InputTransformWay()); // открыли файл по заданному пути на чтение
+                        std::ifstream  f_in(ProgrammArr.InputTransformWay()); // РѕС‚РєСЂС‹Р»Рё С„Р°Р№Р» РїРѕ Р·Р°РґР°РЅРЅРѕРјСѓ РїСѓС‚Рё РЅР° С‡С‚РµРЅРёРµ
                         if (f_in.is_open()) {
 
                             f_in >> row;
@@ -335,12 +335,12 @@ int main()
                             }
 
                             f_in.close();
-                            std::cout << "Файл успешно прочитан!" << std::endl;
+                            std::cout << "Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ РїСЂРѕС‡РёС‚Р°РЅ!" << std::endl;
                             std::cout << std::endl;
                             break;
                         }
                         else {
-                            std::cout << "Файл не найден! Повторите ввод пути к файлу." << std::endl;
+                            std::cout << "Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ! РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ РїСѓС‚Рё Рє С„Р°Р№Р»Сѓ." << std::endl;
                         }
                     } while (true);
 
@@ -358,7 +358,7 @@ int main()
                             arr_doubl[a][i] = arr_2[a][i];
                         }
                     }
-                    ProgrammArr.DeleteDoubleArr(arr_2,row); //удаление массива освобождение памяти
+                    ProgrammArr.DeleteDoubleArr(arr_2,row); //СѓРґР°Р»РµРЅРёРµ РјР°СЃСЃРёРІР° РѕСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
 
                     for (int j = 0; j < row; ++j) {
                         for (int i = 0; i < cel; ++i) {
@@ -372,7 +372,7 @@ int main()
                         }  
                         std::cout << std::endl;
                     }
-                    ProgrammArr.DeleteDoubleArr(arr_doubl, row); //удаление массива освобождение памяти
+                    ProgrammArr.DeleteDoubleArr(arr_doubl, row); //СѓРґР°Р»РµРЅРёРµ РјР°СЃСЃРёРІР° РѕСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
          
                 }
 

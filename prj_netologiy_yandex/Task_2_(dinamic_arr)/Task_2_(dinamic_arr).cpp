@@ -1,10 +1,10 @@
-﻿// Task_2_(dinamic_arr).cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+п»ї// Task_2_(dinamic_arr).cpp : Р­С‚РѕС‚ С„Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ С„СѓРЅРєС†РёСЋ "main". Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ Рё Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹.
 
 #include <iostream>
 #include <iomanip>
 #include <Windows.h>
 
-// функция выхода из программы
+// С„СѓРЅРєС†РёСЏ РІС‹С…РѕРґР° РёР· РїСЂРѕРіСЂР°РјРјС‹
 bool UserWantExitProgram()
 {
     std::string exit_Y_N{};
@@ -31,7 +31,7 @@ bool UserWantExitProgram()
 
     } while (true);
 }
-//создание массива
+//СЃРѕР·РґР°РЅРёРµ РјР°СЃСЃРёРІР°
 template< typename T>
 T* CreateArr(const long long& x, const T& type_x) {
 
@@ -39,7 +39,7 @@ T* CreateArr(const long long& x, const T& type_x) {
 
     return arr;
 } 
-//наполненеие массива нулями
+//РЅР°РїРѕР»РЅРµРЅРµРёРµ РјР°СЃСЃРёРІР° РЅСѓР»СЏРјРё
 template< typename T>
 void InputArr(T* arr, const long long& x) {
 
@@ -48,11 +48,11 @@ void InputArr(T* arr, const long long& x) {
        arr[i] = input_x;
     }
 }
-//вывод массива в консоль
+//РІС‹РІРѕРґ РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ
 template< typename T>
 void PrintArr(T* arr, const long long& x) {
 
-    std::cout << "Массив: ";
+    std::cout << "РњР°СЃСЃРёРІ: ";
 
     for (long long i = 0; i < x; ++i) {
         
@@ -60,39 +60,39 @@ void PrintArr(T* arr, const long long& x) {
     }
     std::cout << std::endl;
 }
-//удаление массива и освобождение памяти
+//СѓРґР°Р»РµРЅРёРµ РјР°СЃСЃРёРІР° Рё РѕСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
 template< typename T>
 void DeletArr(T* arr) {
 
     delete[] arr;
 }
-//вывод дополнительных данных о массивн
+//РІС‹РІРѕРґ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… РґР°РЅРЅС‹С… Рѕ РјР°СЃСЃРёРІРЅ
 template< typename T>
 void DataMemoreArr(T* arr, const long long& x) {
     size_t size_1, size_2, size_3;
 
-    size_1 = sizeof(arr); //размер массива указателей на строки
-    size_2 = sizeof(*arr) * x; //размер массива одной строки
+    size_1 = sizeof(arr); //СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР° СѓРєР°Р·Р°С‚РµР»РµР№ РЅР° СЃС‚СЂРѕРєРё
+    size_2 = sizeof(*arr) * x; //СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР° РѕРґРЅРѕР№ СЃС‚СЂРѕРєРё
   
     for (long long i = 0; i < 30; ++i) {
         std::cout << "-";
     }
     std::cout << std::endl;
-    std::cout << "Тип элементов массива : " << typeid(*arr).name() << std::endl;
-    std::cout << size_2 << " bytes" << " <- Размер массива" << std::endl;
+    std::cout << "РўРёРї СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР° : " << typeid(*arr).name() << std::endl;
+    std::cout << size_2 << " bytes" << " <- Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІР°" << std::endl;
     std::cout << std::endl;
 }
-//комплексная шаблонная функция создание/наполнение/вывод/удаление массива
+//РєРѕРјРїР»РµРєСЃРЅР°СЏ С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ СЃРѕР·РґР°РЅРёРµ/РЅР°РїРѕР»РЅРµРЅРёРµ/РІС‹РІРѕРґ/СѓРґР°Р»РµРЅРёРµ РјР°СЃСЃРёРІР°
 template< typename T>
 void CreatInputOutputDeleteVarArr(const long long& x, const T& type_x) {
 
-    T* d_arr_1 = CreateArr(x, type_x);    //создание массива
-    InputArr(d_arr_1, x);                 //наполненеие массива (таблица умножения)
-    PrintArr(d_arr_1, x);                 //вывод на консоль массива
-    DataMemoreArr(d_arr_1, x);            //вывод данных о памяти массива и типе его данных   
-    DeletArr(d_arr_1);                    //очистка памяти массива 
+    T* d_arr_1 = CreateArr(x, type_x);    //СЃРѕР·РґР°РЅРёРµ РјР°СЃСЃРёРІР°
+    InputArr(d_arr_1, x);                 //РЅР°РїРѕР»РЅРµРЅРµРёРµ РјР°СЃСЃРёРІР° (С‚Р°Р±Р»РёС†Р° СѓРјРЅРѕР¶РµРЅРёСЏ)
+    PrintArr(d_arr_1, x);                 //РІС‹РІРѕРґ РЅР° РєРѕРЅСЃРѕР»СЊ РјР°СЃСЃРёРІР°
+    DataMemoreArr(d_arr_1, x);            //РІС‹РІРѕРґ РґР°РЅРЅС‹С… Рѕ РїР°РјСЏС‚Рё РјР°СЃСЃРёРІР° Рё С‚РёРїРµ РµРіРѕ РґР°РЅРЅС‹С…   
+    DeletArr(d_arr_1);                    //РѕС‡РёСЃС‚РєР° РїР°РјСЏС‚Рё РјР°СЃСЃРёРІР° 
 }
-//выбор типа данных массива и запуск комплексной функции CreatInputOutputDeleteVarArr с определенным типом данных
+//РІС‹Р±РѕСЂ С‚РёРїР° РґР°РЅРЅС‹С… РјР°СЃСЃРёРІР° Рё Р·Р°РїСѓСЃРє РєРѕРјРїР»РµРєСЃРЅРѕР№ С„СѓРЅРєС†РёРё CreatInputOutputDeleteVarArr СЃ РѕРїСЂРµРґРµР»РµРЅРЅС‹Рј С‚РёРїРѕРј РґР°РЅРЅС‹С…
 void VariablTypeArrOut(const long long& x, const int& type_x) {
 
     enum myType {
@@ -149,13 +149,13 @@ int main()
           int  type_arr_x{ 1 };
         std::cout << "Task 2 (arr**)";
         std::cout << "\n" << std::endl;
-        std::cout << "(создание одномерного динамического массива разных типов по выбору)\n";
-        std::cout << "(заполненеие нулями)";
+        std::cout << "(СЃРѕР·РґР°РЅРёРµ РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ РјР°СЃСЃРёРІР° СЂР°Р·РЅС‹С… С‚РёРїРѕРІ РїРѕ РІС‹Р±РѕСЂСѓ)\n";
+        std::cout << "(Р·Р°РїРѕР»РЅРµРЅРµРёРµ РЅСѓР»СЏРјРё)";
         std::cout << "\n" << std::endl;
-        std::cout << "Введите тип элементов массива (Int(1), Double(2), Float(3), Long(4), Long_Long(5), Size_t(6)) цифру в скобках: ";
+        std::cout << "Р’РІРµРґРёС‚Рµ С‚РёРї СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР° (Int(1), Double(2), Float(3), Long(4), Long_Long(5), Size_t(6)) С†РёС„СЂСѓ РІ СЃРєРѕР±РєР°С…: ";
         std::cin >> type_arr_x;
         std::cout << std::endl;
-        std::cout << "Введите размер массива: ";
+        std::cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°: ";
         std::cin >> size_x;
        // std::cout << std::endl;
 

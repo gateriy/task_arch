@@ -10,7 +10,7 @@
 #include "Figure.h"
 
 class Rhomb : public Parallelogram {
-	//ромб(все стороны равны, углы A, C и B, D попарно равны).
+	//СЂРѕРјР±(РІСЃРµ СЃС‚РѕСЂРѕРЅС‹ СЂР°РІРЅС‹, СѓРіР»С‹ A, C Рё B, D РїРѕРїР°СЂРЅРѕ СЂР°РІРЅС‹).
 public:
 	Rhomb(double a, double A, double B);
 

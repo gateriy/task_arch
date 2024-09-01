@@ -1,4 +1,4 @@
-﻿#include <iostream>
+п»ї#include <iostream>
 #include <map>
 #include <string>
 #include <vector>
@@ -6,7 +6,7 @@
 using namespace std;
 
 map<string, int> ComputeTermFreqs(const vector<string>& terms) {
-    // реализуйте функцию
+    // СЂРµР°Р»РёР·СѓР№С‚Рµ С„СѓРЅРєС†РёСЋ
     map<string, int> asd;
 
 
@@ -22,7 +22,7 @@ int main() {
     for (const auto& [term, freq] : ComputeTermFreqs(terms)) {
         cout << term << " x "s << freq << endl;
     }
-    // вывод:
+    // РІС‹РІРѕРґ:
     // class x 1
     // first x 2
     // time x 1

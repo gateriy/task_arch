@@ -8,7 +8,7 @@ void AllConfigTask::InteractiveVarTask(const std::string& v_text) {
 	ConsolLang1251();
 
 	do {
-		std::cout << "\033c";//очистка консоли
+		std::cout << "\033c";//РѕС‡РёСЃС‚РєР° РєРѕРЅСЃРѕР»Рё
 		text = v_text;
 
 		VarTaskNumber();
@@ -35,7 +35,7 @@ void AllConfigTask::VarTaskNumber() {
 
 		if (number_task == "1" || number_task == "2" || number_task == "3" || number_task == "0") {
 
-			std::cout << "\033c";//очистка консоли
+			std::cout << "\033c";//РѕС‡РёСЃС‚РєР° РєРѕРЅСЃРѕР»Рё
 
 			//if(number_task != "0") {
 			std::cout << "Task " << number_task << ":" << std::endl;
@@ -56,7 +56,7 @@ void AllConfigTask::VarTaskNumber() {
 				exit = false;
 				break;
 			case(static_cast<int>(Task::exit_0)):
-				std::cout << "\033c";//очистка консоли
+				std::cout << "\033c";//РѕС‡РёСЃС‚РєР° РєРѕРЅСЃРѕР»Рё
 				exit = false;
 				break;
 			}

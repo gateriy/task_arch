@@ -1,4 +1,4 @@
-﻿// Task_many_files.cpp : задачи 1,2,3
+п»ї// Task_many_files.cpp : Р·Р°РґР°С‡Рё 1,2,3
 
 #include <iostream>
 #include <string>

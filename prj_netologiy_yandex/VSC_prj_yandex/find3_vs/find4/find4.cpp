@@ -1,4 +1,4 @@
-﻿// find3.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+п»ї// find3.cpp : Р­С‚РѕС‚ С„Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ С„СѓРЅРєС†РёСЋ "main". Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ Рё Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹.
 #include <iostream>
 #include <set>
 #include <string>
@@ -6,26 +6,26 @@
 #include <map>
 #include <algorithm>
 //#include <numeric>
-const int  MAX_RESULT_DOCUMENT_COUNT = 5;//константная переменная определяет количество топов
+const int  MAX_RESULT_DOCUMENT_COUNT = 5;//РєРѕРЅСЃС‚Р°РЅС‚РЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ РѕРїСЂРµРґРµР»СЏРµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ С‚РѕРїРѕРІ
 
-struct DocumentContent {int id; vector<string> words;}; //переменная struct - -  структура
+struct DocumentContent {int id; vector<string> words;}; //РїРµСЂРµРјРµРЅРЅР°СЏ struct - -  СЃС‚СЂСѓРєС‚СѓСЂР°
 
 //--------------
 using namespace std;
-//-----чтение и возврат строки---------------------------------------------------------------------
+//-----С‡С‚РµРЅРёРµ Рё РІРѕР·РІСЂР°С‚ СЃС‚СЂРѕРєРё---------------------------------------------------------------------
 string ReadLine() {
     string s;
     getline(cin, s);
     return s;
 }
-//-----чтение и возврат количества строк в тексте и самой строки-----------------------------------
+//-----С‡С‚РµРЅРёРµ Рё РІРѕР·РІСЂР°С‚ РєРѕР»РёС‡РµСЃС‚РІР° СЃС‚СЂРѕРє РІ С‚РµРєСЃС‚Рµ Рё СЃР°РјРѕР№ СЃС‚СЂРѕРєРё-----------------------------------
 int ReadLineWithNumber() {
     int result = 0;
     cin >> result;
     ReadLine();
     return result;
 }
-//-----разбиение строки на слова по пробелам и формирование вектора слов---------------------------
+//-----СЂР°Р·Р±РёРµРЅРёРµ СЃС‚СЂРѕРєРё РЅР° СЃР»РѕРІР° РїРѕ РїСЂРѕР±РµР»Р°Рј Рё С„РѕСЂРјРёСЂРѕРІР°РЅРёРµ РІРµРєС‚РѕСЂР° СЃР»РѕРІ---------------------------
 vector<string> SplitIntoWords(const string& text) {
     vector<string> words;
     string word;
@@ -46,7 +46,7 @@ vector<string> SplitIntoWords(const string& text) {
 
     return words;
 }
-//-----создание контейнера Стоп слов---------------------------------------------------------------
+//-----СЃРѕР·РґР°РЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР° РЎС‚РѕРї СЃР»РѕРІ---------------------------------------------------------------
 set<string> ParseStopWords(const string& text) {
     set<string> stop_words;
     for (const string& word : SplitIntoWords(text)) {
@@ -54,7 +54,7 @@ set<string> ParseStopWords(const string& text) {
     }
     return stop_words;
 }
-//-----создание вектора слов исходного текста за вычетом стоп слов---------------------------------
+//-----СЃРѕР·РґР°РЅРёРµ РІРµРєС‚РѕСЂР° СЃР»РѕРІ РёСЃС…РѕРґРЅРѕРіРѕ С‚РµРєСЃС‚Р° Р·Р° РІС‹С‡РµС‚РѕРј СЃС‚РѕРї СЃР»РѕРІ---------------------------------
 vector<string> SplitIntoWordsNoStop(const string& text, const set<string>& stop_words) {
     vector<string> words;
     for (const string& word : SplitIntoWords(text)) {
@@ -64,7 +64,7 @@ vector<string> SplitIntoWordsNoStop(const string& text, const set<string>& stop_
     }
     return words;
 }
-//-----создание и добавление к вектору из пар {id и вектор строки} новой пары в конец вектора------ 
+//-----СЃРѕР·РґР°РЅРёРµ Рё РґРѕР±Р°РІР»РµРЅРёРµ Рє РІРµРєС‚РѕСЂСѓ РёР· РїР°СЂ {id Рё РІРµРєС‚РѕСЂ СЃС‚СЂРѕРєРё} РЅРѕРІРѕР№ РїР°СЂС‹ РІ РєРѕРЅРµС† РІРµРєС‚РѕСЂР°------ 
 void AddDocument(DocumentContent&                     documents,
                              const set<string>&       stop_words,
                              int 				      document_id,
@@ -74,7 +74,7 @@ void AddDocument(DocumentContent&                     documents,
     documents.id = document_id;
     documents.words =words;
 }
-//-----создание контейнера слов поискового запроса за вычетом стоп слов----------------------------
+//-----СЃРѕР·РґР°РЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР° СЃР»РѕРІ РїРѕРёСЃРєРѕРІРѕРіРѕ Р·Р°РїСЂРѕСЃР° Р·Р° РІС‹С‡РµС‚РѕРј СЃС‚РѕРї СЃР»РѕРІ----------------------------
 set<string> ParseQuery(const string& text, const set<string>& stop_words) {
     set<string> query_words;
     for (const string& word : SplitIntoWordsNoStop(text, stop_words)) {
@@ -82,7 +82,7 @@ set<string> ParseQuery(const string& text, const set<string>& stop_words) {
     }
     return query_words;
 }
-//-----возврат релевантности в паре {id и вектор строки} по запросу с проверкой пустого запроса и повторов слов в в тексте---
+//-----РІРѕР·РІСЂР°С‚ СЂРµР»РµРІР°РЅС‚РЅРѕСЃС‚Рё РІ РїР°СЂРµ {id Рё РІРµРєС‚РѕСЂ СЃС‚СЂРѕРєРё} РїРѕ Р·Р°РїСЂРѕСЃСѓ СЃ РїСЂРѕРІРµСЂРєРѕР№ РїСѓСЃС‚РѕРіРѕ Р·Р°РїСЂРѕСЃР° Рё РїРѕРІС‚РѕСЂРѕРІ СЃР»РѕРІ РІ РІ С‚РµРєСЃС‚Рµ---
 int MatchDocument(const DocumentContent& content, const set<string>& query_words) {
     if (query_words.empty()) {
         return 0;
@@ -103,11 +103,11 @@ int MatchDocument(const DocumentContent& content, const set<string>& query_words
         }
     }*/
 
-    // Преобразовываем беззнаковое число типа size_t в int используя
+    // РџСЂРµРѕР±СЂР°Р·РѕРІС‹РІР°РµРј Р±РµР·Р·РЅР°РєРѕРІРѕРµ С‡РёСЃР»Рѕ С‚РёРїР° size_t РІ int РёСЃРїРѕР»СЊР·СѓСЏ
     // static_cast<int>
     return static_cast<int>(matched_words.size());
 }
-//-----для каждого найденного документа возвращает его id и релеватность {релевантность, id}-------
+//-----РґР»СЏ РєР°Р¶РґРѕРіРѕ РЅР°Р№РґРµРЅРЅРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° РІРѕР·РІСЂР°С‰Р°РµС‚ РµРіРѕ id Рё СЂРµР»РµРІР°С‚РЅРѕСЃС‚СЊ {СЂРµР»РµРІР°РЅС‚РЅРѕСЃС‚СЊ, id}-------
 vector<pair<int, int> > FindAllDocuments(const DocumentContent& documents,
                                          const set<string>&     query_words)
 {
@@ -122,20 +122,20 @@ vector<pair<int, int> > FindAllDocuments(const DocumentContent& documents,
     }
     return matched_documents;
 }
-// Возвращает топ-5 самых релевантных документов в виде пар: {id, релевантность}
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ С‚РѕРї-5 СЃР°РјС‹С… СЂРµР»РµРІР°РЅС‚РЅС‹С… РґРѕРєСѓРјРµРЅС‚РѕРІ РІ РІРёРґРµ РїР°СЂ: {id, СЂРµР»РµРІР°РЅС‚РЅРѕСЃС‚СЊ}
 vector<pair<int, int>> FindTopDocuments(const DocumentContent& documents,
     const set<string>& stop_words,
     const string& raw_query)
 {
     vector<pair<int, int>> fad;
     fad = FindAllDocuments(documents, stop_words);
-    sort(fad.begin(), fad.end());//сортировка по релевантности {релевантность, id}
-    reverse(fad.begin(), fad.end());//пересортировка по убыванию релевантности {релевантность, id}
+    sort(fad.begin(), fad.end());//СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ СЂРµР»РµРІР°РЅС‚РЅРѕСЃС‚Рё {СЂРµР»РµРІР°РЅС‚РЅРѕСЃС‚СЊ, id}
+    reverse(fad.begin(), fad.end());//РїРµСЂРµСЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ СѓР±С‹РІР°РЅРёСЋ СЂРµР»РµРІР°РЅС‚РЅРѕСЃС‚Рё {СЂРµР»РµРІР°РЅС‚РЅРѕСЃС‚СЊ, id}
 
     if (MAX_RESULT_DOCUMENT_COUNT < fad.size()) { fad.resize(MAX_RESULT_DOCUMENT_COUNT);; }
 
     return fad;
-    // Напишите функцию, используя FindAllDocuments
+    // РќР°РїРёС€РёС‚Рµ С„СѓРЅРєС†РёСЋ, РёСЃРїРѕР»СЊР·СѓСЏ FindAllDocuments
 }
 
 //-------------------------------

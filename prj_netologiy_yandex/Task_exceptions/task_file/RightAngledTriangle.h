@@ -9,7 +9,7 @@
 #include "Figure.h"
 
 class RightAngledTriangle : public Triangle {
-	//прямоугольный треугольник(угол C всегда равен 90);
+	//РїСЂСЏРјРѕСѓРіРѕР»СЊРЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє(СѓРіРѕР» C РІСЃРµРіРґР° СЂР°РІРµРЅ 90);
 public:
 	RightAngledTriangle(double a, double b, double c, double A, double B);
 

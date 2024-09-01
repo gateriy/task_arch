@@ -1,4 +1,4 @@
-﻿// dog_map_lambda.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+п»ї// dog_map_lambda.cpp : Р­С‚РѕС‚ С„Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ С„СѓРЅРєС†РёСЋ "main". Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ Рё Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹.
 #include <map>
 #include <string>
 #include <vector>
@@ -10,9 +10,9 @@ using namespace std;
 int CountAndAddNewDogs(const vector<string>& new_dogs, const map<string, int>& max_amount,
     map<string, int>& shelter) {
     int result=count_if(new_dogs.begin(), new_dogs.end(), [&shelter, &max_amount](const string& name) {
-        // в map в [] или at() это обращение к ключу!!!! именно к ключу!
+        // РІ map РІ [] РёР»Рё at() СЌС‚Рѕ РѕР±СЂР°С‰РµРЅРёРµ Рє РєР»СЋС‡Сѓ!!!! РёРјРµРЅРЅРѕ Рє РєР»СЋС‡Сѓ!
         if (shelter[name] < max_amount.at(name)) {
-         ++shelter[name];// при наличии ключа name увеличивает значение при отсутствуии создает новый ключ (!!!) name с 0 значением
+         ++shelter[name];// РїСЂРё РЅР°Р»РёС‡РёРё РєР»СЋС‡Р° name СѓРІРµР»РёС‡РёРІР°РµС‚ Р·РЅР°С‡РµРЅРёРµ РїСЂРё РѕС‚СЃСѓС‚СЃС‚РІСѓРёРё СЃРѕР·РґР°РµС‚ РЅРѕРІС‹Р№ РєР»СЋС‡ (!!!) name СЃ 0 Р·РЅР°С‡РµРЅРёРµРј
             return true;
         }
         else { return false; }

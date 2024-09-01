@@ -9,7 +9,7 @@
 #include "Quadrangle.h"
 
 class Rectangle : public Quadrangle {
-	//прямоугольник(стороны a, c и b, d попарно равны, все углы равны 90);
+	//РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє(СЃС‚РѕСЂРѕРЅС‹ a, c Рё b, d РїРѕРїР°СЂРЅРѕ СЂР°РІРЅС‹, РІСЃРµ СѓРіР»С‹ СЂР°РІРЅС‹ 90);
 public:
 	Rectangle(double a, double b);
 

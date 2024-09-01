@@ -9,7 +9,7 @@
 #include "Figure.h"
 
 class IsoscelesTriangle : public Triangle {
-	//равнобедренный треугольник(стороны a и c равны, углы A и C равны)
+	//СЂР°РІРЅРѕР±РµРґСЂРµРЅРЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє(СЃС‚РѕСЂРѕРЅС‹ a Рё c СЂР°РІРЅС‹, СѓРіР»С‹ A Рё C СЂР°РІРЅС‹)
 public:
 	IsoscelesTriangle(double a, double b, double A, double B);
 

@@ -1,4 +1,4 @@
-﻿// 6_task_bus.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+п»ї// 6_task_bus.cpp : Р­С‚РѕС‚ С„Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ С„СѓРЅРєС†РёСЋ "main". Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ Рё Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹.
 #include <cassert>
 #include <iostream>
 #include <map>
@@ -141,10 +141,10 @@ public:
     BusesForStopResponse GetBusesForStop(const string& stop) const {
         BusesForStopResponse result;
         if (buses_in_stop_.count(stop) != 0) {
-            result.buses = buses_in_stop_.at(stop);//не пустой вектор
+            result.buses = buses_in_stop_.at(stop);//РЅРµ РїСѓСЃС‚РѕР№ РІРµРєС‚РѕСЂ
         }
         else {
-            result.buses.clear();//пустой вектор
+            result.buses.clear();//РїСѓСЃС‚РѕР№ РІРµРєС‚РѕСЂ
         }
         return result;
     }
@@ -184,8 +184,8 @@ private:
 
 };
 
-// Реализуйте функции и классы, объявленные выше, чтобы эта функция main
-// решала задачу "Автобусные остановки"
+// Р РµР°Р»РёР·СѓР№С‚Рµ С„СѓРЅРєС†РёРё Рё РєР»Р°СЃСЃС‹, РѕР±СЉСЏРІР»РµРЅРЅС‹Рµ РІС‹С€Рµ, С‡С‚РѕР±С‹ СЌС‚Р° С„СѓРЅРєС†РёСЏ main
+// СЂРµС€Р°Р»Р° Р·Р°РґР°С‡Сѓ "РђРІС‚РѕР±СѓСЃРЅС‹Рµ РѕСЃС‚Р°РЅРѕРІРєРё"
 
 int main() {
     int query_count;

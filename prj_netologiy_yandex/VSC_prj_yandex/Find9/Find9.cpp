@@ -1,4 +1,4 @@
-﻿// Find8_1.cpp IDF-TF (end sprin 1)
+п»ї// Find8_1.cpp IDF-TF (end sprin 1)
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -53,7 +53,7 @@ struct Document {
 
 class SearchServer {
 public:
-    //заданное количество документов
+    //Р·Р°РґР°РЅРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РґРѕРєСѓРјРµРЅС‚РѕРІ
    /*void D_C(const int& document_count) {
         document_count_ = document_count;
     }*/
@@ -63,7 +63,7 @@ public:
         vector<string>rating_str = SplitIntoWords(ratings);
         if (rating_str.empty() == 0) {
             for (string r_s : rating_str) {
-                rating_int.push_back(stoi(r_s));//вектор рейтинга промежуточный
+                rating_int.push_back(stoi(r_s));//РІРµРєС‚РѕСЂ СЂРµР№С‚РёРЅРіР° РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹Р№
             }
         }
         else rating_int.push_back(0);
@@ -73,15 +73,15 @@ public:
 
     void AddDocument(const int& document_id, const string& document, const vector<int>& ratings) {
         ++document_count_;
-        double summ_n_word = 0;//количество слов в документе
+        double summ_n_word = 0;//РєРѕР»РёС‡РµСЃС‚РІРѕ СЃР»РѕРІ РІ РґРѕРєСѓРјРµРЅС‚Рµ
        
-        vector<string> words = SplitIntoWordsNoStop(document);//вектор слов промежуточный
+        vector<string> words = SplitIntoWordsNoStop(document);//РІРµРєС‚РѕСЂ СЃР»РѕРІ РїСЂРѕРјРµР¶СѓС‚РѕС‡РЅС‹Р№
 
         if (words.empty() == 0) {
-            summ_n_word = 1 / static_cast<double> (words.size()); //определили 1/(общее количество слов в документе) 
+            summ_n_word = 1 / static_cast<double> (words.size()); //РѕРїСЂРµРґРµР»РёР»Рё 1/(РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃР»РѕРІ РІ РґРѕРєСѓРјРµРЅС‚Рµ) 
 
             for (const auto& w : words) {
-                word_to_document_freqs_[w][document_id] += summ_n_word;// для каждого слова документа записали в map {слово - ключ,{id,tf}}                    
+                word_to_document_freqs_[w][document_id] += summ_n_word;// РґР»СЏ РєР°Р¶РґРѕРіРѕ СЃР»РѕРІР° РґРѕРєСѓРјРµРЅС‚Р° Р·Р°РїРёСЃР°Р»Рё РІ map {СЃР»РѕРІРѕ - РєР»СЋС‡,{id,tf}}                    
             }
         } 
         
@@ -112,14 +112,14 @@ private:
     int document_count_ = 0;
     map<string, map<int, double>> word_to_document_freqs_;
     set<string> stop_words_;
-    map<int, int> document_ratings_;//Ключом в этом словаре id документа, значение — его рейтинг.
+    map<int, int> document_ratings_;//РљР»СЋС‡РѕРј РІ СЌС‚РѕРј СЃР»РѕРІР°СЂРµ id РґРѕРєСѓРјРµРЅС‚Р°, Р·РЅР°С‡РµРЅРёРµ вЂ” РµРіРѕ СЂРµР№С‚РёРЅРі.
 
     struct QueryWord {
         string data;
         bool is_minus;
         bool is_stop;
     };
-    //функция вычисления среднего рейтига
+    //С„СѓРЅРєС†РёСЏ РІС‹С‡РёСЃР»РµРЅРёСЏ СЃСЂРµРґРЅРµРіРѕ СЂРµР№С‚РёРіР°
     int ComputeAverageRating(const vector<int>& ratings) {
 
         int summ_rat = 0;
@@ -218,25 +218,25 @@ private:
     double ComputeWordInverseDocumentFreq(const string& word) const {
         return log(document_count_ * 1.0 / word_to_document_freqs_.at(word).size());
     }
-    //поиск документов
+    //РїРѕРёСЃРє РґРѕРєСѓРјРµРЅС‚РѕРІ
     vector<Document> FindAllDocuments(const Query& query_words) const {
         vector<Document> matched_documents;
         map<int, pair <double, int>> document_to_relevance;
         set<int> minus_id;
         double idf = 0;
 
-        for (const auto& word_id : word_to_document_freqs_) //перебираю слова документа
+        for (const auto& word_id : word_to_document_freqs_) //РїРµСЂРµР±РёСЂР°СЋ СЃР»РѕРІР° РґРѕРєСѓРјРµРЅС‚Р°
         {
-            for (const auto& minus_document : query_words.minus_words) //перебираю -слова запроса
+            for (const auto& minus_document : query_words.minus_words) //РїРµСЂРµР±РёСЂР°СЋ -СЃР»РѕРІР° Р·Р°РїСЂРѕСЃР°
             {
-                if (word_id.first == minus_document) //формирую индексы документов с -словами
+                if (word_id.first == minus_document) //С„РѕСЂРјРёСЂСѓСЋ РёРЅРґРµРєСЃС‹ РґРѕРєСѓРјРµРЅС‚РѕРІ СЃ -СЃР»РѕРІР°РјРё
                 {
                     for (const auto& id_set : word_id.second) {
                         minus_id.insert(id_set.first);
                     }
                 }
             }
-            for (const auto& document : query_words.plus_words) //перебираю +слова запроса
+            for (const auto& document : query_words.plus_words) //РїРµСЂРµР±РёСЂР°СЋ +СЃР»РѕРІР° Р·Р°РїСЂРѕСЃР°
             {
                 if (word_id.first == document)
                 {

@@ -1,4 +1,4 @@
-﻿// lamda_x.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+п»ї// lamda_x.cpp : Р­С‚РѕС‚ С„Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ С„СѓРЅРєС†РёСЋ "main". Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ Рё Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹.
 #include <algorithm>
 #include <iostream>
 #include <string>
@@ -18,7 +18,7 @@ int ReadLineWithNumber() {
     ReadLine();
     return result;
 }
-//-----разбиение строки на слова по пробелам и формирование вектора слов---
+//-----СЂР°Р·Р±РёРµРЅРёРµ СЃС‚СЂРѕРєРё РЅР° СЃР»РѕРІР° РїРѕ РїСЂРѕР±РµР»Р°Рј Рё С„РѕСЂРјРёСЂРѕРІР°РЅРёРµ РІРµРєС‚РѕСЂР° СЃР»РѕРІ---
 vector<string> SplitIntoWords(const string& text) {
     vector<string> words;
     string word;
@@ -38,7 +38,7 @@ vector<string> SplitIntoWords(const string& text) {
         }
     return words;
 }
-//считали все строки из наборов слов и преобразовали в сквозной вектор слов
+//СЃС‡РёС‚Р°Р»Рё РІСЃРµ СЃС‚СЂРѕРєРё РёР· РЅР°Р±РѕСЂРѕРІ СЃР»РѕРІ Рё РїСЂРµРѕР±СЂР°Р·РѕРІР°Р»Рё РІ СЃРєРІРѕР·РЅРѕР№ РІРµРєС‚РѕСЂ СЃР»РѕРІ
 vector<string> SplitIntoVect(const vector<string>& queries) {
     vector<string> words;
     for (string query : queries) {
@@ -60,8 +60,8 @@ int main() {
     }
     cout << endl;*/
   cout << count_if(words.begin(), words.end(), [buzzword](const string& query) {
-        // Реализуйте эту лямбда-функцию
-        // Верните true, если query содержит слово buzzword
+        // Р РµР°Р»РёР·СѓР№С‚Рµ СЌС‚Сѓ Р»СЏРјР±РґР°-С„СѓРЅРєС†РёСЋ
+        // Р’РµСЂРЅРёС‚Рµ true, РµСЃР»Рё query СЃРѕРґРµСЂР¶РёС‚ СЃР»РѕРІРѕ buzzword
       if (buzzword == query) { return true; }
       else return false;
       }); 

@@ -5,16 +5,17 @@
 #include <iostream>
 #include <string>
 #include <Windows.h>
+#include <exception>
 
 #include"Task_1.h"
 #include"Task_2.h"
 #include"Task_3.h"
+//#include"My_exeception"
 
 
 template <typename text, typename data> void Output(const text& A, const  data& B);
 
 template <typename text, typename data> data InputVar(const text& A, const  data& B);
-
 
 class AllConfigTask {
 
@@ -30,5 +31,7 @@ private:
 	bool ExitProgram();
 	void ConsolLang1251();
 };
+
+
 
 #endif // !ALLCONFIGTASK

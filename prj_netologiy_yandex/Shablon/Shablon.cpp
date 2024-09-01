@@ -1,4 +1,4 @@
-﻿// Shablon.cpp : 
+п»ї// Shablon.cpp : 
 #include <iostream>
 #include <string>
 #include <Windows.h>

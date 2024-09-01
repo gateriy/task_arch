@@ -1,11 +1,11 @@
-﻿// Task_1_(scope_of_variables).cpp 
+п»ї// Task_1_(scope_of_variables).cpp 
 
 #include<iostream>
 #include<Windows.h>
 //#include<string>
 
 
-//функция выхода из программы
+//С„СѓРЅРєС†РёСЏ РІС‹С…РѕРґР° РёР· РїСЂРѕРіСЂР°РјРјС‹
 bool UserWantExitProgram()
 {
 
@@ -34,19 +34,19 @@ bool UserWantExitProgram()
     } while (true);
 }
 
-/*Нужно написать функцию, которая отслеживает, сколько раз она была вызвана за время работы программы.*/
+/*РќСѓР¶РЅРѕ РЅР°РїРёСЃР°С‚СЊ С„СѓРЅРєС†РёСЋ, РєРѕС‚РѕСЂР°СЏ РѕС‚СЃР»РµР¶РёРІР°РµС‚, СЃРєРѕР»СЊРєРѕ СЂР°Р· РѕРЅР° Р±С‹Р»Р° РІС‹Р·РІР°РЅР° Р·Р° РІСЂРµРјСЏ СЂР°Р±РѕС‚С‹ РїСЂРѕРіСЂР°РјРјС‹.*/
 
 
 void counting_function_static() {
 
     static int counter{ 0 };
-    std::cout << "Количество вызовов функции counting_function_static(): " << ++counter << "\n";
+    std::cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ РІС‹Р·РѕРІРѕРІ С„СѓРЅРєС†РёРё counting_function_static(): " << ++counter << "\n";
 }
 
 int counter_2{ 0 };
 void counting_function_global() {
 
-    std::cout << "Количество вызовов функции counting_function_global(): " << ++counter_2 << "\n";
+    std::cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ РІС‹Р·РѕРІРѕРІ С„СѓРЅРєС†РёРё counting_function_global(): " << ++counter_2 << "\n";
 }
 
 int main() {
@@ -57,7 +57,7 @@ int main() {
     std::string text_v;
         std::cout << "Task 1 (scope of variables)";
         std::cout << "\n" << std::endl;
-        std::cout << "Введите вариант объявление переменной (global/static) G/S: ";
+        std::cout << "Р’РІРµРґРёС‚Рµ РІР°СЂРёР°РЅС‚ РѕР±СЉСЏРІР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ (global/static) G/S: ";
         std::cin >> text_v;
         std::cout << std::endl;
 

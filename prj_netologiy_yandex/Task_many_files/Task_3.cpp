@@ -1,6 +1,6 @@
 #include"Task_3.h"
 
-	//task_3 ôóíêöèè èñïîëüçóåìûå äëÿ çàäàíèÿ 3
+	//task_3 Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÐ¼Ñ‹Ðµ Ð´Ð»Ñ Ð·Ð°Ð´Ð°Ð½Ð¸Ñ 3
 	void print_info2(Figure* x) { x->print_info(); }
 
 	void Task_3() {

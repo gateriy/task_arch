@@ -1,4 +1,4 @@
-﻿// find10.cpp : Этот файл на основе авторского решения.
+п»ї// find10.cpp : Р­С‚РѕС‚ С„Р°Р№Р» РЅР° РѕСЃРЅРѕРІРµ Р°РІС‚РѕСЂСЃРєРѕРіРѕ СЂРµС€РµРЅРёСЏ.
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -73,8 +73,8 @@ public:
         for (const string& word : words) {
             word_to_document_freqs_[word][document_id] += inv_word_count;//word-id-tf
         }
-            document_ratings_.emplace(document_id, ComputeAverageRating(ratings));//средний рейтинг id-tf
-            document_status_.emplace(document_id, status);//статус id-status
+            document_ratings_.emplace(document_id, ComputeAverageRating(ratings));//СЃСЂРµРґРЅРёР№ СЂРµР№С‚РёРЅРі id-tf
+            document_status_.emplace(document_id, status);//СЃС‚Р°С‚СѓСЃ id-status
     }
      
     //vector<Document> FindTopDocuments(const string& raw_query, DocumentStatus status) const {
@@ -216,7 +216,7 @@ private:
         return rating_sum / static_cast<int>(ratings.size());
     }
 };
-//функция выводда
+//С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґРґР°
 void PrintDocument(const Document& document) {  
         cout << "{ "
             << "document_id = " << document.id << ", "
@@ -231,20 +231,20 @@ int main() {
     cout << SearchServer::ComputeAverageRating(ratings) << endl;
 
     SearchServer search_server;
-    search_server.SetStopWords("и в на"s);
-    search_server.AddDocument(0, "белый кот и модный ошейник"s, DocumentStatus::ACTUAL, { 8, -3 });
-    search_server.AddDocument(1, "пушистый кот пушистый хвост"s, DocumentStatus::ACTUAL, { 7, 2, 7 });
-    search_server.AddDocument(2, "ухоженный пёс выразительные глаза"s, DocumentStatus::ACTUAL, { 5, -12, 2, 1 });
-    search_server.AddDocument(3, "ухоженный скворец евгений"s, DocumentStatus::BANNED, { 9 });
+    search_server.SetStopWords("Рё РІ РЅР°"s);
+    search_server.AddDocument(0, "Р±РµР»С‹Р№ РєРѕС‚ Рё РјРѕРґРЅС‹Р№ РѕС€РµР№РЅРёРє"s, DocumentStatus::ACTUAL, { 8, -3 });
+    search_server.AddDocument(1, "РїСѓС€РёСЃС‚С‹Р№ РєРѕС‚ РїСѓС€РёСЃС‚С‹Р№ С…РІРѕСЃС‚"s, DocumentStatus::ACTUAL, { 7, 2, 7 });
+    search_server.AddDocument(2, "СѓС…РѕР¶РµРЅРЅС‹Р№ РїС‘СЃ РІС‹СЂР°Р·РёС‚РµР»СЊРЅС‹Рµ РіР»Р°Р·Р°"s, DocumentStatus::ACTUAL, { 5, -12, 2, 1 });
+    search_server.AddDocument(3, "СѓС…РѕР¶РµРЅРЅС‹Р№ СЃРєРІРѕСЂРµС† РµРІРіРµРЅРёР№"s, DocumentStatus::BANNED, { 9 });
     
-    cout << "ACTUAL:"s << endl;//вывод 
-    for (const Document& document : search_server.FindTopDocuments("пушистый ухоженный кот"s, DocumentStatus::ACTUAL)) {
+    cout << "ACTUAL:"s << endl;//РІС‹РІРѕРґ 
+    for (const Document& document : search_server.FindTopDocuments("РїСѓС€РёСЃС‚С‹Р№ СѓС…РѕР¶РµРЅРЅС‹Р№ РєРѕС‚"s, DocumentStatus::ACTUAL)) {
        PrintDocument(document);
 
 
     }
-    cout << "BANNED:"s << endl;//вывовд
-    for (const Document& document : search_server.FindTopDocuments("пушистый ухоженный кот"s, DocumentStatus::BANNED)) {
+    cout << "BANNED:"s << endl;//РІС‹РІРѕРІРґ
+    for (const Document& document : search_server.FindTopDocuments("РїСѓС€РёСЃС‚С‹Р№ СѓС…РѕР¶РµРЅРЅС‹Р№ РєРѕС‚"s, DocumentStatus::BANNED)) {
        PrintDocument(document);
     }
 

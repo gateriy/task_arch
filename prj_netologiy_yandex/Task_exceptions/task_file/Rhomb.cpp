@@ -1,24 +1,41 @@
 #include "Rhomb.h"
+#include "My_exception.h"
 
-//ромб(все стороны равны, углы A, C и B, D попарно равны).
+//СЂРѕРјР±(РІСЃРµ СЃС‚РѕСЂРѕРЅС‹ СЂР°РІРЅС‹, СѓРіР»С‹ A, C Рё B, D РїРѕРїР°СЂРЅРѕ СЂР°РІРЅС‹).
 Rhomb::Rhomb(double a, double A, double B) :
 	Parallelogram(a, b, A, B)
 {
 	b = a;
 	d = b;
-	text_var = "Ромб: ";
+	text_var = "Р РѕРјР±: ";
 	count = 9;
 }
-//функция вывода в консоль используется по условиям для 3 задания
+//С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РІ РєРѕРЅСЃРѕР»СЊ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕ СѓСЃР»РѕРІРёСЏРј РґР»СЏ 3 Р·Р°РґР°РЅРёСЏ
 void Rhomb::print_info() {
-
-	std::cout << text_var << std::endl;
-	if (check() == true) { std::cout << "Правильная" << std::endl; }
-	else { std::cout << "Не правильная" << std::endl; }
-	get_var_task_3(4);
+try{	
+	get_var_task_3(count);
+	check();
+	std::cout << std::endl;
+}
+catch (const My_Exeception& exp) {
+	std::cout << exp.what() << std::endl;
+}
+catch (...) {
+	std::cout << "РќРµ РёР·РІРµСЃС‚РЅР°СЏ РѕС€РёР±РєР°" << std::endl;
+}
 };
-//функция проверки правильности используется по условиям для 3 задания
+//С„СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂРєРё РїСЂР°РІРёР»СЊРЅРѕСЃС‚Рё РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕ СѓСЃР»РѕРІРёСЏРј РґР»СЏ 3 Р·Р°РґР°РЅРёСЏ
 bool Rhomb::check() {
+
+	if (!(a == c && b == d && c == b)) {
+		throw My_Exeception(shablon_text + "cС‚РѕСЂРѕРЅС‹ РЅРµ СЂР°РІРЅС‹.");
+	}
+	if (!(A == C && B == D)) {
+		throw My_Exeception(shablon_text + "СѓРіР»С‹ A, C Рё B, D РїРѕРїР°СЂРЅРѕ РЅРµ СЂР°РІРЅС‹.");
+	}
+	if (!((A + C) == (B + D))) {
+		throw My_Exeception(shablon_text + "СЃСѓРјРјС‹ СѓРіР»РѕРІ A, C Рё B, D РїРѕРїР°СЂРЅРѕ РЅРµ СЂР°РІРЅС‹.");
+	}
 
 	return (a == c && b == d && c == b && A == C && B == D && (A + C) == (B + D));
 }

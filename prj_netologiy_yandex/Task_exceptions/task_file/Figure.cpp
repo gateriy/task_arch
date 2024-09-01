@@ -1,36 +1,31 @@
 #include "Figure.h"
+#include "My_exception.h"
 
 Figure::Figure() {};
 Figure::Figure(double a, double b, double c, double d, double A, double B, double C, double D) :
 	a(a), b(b), c(c), d(d), A(A), B(B), C(C), D(D)
 {}
-//функция вывода в консоль используется по условиям для 2 задания
+//С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РІ РєРѕРЅСЃРѕР»СЊ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕ СѓСЃР»РѕРІРёСЏРј РґР»СЏ 2 Р·Р°РґР°РЅРёСЏ
 void Figure::print_info() {
 
-	std::cout << text_var << std::endl;
+	std::cout << text_var << " (РЎС‚РѕСЂРѕРЅС‹: 0 РЈРіР»С‹: 0) " << "РЎРѕР·РґР°РЅ!" << std::endl;;
 
-	if (check() == true) {
-		std::cout << "Правильная" << std::endl;
-	}
-	else {
-		std::cout << "Не правильная" << std::endl;
-	}
-	std::cout << "Количество сторон: 0" << std::endl;
-	std::cout << std::endl;
 };
-//функция проверки правильности используется по условиям для 2 задания
+//С„СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂРєРё РїСЂР°РІРёР»СЊРЅРѕСЃС‚Рё РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕ СѓСЃР»РѕРІРёСЏРј РґР»СЏ 2 Р·Р°РґР°РЅРёСЏ
 bool Figure::check() { return true; };
 void Figure::get_var_task_3(int number_of_sides) {
 
-	std::cout << "Количество сторон: " << number_of_sides << std::endl;
-
-	if (count >= 1 && count < 5) {
-		std::cout << "Стороны: а = " << a << " b = " << b << " c = " << c << std::endl;
-		std::cout << "Углы: A = " << A << " B = " << B << " C = " << C << std::endl;
-	}
-	if (count >= 5 && count <= 9) {
-		std::cout << "Стороны: а = " << a << " b = " << b << " c = " << c << " d = " << d << std::endl;
-		std::cout << "Углы: A = " << A << " B = " << B << " C = " << C << " D = " << D << std::endl;
-	}
+	//std::cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕСЂРѕРЅ: " << number_of_sides << std::endl;
 	std::cout << std::endl;
+
+
+	if (number_of_sides >= 1 && number_of_sides < 5) {
+		std::cout << text_var << "(РЎС‚РѕСЂРѕРЅС‹: Р° = " << a << " b = " << b << " c = " << c <<
+			" РЈРіР»С‹: A = " << A << " B = " << B << " C = " << C << ") РЎРѕР·РґР°РЅ!" << std::endl;;
+	}
+	if (number_of_sides >= 5 && number_of_sides <= 9) {
+		std::cout << text_var << "(РЎС‚РѕСЂРѕРЅС‹: Р° = " << a << " b = " << b << " c = " << c << " d = " << d <<
+			" РЈРіР»С‹: A = " << A << " B = " << B << " C = " << C << " D = " << D << ") РЎРѕР·РґР°РЅ!" << std::endl;;
+	}
+	//std::cout << std::endl;
 }

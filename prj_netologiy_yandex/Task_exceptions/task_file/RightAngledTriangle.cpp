@@ -1,25 +1,40 @@
 #include "RightAngledTriangle.h"
+#include "My_exception.h"
 
-//прямоугольный треугольник(угол C всегда равен 90);
+//РїСЂСЏРјРѕСѓРіРѕР»СЊРЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє(СѓРіРѕР» C РІСЃРµРіРґР° СЂР°РІРµРЅ 90);
 RightAngledTriangle::RightAngledTriangle(double a, double b, double c, double A, double B) :
 	Triangle(a, b, c, A, B, 90)
 {
 	d = 0;
 	D = 0;
 	//C = 90;
-	text_var = "Прямоугольный треугольник: ";
+	text_var = "РџСЂСЏРјРѕСѓРіРѕР»СЊРЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє: ";
 	count = 2;
 }
-//функция вывода в консоль используется по условиям для 3 задания
+//С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РІ РєРѕРЅСЃРѕР»СЊ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕ СѓСЃР»РѕРІРёСЏРј РґР»СЏ 3 Р·Р°РґР°РЅРёСЏ
 void RightAngledTriangle::print_info() {
+try{
 
-	std::cout << text_var << std::endl;
-	if (check() == true) { std::cout << "Правильная" << std::endl; }
-	else { std::cout << "Не правильная" << std::endl; }
-	get_var_task_3(3);
+	get_var_task_3(count);
+	check();
+}
+catch (const My_Exeception& exp) {
+	std::cout << exp.what() << std::endl;
+}
+catch (...) {
+	std::cout << "РќРµ РёР·РІРµСЃС‚РЅР°СЏ РѕС€РёР±РєР°" << std::endl;
+}
 };
-//функция проверки правильности используется по условиям для 3 задания
+//С„СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂРєРё РїСЂР°РІРёР»СЊРЅРѕСЃС‚Рё РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕ СѓСЃР»РѕРІРёСЏРј РґР»СЏ 3 Р·Р°РґР°РЅРёСЏ
 bool RightAngledTriangle::check() {
+
+	if (!(C == 90)) {
+		throw My_Exeception(shablon_text + "СѓРіРѕР» РЎ РЅРµ СЂР°РІРµРЅ 90 РіСЂР°Рґ.");
+	}
+	if (!((A + B + C) == 180)) {
+		throw My_Exeception(shablon_text + "СЃСѓРјРјР° СѓРіР»РѕРІ РЅРµ СЂР°РІРЅР° 180 РіСЂР°Рґ.");
+	}
+	
 
 	return ((C == 90) && ((A + B + C) == 180));
 }

@@ -1,4 +1,4 @@
-﻿// Task_makros.cpp 
+п»ї// Task_makros.cpp 
 
 #include <iostream>
 #include <string>

@@ -1,4 +1,4 @@
-﻿// find6_avtor.cpp : 
+п»ї// find6_avtor.cpp : 
 #include <algorithm>
 #include <iostream>
 #include <set>

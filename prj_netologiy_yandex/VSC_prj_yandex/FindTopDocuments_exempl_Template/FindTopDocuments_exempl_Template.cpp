@@ -1,4 +1,4 @@
-﻿// FindTopDocuments_exempl_Template.cpp 
+п»ї// FindTopDocuments_exempl_Template.cpp 
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -77,11 +77,11 @@ public:
         documents_.emplace(document_id, DocumentData{ ComputeAverageRating(ratings), status });
     }
 
-    template <typename Predicate> //задаем шаблонное имя
-    vector<Document> FindTopDocuments(const string& raw_query, Predicate predicate) const //вносим вторым параметром шаблон
+    template <typename Predicate> //Р·Р°РґР°РµРј С€Р°Р±Р»РѕРЅРЅРѕРµ РёРјСЏ
+    vector<Document> FindTopDocuments(const string& raw_query, Predicate predicate) const //РІРЅРѕСЃРёРј РІС‚РѕСЂС‹Рј РїР°СЂР°РјРµС‚СЂРѕРј С€Р°Р±Р»РѕРЅ
     {
         const Query query = ParseQuery(raw_query);
-        auto matched_documents = FindAllDocuments(query, predicate);//передаем шаблон в функцию поиска
+        auto matched_documents = FindAllDocuments(query, predicate);//РїРµСЂРµРґР°РµРј С€Р°Р±Р»РѕРЅ РІ С„СѓРЅРєС†РёСЋ РїРѕРёСЃРєР°
 
         sort(matched_documents.begin(), matched_documents.end(),
             [](const Document& lhs, const Document& rhs) {
@@ -104,8 +104,8 @@ public:
         }  
 
     vector<Document> FindTopDocuments(const string& raw_query) const {
-        //вызываем функцию с 2 папреметрами череp аналогичную функцию с одним
-        //подставляем в функцию с 2 параметрами люмбду выводящую 3 переданных параметр по условию равенства параметра Статуса - Актуал     
+        //РІС‹Р·С‹РІР°РµРј С„СѓРЅРєС†РёСЋ СЃ 2 РїР°РїСЂРµРјРµС‚СЂР°РјРё С‡РµСЂРµp Р°РЅР°Р»РѕРіРёС‡РЅСѓСЋ С„СѓРЅРєС†РёСЋ СЃ РѕРґРЅРёРј
+        //РїРѕРґСЃС‚Р°РІР»СЏРµРј РІ С„СѓРЅРєС†РёСЋ СЃ 2 РїР°СЂР°РјРµС‚СЂР°РјРё Р»СЋРјР±РґСѓ РІС‹РІРѕРґСЏС‰СѓСЋ 3 РїРµСЂРµРґР°РЅРЅС‹С… РїР°СЂР°РјРµС‚СЂ РїРѕ СѓСЃР»РѕРІРёСЋ СЂР°РІРµРЅСЃС‚РІР° РїР°СЂР°РјРµС‚СЂР° РЎС‚Р°С‚СѓСЃР° - РђРєС‚СѓР°Р»     
         return FindTopDocuments(raw_query, DocumentStatus::ACTUAL);
     }
 
@@ -213,8 +213,8 @@ private:
         return log(GetDocumentCount() * 1.0 / word_to_document_freqs_.at(word).size());
     }
 
-    template <typename Predicate> //задаем шаблоный параметр
-    // в функцию вносим шаблонный параметр predicate
+    template <typename Predicate> //Р·Р°РґР°РµРј С€Р°Р±Р»РѕРЅС‹Р№ РїР°СЂР°РјРµС‚СЂ
+    // РІ С„СѓРЅРєС†РёСЋ РІРЅРѕСЃРёРј С€Р°Р±Р»РѕРЅРЅС‹Р№ РїР°СЂР°РјРµС‚СЂ predicate
     vector<Document> FindAllDocuments(const Query& query, Predicate predicate) const {
 
         map<int, double> document_to_relevance;
@@ -226,7 +226,7 @@ private:
             for (const auto& [document_id, term_freq] : word_to_document_freqs_.at(word)) {
 
 
-                //формируем условие проверки соответсвия переданной predicate значению статуса 
+                //С„РѕСЂРјРёСЂСѓРµРј СѓСЃР»РѕРІРёРµ РїСЂРѕРІРµСЂРєРё СЃРѕРѕС‚РІРµС‚СЃРІРёСЏ РїРµСЂРµРґР°РЅРЅРѕР№ predicate Р·РЅР°С‡РµРЅРёСЋ СЃС‚Р°С‚СѓСЃР° 
                 if (predicate(document_id, documents_.at(document_id).status, documents_.at(document_id).rating) == true) {
                     document_to_relevance[document_id] += term_freq * inverse_document_freq;
                 }
@@ -260,23 +260,23 @@ void PrintDocument(const Document& document) {
 
 int main() {
     SearchServer search_server;
-    search_server.SetStopWords("и в на"s);
-    search_server.AddDocument(0, "белый кот и модный ошейник"s, DocumentStatus::ACTUAL, { 8, -3 });
-    search_server.AddDocument(1, "пушистый кот пушистый хвост"s, DocumentStatus::ACTUAL, { 7, 2, 7 });
-    search_server.AddDocument(2, "ухоженный пёс выразительные глаза"s, DocumentStatus::ACTUAL, { 5, -12, 2, 1 });
-    search_server.AddDocument(3, "ухоженный скворец евгений"s, DocumentStatus::BANNED, { 9 });
+    search_server.SetStopWords("Рё РІ РЅР°"s);
+    search_server.AddDocument(0, "Р±РµР»С‹Р№ РєРѕС‚ Рё РјРѕРґРЅС‹Р№ РѕС€РµР№РЅРёРє"s, DocumentStatus::ACTUAL, { 8, -3 });
+    search_server.AddDocument(1, "РїСѓС€РёСЃС‚С‹Р№ РєРѕС‚ РїСѓС€РёСЃС‚С‹Р№ С…РІРѕСЃС‚"s, DocumentStatus::ACTUAL, { 7, 2, 7 });
+    search_server.AddDocument(2, "СѓС…РѕР¶РµРЅРЅС‹Р№ РїС‘СЃ РІС‹СЂР°Р·РёС‚РµР»СЊРЅС‹Рµ РіР»Р°Р·Р°"s, DocumentStatus::ACTUAL, { 5, -12, 2, 1 });
+    search_server.AddDocument(3, "СѓС…РѕР¶РµРЅРЅС‹Р№ СЃРєРІРѕСЂРµС† РµРІРіРµРЅРёР№"s, DocumentStatus::BANNED, { 9 });
 
 
     cout << "ACTUAL by default:"s << endl;
-    for (const Document& document : search_server.FindTopDocuments("пушистый ухоженный кот"s)) {
+    for (const Document& document : search_server.FindTopDocuments("РїСѓС€РёСЃС‚С‹Р№ СѓС…РѕР¶РµРЅРЅС‹Р№ РєРѕС‚"s)) {
         PrintDocument(document);
     }
     cout << "ACTUAL:"s << endl;
-    for (const Document& document : search_server.FindTopDocuments("пушистый ухоженный кот"s, [](int document_id, DocumentStatus status, int rating) { return status == DocumentStatus::ACTUAL; })) {
+    for (const Document& document : search_server.FindTopDocuments("РїСѓС€РёСЃС‚С‹Р№ СѓС…РѕР¶РµРЅРЅС‹Р№ РєРѕС‚"s, [](int document_id, DocumentStatus status, int rating) { return status == DocumentStatus::ACTUAL; })) {
         PrintDocument(document);
     }
     cout << "Even ids:"s << endl;
-    for (const Document& document : search_server.FindTopDocuments("пушистый ухоженный кот"s, [](int document_id, DocumentStatus status, int rating) { return document_id % 2 == 0; })) {
+    for (const Document& document : search_server.FindTopDocuments("РїСѓС€РёСЃС‚С‹Р№ СѓС…РѕР¶РµРЅРЅС‹Р№ РєРѕС‚"s, [](int document_id, DocumentStatus status, int rating) { return document_id % 2 == 0; })) {
         PrintDocument(document);
     }
     return 0;

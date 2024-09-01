@@ -1,6 +1,7 @@
 #include "Parallelogram.h"
+#include "My_exception.h"
 
-//параллелограмм(стороны a, c и b, d попарно равны, углы A, C и B, D попарно равны);
+//РїР°СЂР°Р»Р»РµР»РѕРіСЂР°РјРј(СЃС‚РѕСЂРѕРЅС‹ a, c Рё b, d РїРѕРїР°СЂРЅРѕ СЂР°РІРЅС‹, СѓРіР»С‹ A, C Рё B, D РїРѕРїР°СЂРЅРѕ СЂР°РІРЅС‹);
 Parallelogram::Parallelogram(double a, double b, double A, double B) :
 	Quadrangle(a, b, c, d, A, B, C, D)
 {
@@ -8,19 +9,40 @@ Parallelogram::Parallelogram(double a, double b, double A, double B) :
 	d = b;
 	C = A;
 	D = B;
-	text_var = "Параллелограмм: ";
+	text_var = "РџР°СЂР°Р»Р»РµР»РѕРіСЂР°РјРј: ";
 	count = 8;
 }
-//функция вывода в консоль используется по условиям для 3 задания
+//С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РІ РєРѕРЅСЃРѕР»СЊ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕ СѓСЃР»РѕРІРёСЏРј РґР»СЏ 3 Р·Р°РґР°РЅРёСЏ
 void Parallelogram::print_info() {
 
-	std::cout << text_var << std::endl;
-	if (check() == true) { std::cout << "Правильная" << std::endl; }
-	else { std::cout << "Не правильная" << std::endl; }
-	get_var_task_3(4);
+try{
+	get_var_task_3(count);
+	check();
+}
+catch (const My_Exeception& exp) {
+	std::cout << exp.what() << std::endl;
+}
+catch (...) {
+	std::cout << "РќРµ РёР·РІРµСЃС‚РЅР°СЏ РѕС€РёР±РєР°" << std::endl;
+}
 };
-//функция проверки правильности используется по условиям для 3 задания
+
+//С„СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂРєРё РїСЂР°РІРёР»СЊРЅРѕСЃС‚Рё РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕ СѓСЃР»РѕРІРёСЏРј РґР»СЏ 3 Р·Р°РґР°РЅРёСЏ
 bool Parallelogram::check() {
+
+	if (!(a == c && b == d)) {
+		throw My_Exeception(shablon_text + "cС‚РѕСЂРѕРЅС‹ a,c Рё b,d РїРѕРїР°СЂРЅРѕ РЅРµ СЂР°РІРЅС‹.");
+	}
+	if (!((a + c) == (b + d))) {
+		throw My_Exeception(shablon_text + "СЃСѓРјРјС‹ РґР»РёРЅ СЃС‚РѕСЂРѕРЅ a,c Рё b,d РЅРµ СЂР°РІРЅС‹.");
+	}
+	if (!(A == C && B == D)) {
+		throw My_Exeception(shablon_text + "СѓРіР»С‹ A,C Рё B,D РїРѕРїР°СЂРЅРѕ РЅРµ СЂР°РІРЅС‹.");
+	}
+	if (!((A + C) == (B + D))) {
+		throw My_Exeception(shablon_text + "СЃСѓРјРјС‹ СѓРіР»РѕРІ A,C Рё B,D  РЅРµ СЂР°РІРЅС‹.");
+	}
+
 
 	return (a == c && b == d && (a + c) == (b + d) && A == C && B == D && (A + C) == (B + D));
 }

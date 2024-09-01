@@ -1,4 +1,4 @@
-﻿#include <algorithm>
+п»ї#include <algorithm>
 #include <iostream>
 #include <set>
 #include <string>
@@ -8,14 +8,14 @@
 using namespace std;
 
 const int MAX_RESULT_DOCUMENT_COUNT = 5;
-struct DocumentContent { int id; vector<string> words; }; //переменная struct - -  структура
+struct DocumentContent { int id; vector<string> words; }; //РїРµСЂРµРјРµРЅРЅР°СЏ struct - -  СЃС‚СЂСѓРєС‚СѓСЂР°
 
-//структура id - релевантность
+//СЃС‚СЂСѓРєС‚СѓСЂР° id - СЂРµР»РµРІР°РЅС‚РЅРѕСЃС‚СЊ
 struct Document {
     int id;
     int relevance;
 };
-//HasDocumentGreaterRelevance компаратор для функции sort по ID и релевантности
+//HasDocumentGreaterRelevance РєРѕРјРїР°СЂР°С‚РѕСЂ РґР»СЏ С„СѓРЅРєС†РёРё sort РїРѕ ID Рё СЂРµР»РµРІР°РЅС‚РЅРѕСЃС‚Рё
 bool HasDocumentGreaterRelevance(const Document& lhs, const Document& rhs) {
     return lhs.relevance > rhs.relevance;
 }
@@ -102,7 +102,7 @@ int MatchDocument(const DocumentContent& content, const set<string>& query_words
     return static_cast<int>(matched_words.size());
 }
 
-// Для каждого документа возвращает его релевантность и id
+// Р”Р»СЏ РєР°Р¶РґРѕРіРѕ РґРѕРєСѓРјРµРЅС‚Р° РІРѕР·РІСЂР°С‰Р°РµС‚ РµРіРѕ СЂРµР»РµРІР°РЅС‚РЅРѕСЃС‚СЊ Рё id
 vector<Document> FindAllDocuments(const vector<DocumentContent>& documents,
     const set<string>& query_words) {
     vector<Document> matched_documents;
@@ -115,7 +115,7 @@ vector<Document> FindAllDocuments(const vector<DocumentContent>& documents,
     return matched_documents;
 }
 
-// Возвращает топ-5 самых релевантных документов в виде пар: {id, релевантность}
+// Р’РѕР·РІСЂР°С‰Р°РµС‚ С‚РѕРї-5 СЃР°РјС‹С… СЂРµР»РµРІР°РЅС‚РЅС‹С… РґРѕРєСѓРјРµРЅС‚РѕРІ РІ РІРёРґРµ РїР°СЂ: {id, СЂРµР»РµРІР°РЅС‚РЅРѕСЃС‚СЊ}
 vector<Document> FindTopDocuments(const vector<DocumentContent>& documents,
     const set<string>& stop_words, const string& raw_query) {
     const set<string> query_words = ParseQuery(raw_query, stop_words);

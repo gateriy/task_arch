@@ -18,8 +18,8 @@ protected:
 	void get_var_task_3(int number_of_sides);
 
 	double a{ 0 }, b{ 0 }, c{ 0 }, d{ 0 }, A{ 0 }, B{ 0 }, C{ 0 }, D{ 0 };
-	std::string text_var{ "Фигура:" };
-	int count{ 0 };//номер фигуры (пока не исрользуется)
+	std::string text_var{ "Р¤РёРіСѓСЂР°:" };
+	int count{ 0 };//РЅРѕРјРµСЂ С„РёРіСѓСЂС‹ (РїРѕРєР° РЅРµ РёСЃСЂРѕР»СЊР·СѓРµС‚СЃСЏ)
 };
 
 #endif

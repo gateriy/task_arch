@@ -67,17 +67,17 @@ public:
     
     void AddDocument(const int& document_id, const string& document) {
       
-        double summ_n_word = 0;//количество слов в документе
-        double n_word = 0;//количество повторений каждого слова в документе
-        double tf = .0;//tf каждого слова в документе
+        double summ_n_word = 0;//РєРѕР»РёС‡РµСЃС‚РІРѕ СЃР»РѕРІ РІ РґРѕРєСѓРјРµРЅС‚Рµ
+        double n_word = 0;//РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРІС‚РѕСЂРµРЅРёР№ РєР°Р¶РґРѕРіРѕ СЃР»РѕРІР° РІ РґРѕРєСѓРјРµРЅС‚Рµ
+        double tf = .0;//tf РєР°Р¶РґРѕРіРѕ СЃР»РѕРІР° РІ РґРѕРєСѓРјРµРЅС‚Рµ
         const vector<string> words = SplitIntoWordsNoStop(document, stop_words_);
-       //определили 1/(общее количество слов в документе) 
+       //РѕРїСЂРµРґРµР»РёР»Рё 1/(РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃР»РѕРІ РІ РґРѕРєСѓРјРµРЅС‚Рµ) 
         summ_n_word = 1/static_cast<double> (words.size());
       
         for (const auto& w : words) {
            // n_word = static_cast<double>(count(words.begin(), words.end(), w));
            // tf = n_word / summ_n_word;  
-            // для каждого слова документа записали в map {слово - ключ,{id,tf}}
+            // РґР»СЏ РєР°Р¶РґРѕРіРѕ СЃР»РѕРІР° РґРѕРєСѓРјРµРЅС‚Р° Р·Р°РїРёСЃР°Р»Рё РІ map {СЃР»РѕРІРѕ - РєР»СЋС‡,{id,tf}}
             word_to_document_freqs_[w].insert({ document_id,+summ_n_word });
 
         }
@@ -158,25 +158,25 @@ private:
         return  idf;
     }
 
-    //поиск документов
+    //РїРѕРёСЃРє РґРѕРєСѓРјРµРЅС‚РѕРІ
     vector<Document> FindAllDocuments(const Query& query_words) const {
         vector<Document> matched_documents;
         map<int, double> document_to_relevance;
         set<int> minus_id;
         double idf = 0;
         
-        for (const auto& word_id : word_to_document_freqs_) //перебираю слова документа
+        for (const auto& word_id : word_to_document_freqs_) //РїРµСЂРµР±РёСЂР°СЋ СЃР»РѕРІР° РґРѕРєСѓРјРµРЅС‚Р°
         {
-             for (const auto& minus_document : query_words.minus_query_words_) //перебираю -слова запроса
+             for (const auto& minus_document : query_words.minus_query_words_) //РїРµСЂРµР±РёСЂР°СЋ -СЃР»РѕРІР° Р·Р°РїСЂРѕСЃР°
             {
-                if (word_id.first == minus_document) //формирую индексы документов с -словами
+                if (word_id.first == minus_document) //С„РѕСЂРјРёСЂСѓСЋ РёРЅРґРµРєСЃС‹ РґРѕРєСѓРјРµРЅС‚РѕРІ СЃ -СЃР»РѕРІР°РјРё
                 {
                     for (const auto& id_set : word_id.second) {                    
                         minus_id.insert(id_set.first);
                     }
                 }
             }
-            for (const auto& document : query_words.query_words_) //перебираю +слова запроса
+            for (const auto& document : query_words.query_words_) //РїРµСЂРµР±РёСЂР°СЋ +СЃР»РѕРІР° Р·Р°РїСЂРѕСЃР°
             {              
                 if (word_id.first == document.first)
                 {   

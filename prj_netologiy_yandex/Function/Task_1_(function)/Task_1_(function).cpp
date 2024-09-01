@@ -1,8 +1,8 @@
-﻿//Task_1_(function)
+п»ї//Task_1_(function)
 #include <iostream>
 #include <string>
 
-//функция выхода из программы
+//С„СѓРЅРєС†РёСЏ РІС‹С…РѕРґР° РёР· РїСЂРѕРіСЂР°РјРјС‹
 bool UserWantExitProgram()
 {
 
@@ -32,9 +32,9 @@ bool UserWantExitProgram()
 }
 
 
-/*дана программа 
-В ней используются функции sum, diff, multiplication, division. 
-Ваша задача — написать эти функции
+/*РґР°РЅР° РїСЂРѕРіСЂР°РјРјР° 
+Р’ РЅРµР№ РёСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ С„СѓРЅРєС†РёРё sum, diff, multiplication, division. 
+Р’Р°С€Р° Р·Р°РґР°С‡Р° вЂ” РЅР°РїРёСЃР°С‚СЊ СЌС‚Рё С„СѓРЅРєС†РёРё
 
 int main(int argc, char** argv)
 {

@@ -1,9 +1,9 @@
-﻿// Task_2_(scope_of_variables).cpp 
+п»ї// Task_2_(scope_of_variables).cpp 
 
 #include<iostream>
 #include<Windows.h>
 
-//функция выхода из программы
+//С„СѓРЅРєС†РёСЏ РІС‹С…РѕРґР° РёР· РїСЂРѕРіСЂР°РјРјС‹
 bool UserWantExitProgram()
 {
 
@@ -32,22 +32,22 @@ bool UserWantExitProgram()
     } while (true);
 }
 
-/*аша задача — создать несколько функций с одинаковой сигнатурой, то есть с одинаковым именем,
-одинаковыми параметрами и одинаковым типом возвращаемого значения, но с разной реализацией.
+/*Р°С€Р° Р·Р°РґР°С‡Р° вЂ” СЃРѕР·РґР°С‚СЊ РЅРµСЃРєРѕР»СЊРєРѕ С„СѓРЅРєС†РёР№ СЃ РѕРґРёРЅР°РєРѕРІРѕР№ СЃРёРіРЅР°С‚СѓСЂРѕР№, С‚Рѕ РµСЃС‚СЊ СЃ РѕРґРёРЅР°РєРѕРІС‹Рј РёРјРµРЅРµРј,
+РѕРґРёРЅР°РєРѕРІС‹РјРё РїР°СЂР°РјРµС‚СЂР°РјРё Рё РѕРґРёРЅР°РєРѕРІС‹Рј С‚РёРїРѕРј РІРѕР·РІСЂР°С‰Р°РµРјРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ, РЅРѕ СЃ СЂР°Р·РЅРѕР№ СЂРµР°Р»РёР·Р°С†РёРµР№.
 
-Создайте четыре функции int calc(int x, int y), каждая из которых будет реализовывать одно
-из четырёх простых арифметических действий: сложение, вычитание, умножение, деление.
+РЎРѕР·РґР°Р№С‚Рµ С‡РµС‚С‹СЂРµ С„СѓРЅРєС†РёРё int calc(int x, int y), РєР°Р¶РґР°СЏ РёР· РєРѕС‚РѕСЂС‹С… Р±СѓРґРµС‚ СЂРµР°Р»РёР·РѕРІС‹РІР°С‚СЊ РѕРґРЅРѕ
+РёР· С‡РµС‚С‹СЂС‘С… РїСЂРѕСЃС‚С‹С… Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёС… РґРµР№СЃС‚РІРёР№: СЃР»РѕР¶РµРЅРёРµ, РІС‹С‡РёС‚Р°РЅРёРµ, СѓРјРЅРѕР¶РµРЅРёРµ, РґРµР»РµРЅРёРµ.
 
 x = 6, y = 9
-Сложение: 15
-Вычитание: -3
-Умножение: 54
-Деление: 0
+РЎР»РѕР¶РµРЅРёРµ: 15
+Р’С‹С‡РёС‚Р°РЅРёРµ: -3
+РЈРјРЅРѕР¶РµРЅРёРµ: 54
+Р”РµР»РµРЅРёРµ: 0
 
 */
 
 namespace calc_summ {
-    //шаблонная функция сложение
+    //С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ СЃР»РѕР¶РµРЅРёРµ
     template<typename T, typename S>
     auto calc(const T& x, const S& y) {
 
@@ -55,7 +55,7 @@ namespace calc_summ {
     }
 };
 namespace calc_subtraction {
-    //шаблонная функция вычитание
+    //С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РІС‹С‡РёС‚Р°РЅРёРµ
     template<typename T, typename S>
     auto calc(const T& x, const S& y) {
 
@@ -63,7 +63,7 @@ namespace calc_subtraction {
     }
 };
 namespace calc_division {
-    //шаблонная функция деление
+    //С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РґРµР»РµРЅРёРµ
     template<typename T, typename S>
     auto calc(const T& x, const S& y) {
 
@@ -71,7 +71,7 @@ namespace calc_division {
     }
 };
 namespace calc_multiplication {
-    //шаблонная функция умножение
+    //С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ СѓРјРЅРѕР¶РµРЅРёРµ
     template<typename T, typename S>
     auto calc(const T& x, const S& y) {
 
@@ -79,9 +79,9 @@ namespace calc_multiplication {
     }
 };
 
-// простарнство имен ввода данных
+// РїСЂРѕСЃС‚Р°СЂРЅСЃС‚РІРѕ РёРјРµРЅ РІРІРѕРґР° РґР°РЅРЅС‹С…
 namespace calc_input {
-    // функция ввода  
+    // С„СѓРЅРєС†РёСЏ РІРІРѕРґР°  
     std::pair <double,double> calc(const std::string& text_1, const std::string& text_2 ) {
         auto x{ 0 }, y{ 0 };
         std::cout << text_1;
@@ -95,7 +95,7 @@ namespace calc_input {
     }
 };
 
-// простарнство имен выбора действия
+// РїСЂРѕСЃС‚Р°СЂРЅСЃС‚РІРѕ РёРјРµРЅ РІС‹Р±РѕСЂР° РґРµР№СЃС‚РІРёСЏ
 namespace calc_var {
     static enum Var_action {
         SUUM = 1,
@@ -104,7 +104,7 @@ namespace calc_var {
         DEVIS,
         ALL
     };
- // функция выбора действия
+ // С„СѓРЅРєС†РёСЏ РІС‹Р±РѕСЂР° РґРµР№СЃС‚РІРёСЏ
         int calc(const std::string& text_1) {
             int x_var{ 0 };
             std::string text_var{};
@@ -136,7 +136,7 @@ namespace calc_var {
                     x_var = 5;
                     break;
                 } else {
-                    std::cout << "Incorсect data!";
+                    std::cout << "IncorСЃect data!";
                     std::cout << std::endl;
                     continue;
                 }
@@ -156,31 +156,31 @@ int main() {
         std::cout << "Task 2 (scope of variables)";
         std::cout << "\n" << std::endl;
 
-        x_y = calc_input::calc("Введите переменную Х: ", "Введите переменную Y: ");
+        x_y = calc_input::calc("Р’РІРµРґРёС‚Рµ РїРµСЂРµРјРµРЅРЅСѓСЋ РҐ: ", "Р’РІРµРґРёС‚Рµ РїРµСЂРµРјРµРЅРЅСѓСЋ Y: ");
     
-            switch (calc_var::calc("Введите действие (+, -, *, /) или выберите все сразу (А): "))
+            switch (calc_var::calc("Р’РІРµРґРёС‚Рµ РґРµР№СЃС‚РІРёРµ (+, -, *, /) РёР»Рё РІС‹Р±РµСЂРёС‚Рµ РІСЃРµ СЃСЂР°Р·Сѓ (Рђ): "))
             {
             case (calc_var::SUUM): {
-                std::cout << "Сложение: " << "\t" << calc_summ::calc(x_y.first, x_y.second) << "\n";
+                std::cout << "РЎР»РѕР¶РµРЅРёРµ: " << "\t" << calc_summ::calc(x_y.first, x_y.second) << "\n";
                     break;
                 }
             case (calc_var::SUBSTR): {
-                std::cout << "Вычитание: " << "\t" << calc_subtraction::calc(x_y.first, x_y.second) << "\n";
+                std::cout << "Р’С‹С‡РёС‚Р°РЅРёРµ: " << "\t" << calc_subtraction::calc(x_y.first, x_y.second) << "\n";
                 break;
             }
             case (calc_var::MULTIPL): {
-                std::cout << "Умножение: " << "\t" << calc_multiplication::calc(x_y.first, x_y.second) << "\n";
+                std::cout << "РЈРјРЅРѕР¶РµРЅРёРµ: " << "\t" << calc_multiplication::calc(x_y.first, x_y.second) << "\n";
                 break;
             }
             case (calc_var::DEVIS): {
-                std::cout << "Деление: " << "\t" << calc_division::calc(x_y.first, x_y.second) << "\n";
+                std::cout << "Р”РµР»РµРЅРёРµ: " << "\t" << calc_division::calc(x_y.first, x_y.second) << "\n";
                 break;
             }
             case (calc_var::ALL): {
-                std::cout << "Сложение: " << "\t" << calc_summ::calc(x_y.first, x_y.second) << "\n";
-                std::cout << "Вычитание: " << "\t" << calc_subtraction::calc(x_y.first, x_y.second) << "\n";
-                std::cout << "Умножение: " << "\t" << calc_multiplication::calc(x_y.first, x_y.second) << "\n";
-                std::cout << "Деление: " << "\t" << calc_division::calc(x_y.first, x_y.second) << "\n";
+                std::cout << "РЎР»РѕР¶РµРЅРёРµ: " << "\t" << calc_summ::calc(x_y.first, x_y.second) << "\n";
+                std::cout << "Р’С‹С‡РёС‚Р°РЅРёРµ: " << "\t" << calc_subtraction::calc(x_y.first, x_y.second) << "\n";
+                std::cout << "РЈРјРЅРѕР¶РµРЅРёРµ: " << "\t" << calc_multiplication::calc(x_y.first, x_y.second) << "\n";
+                std::cout << "Р”РµР»РµРЅРёРµ: " << "\t" << calc_division::calc(x_y.first, x_y.second) << "\n";
                 break;
             }
             default:

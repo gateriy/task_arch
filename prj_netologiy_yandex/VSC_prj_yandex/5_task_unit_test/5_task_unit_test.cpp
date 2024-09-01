@@ -1,4 +1,4 @@
-﻿// 5_task_unit_test.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+п»ї// 5_task_unit_test.cpp : Р­С‚РѕС‚ С„Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ С„СѓРЅРєС†РёСЋ "main". Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ Рё Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹.
 #include <cassert>
 #include <iostream>
 #include <map>
@@ -23,9 +23,9 @@ public:
     }
 
     bool AreSynonyms(const string& first_word, const string& second_word) const {
-        // Напишите недостающий код
+        // РќР°РїРёС€РёС‚Рµ РЅРµРґРѕСЃС‚Р°СЋС‰РёР№ РєРѕРґ
         
- //CHECK word1 word2 — вывести YES, если слова word1 и word2 в данный момент будут синонимами. Если не будут — вывести NO;
+ //CHECK word1 word2 вЂ” РІС‹РІРµСЃС‚Рё YES, РµСЃР»Рё СЃР»РѕРІР° word1 Рё word2 РІ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ Р±СѓРґСѓС‚ СЃРёРЅРѕРЅРёРјР°РјРё. Р•СЃР»Рё РЅРµ Р±СѓРґСѓС‚ вЂ” РІС‹РІРµСЃС‚Рё NO;
 
 /*
 ADD program code
@@ -71,7 +71,7 @@ void TestAddingSynonymsIncreasesTheirCount() {
 }
 
 void TestAreSynonyms() {
-    // Напишите недостающий код
+    // РќР°РїРёС€РёС‚Рµ РЅРµРґРѕСЃС‚Р°СЋС‰РёР№ РєРѕРґ
     Synonyms synonyms;
    
     synonyms.Add("music"s, "melody"s);

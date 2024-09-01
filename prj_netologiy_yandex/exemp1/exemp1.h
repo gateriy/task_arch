@@ -1,3 +1,3 @@
-﻿#pragma once
+п»ї#pragma once
 
 #include "resource.h"

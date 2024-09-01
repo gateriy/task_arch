@@ -1,4 +1,4 @@
-﻿// Find9_a.cpp : Этот файл создан на базе предложенного кода по курсу обучения
+п»ї// Find9_a.cpp : Р­С‚РѕС‚ С„Р°Р№Р» СЃРѕР·РґР°РЅ РЅР° Р±Р°Р·Рµ РїСЂРµРґР»РѕР¶РµРЅРЅРѕРіРѕ РєРѕРґР° РїРѕ РєСѓСЂСЃСѓ РѕР±СѓС‡РµРЅРёСЏ
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -196,10 +196,10 @@ SearchServer CreateSearchServer() {
         int ratings_size;
         cin >> ratings_size;
 
-        // создали вектор размера ratings_size из нулей
+        // СЃРѕР·РґР°Р»Рё РІРµРєС‚РѕСЂ СЂР°Р·РјРµСЂР° ratings_size РёР· РЅСѓР»РµР№
         vector<int> ratings(ratings_size, 0);
 
-        // считали каждый элемент с помощью ссылки
+        // СЃС‡РёС‚Р°Р»Рё РєР°Р¶РґС‹Р№ СЌР»РµРјРµРЅС‚ СЃ РїРѕРјРѕС‰СЊСЋ СЃСЃС‹Р»РєРё
         for (int& rating : ratings) {
             cin >> rating;
         }

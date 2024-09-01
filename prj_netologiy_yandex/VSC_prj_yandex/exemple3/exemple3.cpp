@@ -1,4 +1,4 @@
-﻿// exemple3.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+п»ї// exemple3.cpp : Р­С‚РѕС‚ С„Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ С„СѓРЅРєС†РёСЋ "main". Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ Рё Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹.
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -17,14 +17,14 @@ struct Document {
         return tuple(status, rating * -1, relevance * -1);
     }
 };
-//первый способ сортировки
+//РїРµСЂРІС‹Р№ СЃРїРѕСЃРѕР± СЃРѕСЂС‚РёСЂРѕРІРєРё
 /*void SortDocuments(vector<Document>& matched_documents) {
     sort(matched_documents.begin(), matched_documents.end(),
         [](const Document& lhs, const Document& rhs) {
      return  tuple(lhs.status,lhs.rating*-1, lhs.relevance*-1) < tuple(rhs.status,rhs.rating*-1, rhs.relevance*-1);
         });
 }*/
-//второй способ сортировки с использованием метода из структутры MakeKey
+//РІС‚РѕСЂРѕР№ СЃРїРѕСЃРѕР± СЃРѕСЂС‚РёСЂРѕРІРєРё СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј РјРµС‚РѕРґР° РёР· СЃС‚СЂСѓРєС‚СѓС‚СЂС‹ MakeKey
 void SortDocuments(vector<Document>& matched_documents) {
 
     sort(matched_documents.begin(), matched_documents.end(),

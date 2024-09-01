@@ -1,4 +1,4 @@
-﻿// tf_idf_exemple 2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+п»ї// tf_idf_exemple 2.cpp : Р­С‚РѕС‚ С„Р°Р№Р» СЃРѕРґРµСЂР¶РёС‚ С„СѓРЅРєС†РёСЋ "main". Р—РґРµСЃСЊ РЅР°С‡РёРЅР°РµС‚СЃСЏ Рё Р·Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ РІС‹РїРѕР»РЅРµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹.
 #include <iostream>
 #include <map>
 #include <string>
@@ -42,11 +42,11 @@ vector<double> ComputeTfIdfs(const Documents& documents, const Term& term_x ) {
 
 int main() {
     const vector<vector<string>> documents = {
-        {"белый"s, "кот"s, "и"s, "модный"s, "ошейник"s},
-        {"пушистый"s, "кот"s, "пушистый"s, "хвост"s},
-        {"ухоженный"s, "пёс"s, "выразительные"s, "глаза"s},
+        {"Р±РµР»С‹Р№"s, "РєРѕС‚"s, "Рё"s, "РјРѕРґРЅС‹Р№"s, "РѕС€РµР№РЅРёРє"s},
+        {"РїСѓС€РёСЃС‚С‹Р№"s, "РєРѕС‚"s, "РїСѓС€РёСЃС‚С‹Р№"s, "С…РІРѕСЃС‚"s},
+        {"СѓС…РѕР¶РµРЅРЅС‹Р№"s, "РїС‘СЃ"s, "РІС‹СЂР°Р·РёС‚РµР»СЊРЅС‹Рµ"s, "РіР»Р°Р·Р°"s},
     };
-    const auto& tf_idfs = ComputeTfIdfs(documents, "кот");
+    const auto& tf_idfs = ComputeTfIdfs(documents, "РєРѕС‚");
     for (const double tf_idf : tf_idfs) {
         cout << tf_idf << " "s;
     }

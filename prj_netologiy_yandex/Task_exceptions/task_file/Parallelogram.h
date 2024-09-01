@@ -9,7 +9,7 @@
 #include "Figure.h"
 
 class Parallelogram : public Quadrangle {
-	//параллелограмм(стороны a, c и b, d попарно равны, углы A, C и B, D попарно равны);
+	//РїР°СЂР°Р»Р»РµР»РѕРіСЂР°РјРј(СЃС‚РѕСЂРѕРЅС‹ a, c Рё b, d РїРѕРїР°СЂРЅРѕ СЂР°РІРЅС‹, СѓРіР»С‹ A, C Рё B, D РїРѕРїР°СЂРЅРѕ СЂР°РІРЅС‹);
 public:
 	Parallelogram(double a, double b, double A, double B);
 

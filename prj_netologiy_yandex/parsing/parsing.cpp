@@ -1,11 +1,11 @@
-﻿// C++ Program to illustrate how to Parse Command Line 
+п»ї// C++ Program to illustrate how to Parse Command Line 
 // Arguments 
 #include <iostream> 
 #include <Windows.h>
-#include <fstream> //для работы с файлами
+#include <fstream> //РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ С„Р°Р№Р»Р°РјРё
 #include <string>
 
-// функция выхода из программы
+// С„СѓРЅРєС†РёСЏ РІС‹С…РѕРґР° РёР· РїСЂРѕРіСЂР°РјРјС‹
 bool UserWantExitProgram()
 {
     std::string exit_Y_N{};
@@ -44,7 +44,7 @@ class InOutFileArr {
 
 public:
 
-    //шаблонная функцие создания одномерного массива
+    //С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёРµ СЃРѕР·РґР°РЅРёСЏ РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
     template<typename T>
     T* CreateOneArr(const int& cells, const T& type_arr) {
 
@@ -52,14 +52,14 @@ public:
         return arr;
     }
 
-    //шаблонная функцие удаления одномерного массива
+    //С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёРµ СѓРґР°Р»РµРЅРёСЏ РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
     template<typename T>
     void DeleteeOneArr(T* arr) {
 
         delete[] arr;
     }
 
-    //шаблонная функцие печати одномерного массива в консоль
+    //С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёРµ РїРµС‡Р°С‚Рё РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ
     template< typename T>
     void PrintArr(T* arr, const int& cells) {
 
@@ -77,25 +77,25 @@ public:
         CellsVarFile();
 
         do {        
-            std::ifstream  f_in(_way); // открыли файл по заданному пути на чтение
+            std::ifstream  f_in(_way); // РѕС‚РєСЂС‹Р»Рё С„Р°Р№Р» РїРѕ Р·Р°РґР°РЅРЅРѕРјСѓ РїСѓС‚Рё РЅР° С‡С‚РµРЅРёРµ
             if (f_in.is_open()) {
 
         
-                _arr_x = CreateOneArr(_cells, type_arr);//создание одномерного динамического массива по количеству элементов считывания
+                _arr_x = CreateOneArr(_cells, type_arr);//СЃРѕР·РґР°РЅРёРµ РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ РјР°СЃСЃРёРІР° РїРѕ РєРѕР»РёС‡РµСЃС‚РІСѓ СЌР»РµРјРµРЅС‚РѕРІ СЃС‡РёС‚С‹РІР°РЅРёСЏ
                
-                f_in.clear(); //очистка потока ввода из файла
-                f_in.seekg(0, std::ios::beg);//возврат курсора в начало файла
+                f_in.clear(); //РѕС‡РёСЃС‚РєР° РїРѕС‚РѕРєР° РІРІРѕРґР° РёР· С„Р°Р№Р»Р°
+                f_in.seekg(0, std::ios::beg);//РІРѕР·РІСЂР°С‚ РєСѓСЂСЃРѕСЂР° РІ РЅР°С‡Р°Р»Рѕ С„Р°Р№Р»Р°
                 for (int i = 0; i < _cells; ++i) {
                     f_in >> _arr_x[i];
                 };
 
                 f_in.close();
-                std::cout << "Файл успешно прочитан!" << std::endl;
+                std::cout << "Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ РїСЂРѕС‡РёС‚Р°РЅ!" << std::endl;
                 std::cout << std::endl;
                 break;
             }
             else {
-                std::cout << "Файл не найден! Повторите ввод пути к файлу." << std::endl;
+                std::cout << "Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ! РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ РїСѓС‚Рё Рє С„Р°Р№Р»Сѓ." << std::endl;
             }
         } while (true);
     
@@ -110,35 +110,35 @@ public:
 
       void CellsVarFile() {
             
-            std::string x_text{ "" }; //считывание слов или строк из файла
+            std::string x_text{ "" }; //СЃС‡РёС‚С‹РІР°РЅРёРµ СЃР»РѕРІ РёР»Рё СЃС‚СЂРѕРє РёР· С„Р°Р№Р»Р°
 
             do {
                 _cells = 0;
-                std::ifstream  f_in(_way); // открыли файл по заданному пути на чтение
+                std::ifstream  f_in(_way); // РѕС‚РєСЂС‹Р»Рё С„Р°Р№Р» РїРѕ Р·Р°РґР°РЅРЅРѕРјСѓ РїСѓС‚Рё РЅР° С‡С‚РµРЅРёРµ
 
                 if (f_in.is_open()) {
 
                     do {
                         f_in >> x_text;
-                        ++_cells; //проход по файлу в режиме считывания и подсчет элементов
+                        ++_cells; //РїСЂРѕС…РѕРґ РїРѕ С„Р°Р№Р»Сѓ РІ СЂРµР¶РёРјРµ СЃС‡РёС‚С‹РІР°РЅРёСЏ Рё РїРѕРґСЃС‡РµС‚ СЌР»РµРјРµРЅС‚РѕРІ
                     } while (!f_in.eof());
 
                     f_in.close();
-                    std::cout << "Файл успешно прочитан! Всего элементов в файле: " << _cells << std::endl;
+                    std::cout << "Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ РїСЂРѕС‡РёС‚Р°РЅ! Р’СЃРµРіРѕ СЌР»РµРјРµРЅС‚РѕРІ РІ С„Р°Р№Р»Рµ: " << _cells << std::endl;
                     break;
                 }
                 else {
-                    std::cout << "Файл не найден! Повторите ввод пути к файлу." << std::endl;
+                    std::cout << "Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ! РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ РїСѓС‚Рё Рє С„Р°Р№Р»Сѓ." << std::endl;
                 }
             } while (true);
         }
 
-       //счиывание преобразование / или \ в "\\" пути к файлу с консоли
+       //СЃС‡РёС‹РІР°РЅРёРµ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ / РёР»Рё \ РІ "\\" РїСѓС‚Рё Рє С„Р°Р№Р»Сѓ СЃ РєРѕРЅСЃРѕР»Рё
       void InputTransformWay(std::string way_file) {
             //std::string way{ "" };
             // std::string way_file{ "" };
 
-             //std::cout << "Введите путь к файлу (если файл не в корневом каталоге программы): ";
+             //std::cout << "Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ (РµСЃР»Рё С„Р°Р№Р» РЅРµ РІ РєРѕСЂРЅРµРІРѕРј РєР°С‚Р°Р»РѕРіРµ РїСЂРѕРіСЂР°РјРјС‹): ";
             // getline(std::cin >> std::ws, way_file);
 
             for (auto& ch : way_file) {
@@ -167,24 +167,24 @@ int main(int argc, char* argv[])
     InOutFileArr ProgrammArr;
 
    // int size_x{ 0 };
-   // int cel{ 0 };   //столбцы массива
-  //  int row{ 0 };   //строки массива
+   // int cel{ 0 };   //СЃС‚РѕР»Р±С†С‹ РјР°СЃСЃРёРІР°
+  //  int row{ 0 };   //СЃС‚СЂРѕРєРё РјР°СЃСЃРёРІР°
     int task{ 0 };  //
 
-    std::string typ_ar{ "" }; //переменная задающая тип переменных массива
+    std::string typ_ar{ "" }; //РїРµСЂРµРјРµРЅРЅР°СЏ Р·Р°РґР°СЋС‰Р°СЏ С‚РёРї РїРµСЂРµРјРµРЅРЅС‹С… РјР°СЃСЃРёРІР°
 
    // std::string* arr;
-  //  std::string way_1{ "" }; //путь к файлу 1
-  //  std::string way_2{ "" }; //путь к файлу 2
+  //  std::string way_1{ "" }; //РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ 1
+  //  std::string way_2{ "" }; //РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ 2
     bool error = false;
 
 
     do {
-       // std::cout << "\033c";//очистка консоли
-       // std::cout << "Введите номер задания (1-4): ";
+       // std::cout << "\033c";//РѕС‡РёСЃС‚РєР° РєРѕРЅСЃРѕР»Рё
+       // std::cout << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ Р·Р°РґР°РЅРёСЏ (1-4): ";
       
-        std::cout << "Введены следующие параметры командной строки " << argc << " аргумент:" << std::endl;
-        // чтение аргументов командной строки 
+        std::cout << "Р’РІРµРґРµРЅС‹ СЃР»РµРґСѓСЋС‰РёРµ РїР°СЂР°РјРµС‚СЂС‹ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРё " << argc << " Р°СЂРіСѓРјРµРЅС‚:" << std::endl;
+        // С‡С‚РµРЅРёРµ Р°СЂРіСѓРјРµРЅС‚РѕРІ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРё 
         int i = 0;
         while (i < argc) {
             std::cout << "Argument " << i  << ": " << argv[i] << std::endl;
@@ -192,14 +192,14 @@ int main(int argc, char* argv[])
         }
 
         if ((std::string)argv[1] == "--Help") {
-            std::cout << "Аргумент 1 - Номер задания: -1, -2" <<std::endl;
-            std::cout << "Аргумент 2 - Полный путь к читаемому файлу" << std::endl;
-            std::cout << "Аргумент 3 - Выбор вывода: -с <консоль>, -f <файл>" << std::endl;
-            std::cout << "Аргумент 4 - Полный путь к файлу записи" << std::endl;
+            std::cout << "РђСЂРіСѓРјРµРЅС‚ 1 - РќРѕРјРµСЂ Р·Р°РґР°РЅРёСЏ: -1, -2" <<std::endl;
+            std::cout << "РђСЂРіСѓРјРµРЅС‚ 2 - РџРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє С‡РёС‚Р°РµРјРѕРјСѓ С„Р°Р№Р»Сѓ" << std::endl;
+            std::cout << "РђСЂРіСѓРјРµРЅС‚ 3 - Р’С‹Р±РѕСЂ РІС‹РІРѕРґР°: -СЃ <РєРѕРЅСЃРѕР»СЊ>, -f <С„Р°Р№Р»>" << std::endl;
+            std::cout << "РђСЂРіСѓРјРµРЅС‚ 4 - РџРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ Р·Р°РїРёСЃРё" << std::endl;
         }
 
         /*
-        parsing -1 D:\С++\Project\VSC_prj_netologiy\prj_netologiy\parsing\x64\Debug\in.txt -c D:\С++\Project\VSC_prj_netologiy\prj_netologiy\parsing\x64\Debug\out.txt
+        parsing -1 D:\РЎ++\Project\VSC_prj_netologiy\prj_netologiy\parsing\x64\Debug\in.txt -c D:\РЎ++\Project\VSC_prj_netologiy\prj_netologiy\parsing\x64\Debug\out.txt
         */
       
         error = false;
@@ -230,7 +230,7 @@ int main(int argc, char* argv[])
         //ProgrammArr.InputTransformWay(argv[4]);
 
         if (error == true){
-            std::cout << "Некорректные аргументы запуска программы!" << std::endl;
+            std::cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Рµ Р°СЂРіСѓРјРµРЅС‚С‹ Р·Р°РїСѓСЃРєР° РїСЂРѕРіСЂР°РјРјС‹!" << std::endl;
             system("pause");
             abort;
         } 
@@ -256,7 +256,7 @@ int main(int argc, char* argv[])
 
 
             do {
-                std::ofstream  f_oupen((std::string)argv[4]); // открыли файл по заданному пути на запись
+                std::ofstream  f_oupen((std::string)argv[4]); // РѕС‚РєСЂС‹Р»Рё С„Р°Р№Р» РїРѕ Р·Р°РґР°РЅРЅРѕРјСѓ РїСѓС‚Рё РЅР° Р·Р°РїРёСЃСЊ
                 if (f_oupen.is_open()) {
 
                    // f_oupen << ProgrammArr._cells << std::endl;
@@ -272,17 +272,17 @@ int main(int argc, char* argv[])
                     f_oupen << std::endl;
 
                     f_oupen.close();
-                    std::cout << "Файл успешно записан!" << std::endl;
+                    std::cout << "Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ Р·Р°РїРёСЃР°РЅ!" << std::endl;
                     // std::cout << std::endl;
                     break;
                 }
                 else {
-                    std::cout << "Файл не найден! Повторите ввод пути к файлу." << std::endl;
+                    std::cout << "Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ! РџРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ РїСѓС‚Рё Рє С„Р°Р№Р»Сѓ." << std::endl;
                 }
             } while (true);
 
 
-            ProgrammArr.DeleteeOneArr(ProgrammArr._arr_x); //удаление массива освобождение памяти
+            ProgrammArr.DeleteeOneArr(ProgrammArr._arr_x); //СѓРґР°Р»РµРЅРёРµ РјР°СЃСЃРёРІР° РѕСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
         }
 
         std::cout << std::endl;

@@ -9,7 +9,7 @@
 #include "Figure.h"
 
 class AnEquilateralTriangle : public Triangle {
-	//равносторонний треугольник(все стороны равны, все углы равны 60);
+	//СЂР°РІРЅРѕСЃС‚РѕСЂРѕРЅРЅРёР№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє(РІСЃРµ СЃС‚РѕСЂРѕРЅС‹ СЂР°РІРЅС‹, РІСЃРµ СѓРіР»С‹ СЂР°РІРЅС‹ 60);
 public:
 	AnEquilateralTriangle(double a);
 

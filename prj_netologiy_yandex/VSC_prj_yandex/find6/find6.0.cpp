@@ -1,4 +1,4 @@
-﻿// find6.cpp 
+п»ї// find6.cpp 
 #include <algorithm>
 #include <iostream>
 #include <set>
@@ -147,11 +147,11 @@ private:
         map<int, int> document_to_relevance;
         set<int> minus_id;    
 
-    for (const auto& word_id : word_to_documents_) //перебираю слова документа
+    for (const auto& word_id : word_to_documents_) //РїРµСЂРµР±РёСЂР°СЋ СЃР»РѕРІР° РґРѕРєСѓРјРµРЅС‚Р°
     {
-        for (const auto& minus_document : query_words.minus_query_words_) //перебираю -слова запроса
+        for (const auto& minus_document : query_words.minus_query_words_) //РїРµСЂРµР±РёСЂР°СЋ -СЃР»РѕРІР° Р·Р°РїСЂРѕСЃР°
         {
-            if (word_id.first == minus_document) //формирую индексы документов с -словами
+            if (word_id.first == minus_document) //С„РѕСЂРјРёСЂСѓСЋ РёРЅРґРµРєСЃС‹ РґРѕРєСѓРјРµРЅС‚РѕРІ СЃ -СЃР»РѕРІР°РјРё
             {  
                 for (const int& id_set : word_id.second) {
                     //document_to_relevance.erase(id_set);
@@ -159,7 +159,7 @@ private:
                 }
             }
         }
-        for (const auto& document : query_words.query_words_) //перебираю +слова запроса
+        for (const auto& document : query_words.query_words_) //РїРµСЂРµР±РёСЂР°СЋ +СЃР»РѕРІР° Р·Р°РїСЂРѕСЃР°
         {
             if (word_id.first == document) 
             {

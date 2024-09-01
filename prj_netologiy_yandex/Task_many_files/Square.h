@@ -10,7 +10,7 @@
 #include "Quadrangle.h"
 
 class Square : public Rectangle {
-	//квадрат(все стороны равны, все углы равны 90);
+	//РєРІР°РґСЂР°С‚(РІСЃРµ СЃС‚РѕСЂРѕРЅС‹ СЂР°РІРЅС‹, РІСЃРµ СѓРіР»С‹ СЂР°РІРЅС‹ 90);
 public:
 	Square(double a);
 

@@ -1,6 +1,7 @@
 #include "IsoscelesTriangle.h"
+#include "My_exception.h"
 
-//равнобедренный треугольник(стороны a и c равны, углы A и C равны);
+//СЂР°РІРЅРѕР±РµРґСЂРµРЅРЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє(СЃС‚РѕСЂРѕРЅС‹ a Рё c СЂР°РІРЅС‹, СѓРіР»С‹ A Рё C СЂР°РІРЅС‹);
 IsoscelesTriangle::IsoscelesTriangle(double a, double b, double A, double B) :
 	Triangle(a, b, c, A, B, C)
 {
@@ -8,19 +9,35 @@ IsoscelesTriangle::IsoscelesTriangle(double a, double b, double A, double B) :
 	D = 0;
 	c = a;
 	C = A;
-	text_var = "Равнобедренный треугольник: ";
+	text_var = "Р Р°РІРЅРѕР±РµРґСЂРµРЅРЅС‹Р№ С‚СЂРµСѓРіРѕР»СЊРЅРёРє: ";
 	count = 3;
 }
-//функция вывода в консоль используется по условиям для 3 задания
+//С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° РІ РєРѕРЅСЃРѕР»СЊ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕ СѓСЃР»РѕРІРёСЏРј РґР»СЏ 3 Р·Р°РґР°РЅРёСЏ
 void IsoscelesTriangle::print_info() {
-
-	std::cout << text_var << std::endl;
-	if (check() == true) { std::cout << "Правильная" << std::endl; }
-	else { std::cout << "Не правильная" << std::endl; }
-	get_var_task_3(3);
+try{
+	get_var_task_3(count);
+	check();
+}
+catch (const My_Exeception& exp) {
+	std::cout << exp.what() << std::endl;
+}
+catch (...) {
+	std::cout << "РќРµ РёР·РІРµСЃС‚РЅР°СЏ РѕС€РёР±РєР°" << std::endl;
+}
 };
-//функция проверки правильности используется по условиям для 3 задания
+//С„СѓРЅРєС†РёСЏ РїСЂРѕРІРµСЂРєРё РїСЂР°РІРёР»СЊРЅРѕСЃС‚Рё РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїРѕ СѓСЃР»РѕРІРёСЏРј РґР»СЏ 3 Р·Р°РґР°РЅРёСЏ
 bool IsoscelesTriangle::check() {
+
+	if (!(C == A)) {
+		throw My_Exeception(shablon_text+"РґРІР° СѓРіР»Р° A Рё C РЅРµ СЂР°РІРЅС‹.");
+	}
+	if (!((A + B + C) == 180)) {
+		throw My_Exeception(shablon_text + "СЃСѓРјРјС‹ СѓРіР»РѕРІ РЅРµ СЂР°РІРЅС‹ 180 РіСЂР°Рґ.");
+	}
+	if (!(a == c)) {
+		throw My_Exeception(shablon_text + "РґРІРµ СЃС‚РѕСЂРѕРЅС‹ a Рё СЃ РЅРµ СЂР°РІРЅС‹.");
+	}
+	
 
 	return ((C == A) && ((A + B + C) == 180) && (a == c));
 }

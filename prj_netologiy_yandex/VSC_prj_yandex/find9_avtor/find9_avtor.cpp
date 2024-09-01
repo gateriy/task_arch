@@ -1,4 +1,4 @@
-﻿// find9_avtor.cpp : авторское решение
+п»ї// find9_avtor.cpp : Р°РІС‚РѕСЂСЃРєРѕРµ СЂРµС€РµРЅРёРµ
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -92,8 +92,8 @@ private:
         for (const int rating : ratings) {
             rating_sum += rating;
         }
-        // static_cast позволяет привести значение к типу int
-        // без использования дополнительной переменной
+        // static_cast РїРѕР·РІРѕР»СЏРµС‚ РїСЂРёРІРµСЃС‚Рё Р·РЅР°С‡РµРЅРёРµ Рє С‚РёРїСѓ int
+        // Р±РµР· РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕР№ РїРµСЂРµРјРµРЅРЅРѕР№
         return rating_sum / static_cast<int>(ratings.size());
     }
 
@@ -201,10 +201,10 @@ SearchServer CreateSearchServer() {
         int ratings_size;
         cin >> ratings_size;
 
-        // создали вектор размера ratings_size из нулей
+        // СЃРѕР·РґР°Р»Рё РІРµРєС‚РѕСЂ СЂР°Р·РјРµСЂР° ratings_size РёР· РЅСѓР»РµР№
         vector<int> ratings(ratings_size, 0);
 
-        // считали каждый элемент с помощью ссылки
+        // СЃС‡РёС‚Р°Р»Рё РєР°Р¶РґС‹Р№ СЌР»РµРјРµРЅС‚ СЃ РїРѕРјРѕС‰СЊСЋ СЃСЃС‹Р»РєРё
         for (int& rating : ratings) {
             cin >> rating;
         }
