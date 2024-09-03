@@ -1,0 +1,2 @@
+[diff "win1252"]
+    textconv = "iconv -f windows-1252 -t utf-8"
