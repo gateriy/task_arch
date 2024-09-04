@@ -4,13 +4,15 @@
 
 #include <iostream>
 #include <string>
-
+#include <numeric>
+#include<cmath>
 
 class Fraction2
 {
 private:
 	int numerator_;
 	int denominator_;
+	std::pair<int, int> VarNod(int& x, int& y);
 
 public:
 	Fraction2(int numerator, int denominator)
@@ -19,14 +21,21 @@ public:
 		denominator_ = denominator;
 	}
 
-	Fraction2& operator ++ () { numerator_=numerator_ + denominator_; return *this; }
+	Fraction2& operator ++ () { 
+		numerator_=numerator_ + denominator_; 
+		return *this; }
+
 	Fraction2 operator ++ (int)
 	{
 		Fraction2 temp = *this;
 		++(*this);
 		return temp;
 	}
-	Fraction2& operator -- () { numerator_ = numerator_ - denominator_; return *this; }
+
+	Fraction2& operator -- () { 
+		numerator_ = numerator_ - denominator_; 
+		return *this; }
+
 	Fraction2 operator -- (int)
 	{
 		Fraction2 temp = *this;
@@ -36,39 +45,35 @@ public:
 
 	Fraction2 operator + (Fraction2& var)	
 	{
-		return Fraction2 (numerator_ * var.denominator_ + var.numerator_ * denominator_, denominator_ * var.denominator_);
+		int num_x{ numerator_ * var.denominator_ + var.numerator_ * denominator_ };
+		int den_x{ denominator_ * var.denominator_ };
+		return Fraction2(VarNod(num_x, den_x).first, VarNod(num_x, den_x).second);
 	}
 
 	Fraction2 operator - (Fraction2& var)
 	{
-		return Fraction2(numerator_ * var.denominator_ - var.numerator_ * denominator_, denominator_ * var.denominator_);
+		int num_x{ numerator_ * var.denominator_ - var.numerator_ * denominator_ };
+		int den_x{ denominator_ * var.denominator_ };
+		return Fraction2(VarNod(num_x, den_x).first, VarNod(num_x, den_x).second);
 	}
 
 	Fraction2 operator / (Fraction2& var)
 	{
-		return Fraction2(numerator_ * var.denominator_, denominator_ * var.numerator_);
+		int num_x{ numerator_ * var.denominator_ };
+		int den_x{ denominator_ * var.numerator_ };
+		return Fraction2(VarNod(num_x, den_x).first, VarNod(num_x, den_x).second);
 	}
 
 	Fraction2 operator * (Fraction2& var)
 	{
-		return Fraction2(numerator_ *  var.numerator_ , denominator_ * var.denominator_);
+		int num_x{ numerator_ * var.numerator_ };
+		int den_x{ denominator_ * var.denominator_ };
+		return Fraction2(VarNod(num_x, den_x).first, VarNod(num_x, den_x).second);
 	}
 
+	std::pair<int, int> GetVarFraction();	
 
-
-
-
-
-
-
-
-
-
-	std::pair<int, int> GetVarFraction();
-
-	
 };
-
 
 int InputVar(const std::string& text);
 

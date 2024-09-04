@@ -38,6 +38,13 @@
 
 */
 
+std::pair<int, int> Fraction2::VarNod(int& x, int& y) {
+	int nod{ std::gcd(abs(x), abs(y)) };
+	x = x / nod;
+	y = y / nod;
+	return { x,y };
+}
+
 std::pair<int, int> Fraction2:: GetVarFraction() {
 	return { numerator_,denominator_ };
 }
@@ -57,7 +64,7 @@ std::string Output(const std::string& A_1, const  int& B_1, const std::string& A
 };
 
 void Task_2() {
-
+	
 	int num_1{ InputVar("Введите числитель дроби 1: ")   };
 	int den_1{ InputVar("Введите знаменатель дроби 1: ") };
 	int num_2{ InputVar("Введите числитель дроби 2: ")   };
@@ -67,26 +74,47 @@ std::cout << std::endl;
 	Fraction2 f1(num_1, den_1);
 	Fraction2 f2(num_2, den_2);
 
-std::cout << Output("Дробь 1: ", f1.GetVarFraction().first, "/", f1.GetVarFraction().second) << std::endl;
-std::cout << Output("Дробь 2: ", f2.GetVarFraction().first, "/", f2.GetVarFraction().second) << std::endl;
+std::cout << Output("Значение дроби 1 = ", f1.GetVarFraction().first, "/", f1.GetVarFraction().second) << std::endl;
+std::cout << Output("Значение дроби 2 = ", f2.GetVarFraction().first, "/", f2.GetVarFraction().second) << std::endl;
+std::cout << std::endl;
 
 	Fraction2 f3 = f1 + f2;
 	Fraction2 f4 = f1 - f2;
 	Fraction2 f5 = f1 * f2;
 	Fraction2 f6 = f1 / f2;
-	
-std::cout << Output("Сумма: ", f3.GetVarFraction().first, "/", f3.GetVarFraction().second) << std::endl;
-std::cout << Output("Разница: ", f4.GetVarFraction().first, "/", f4.GetVarFraction().second) << std::endl;
-std::cout << Output("Произведение: ", f5.GetVarFraction().first, "/", f5.GetVarFraction().second) << std::endl;
-std::cout << Output("Частное: ", f6.GetVarFraction().first, "/", f6.GetVarFraction().second) << std::endl;
-	
+
+std::cout << Output("", f1.GetVarFraction().first, "/", f1.GetVarFraction().second) <<
+" + " << Output("", f2.GetVarFraction().first, "/", f2.GetVarFraction().second) <<
+" = " << Output("", f3.GetVarFraction().first, "/", f3.GetVarFraction().second) << std::endl;
+
+std::cout << Output("", f1.GetVarFraction().first, "/", f1.GetVarFraction().second) <<
+" - " << Output("", f2.GetVarFraction().first, "/", f2.GetVarFraction().second) <<
+" = " << Output("", f4.GetVarFraction().first, "/", f4.GetVarFraction().second) << std::endl;
+
+std::cout << Output("", f1.GetVarFraction().first, "/", f1.GetVarFraction().second) <<
+" * " << Output("", f2.GetVarFraction().first, "/", f2.GetVarFraction().second) <<
+" = " << Output("", f5.GetVarFraction().first, "/", f5.GetVarFraction().second) << std::endl;
+
+std::cout << Output("", f1.GetVarFraction().first, "/", f1.GetVarFraction().second) <<
+" / " << Output("", f2.GetVarFraction().first, "/", f2.GetVarFraction().second) <<
+" = " << Output("", f6.GetVarFraction().first, "/", f6.GetVarFraction().second) << std::endl;
+std::cout << std::endl;
+
+std::cout << Output("++", f1.GetVarFraction().first, "/", f1.GetVarFraction().second);
+
 	Fraction2 f8 = ++f1 * f2;
 
-std::cout << Output("++f1 * f2: ", f8.GetVarFraction().first, "/", f8.GetVarFraction().second) << std::endl;
-std::cout << Output("Дробь 1: ", f1.GetVarFraction().first, "/", f1.GetVarFraction().second) << std::endl;
+std::cout << " * " << Output("", f2.GetVarFraction().first, "/", f2.GetVarFraction().second) <<
+" = " << Output("", f8.GetVarFraction().first, "/", f8.GetVarFraction().second) << std::endl;
+std::cout << Output("Значение дроби 1 = ", f1.GetVarFraction().first, "/", f1.GetVarFraction().second) << std::endl;
+
+std::cout << Output("", f1.GetVarFraction().first, "/", f1.GetVarFraction().second);
 
 	Fraction2 f9 = f1-- * f2;
 
-std::cout << Output("f1-- * f2: ", f9.GetVarFraction().first, "/", f9.GetVarFraction().second) << std::endl;
-std::cout << Output("Дробь 1: ", f1.GetVarFraction().first, "/", f1.GetVarFraction().second) << std::endl;
+std::cout << "-- * " << Output("", f2.GetVarFraction().first, "/", f2.GetVarFraction().second) <<
+" = " << Output("", f9.GetVarFraction().first, "/", f9.GetVarFraction().second) << std::endl;
+std::cout << Output("Значение дроби 1 = ", f1.GetVarFraction().first, "/", f1.GetVarFraction().second) << std::endl;
+std::cout << std::endl;
+
 };
