@@ -6,9 +6,9 @@
 #include <string>
 #include <Windows.h>
 
-#include"Task_1.h"
-#include"Task_2.h"
-#include"Task_3.h"
+#include "Task_1.h"
+#include "Task_2.h"
+#include "Task_3.h"
 
 
 template < typename data> void Output(const std::string& A, const  data& B);

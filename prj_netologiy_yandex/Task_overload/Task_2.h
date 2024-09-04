@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 #include <numeric>
-#include<cmath>
+#include <cmath>
 
 class Fraction2
 {

@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <string>
+#include <numeric>
+#include <cmath>
 
 
 class Fraction
@@ -19,6 +21,9 @@ public:
 		denominator_ = denominator;
 	}
 
+	std::pair<int, int> GetVarFraction();
+
+	std::pair<int, int> VarNod(int& x, int& y);
 
 	bool operator == (Fraction& new_var);
 	bool operator != (Fraction& new_var);
