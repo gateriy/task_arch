@@ -1,0 +1,22 @@
+# ninja log v5
+23	1612	7481134131464459	CMakeFiles/Dll_1.dir/Dll_1.cpp.obj	b2d54eaf1635b55b
+4	366	7481258932709730	build.ninja	1a5753ed9549f232
+29	6320	7481179799743831	CMakeFiles/Task_CMake_dll.dir/AllConfigTask.cpp.obj	a76ab0f750e28321
+10	6155	7481179798123855	CMakeFiles/Task_CMake_dll.dir/Task_CMake_dll.cpp.obj	f09abd0f9c39e337
+1615	2823	7481134143183104	Dll_1.lib	3a64b1ab3e27f757
+101	4509	7481179781483880	CMakeFiles/Task_CMake_dll.dir/Task_3.cpp.obj	60bd23af9b808c26
+51	4506	7481179781353904	CMakeFiles/Task_CMake_dll.dir/Task_1.cpp.obj	2b5421c1316da96b
+1615	2823	7481134143183104	Dll_1.dll	3a64b1ab3e27f757
+3505	4131	7481253543803473	Task_CMake_dll.exe	26f8d4ef486405f5
+70	4511	7481179781383928	CMakeFiles/Task_CMake_dll.dir/Task_2.cpp.obj	34605396bce5dc33
+130	2951	7481179764223917	CMakeFiles/Task_static.dir/Task_static.cpp.obj	869b3642b304a282
+12	3059	7481253355446772	CMakeFiles/Task_dll.dir/Task_dll.cpp.obj	c1b299d85ad10571
+21	3504	7481253538334826	CMakeFiles/Task_CMake_dll.dir/Task_dll.cpp.obj	f57286dea8deb544
+41	3469	7481253537866232	CMakeFiles/Task_CMake_dll.dir/Task_static.cpp.obj	a8f41b7c7c594c0e
+3060	4013	7481253355446772	Task_dll.dll	ea6bf623549d130c
+3060	4013	7481253355446772	Task_dll.lib	ea6bf623549d130c
+2953	4036	7481179773853879	Task_static.lib	63341a7ca0f83aab
+5	36	0	clean	8c45b54705a541e8
+14	1590	7481258946620628	CMakeFiles/Task_static.dir/Task_static.cpp.obj	869b3642b304a282
+1591	1734	7481258948026501	Task_static.lib	63341a7ca0f83aab
+1734	2180	7481258951463999	Task_CMake_dll.exe	a685bd7d05767dd3

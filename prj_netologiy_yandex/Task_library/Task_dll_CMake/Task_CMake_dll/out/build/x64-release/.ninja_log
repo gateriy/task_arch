@@ -1,0 +1,13 @@
+# ninja log v5
+11	295	7481253138364912	build.ninja	c526b7cbf3997e1
+96	4213	7481200819470460	CMakeFiles/Task_CMake_dll.dir/Task_3.cpp.obj	2217a1266b4d2d07
+10	6144	7481200838532895	CMakeFiles/Task_CMake_dll.dir/Task_CMake_dll.cpp.obj	7416b8592c9f9929
+28	6312	7481200840407953	CMakeFiles/Task_CMake_dll.dir/AllConfigTask.cpp.obj	ba09a96897215ee8
+48	2545	7481238113613746	CMakeFiles/Task_dll.dir/Task_dll.cpp.obj	ea0ffb1f435f8098
+5	4211	7481238130332456	CMakeFiles/Task_CMake_dll.dir/Task_dll.cpp.obj	1055dee0a584a5b7
+28	4100	7481238128926037	CMakeFiles/Task_CMake_dll.dir/Task_static.cpp.obj	83bbec4076de3fa1
+2547	3561	7481238113613746	Task_dll.dll	8c987d7cc11dce1c
+64	4245	7481200819470460	CMakeFiles/Task_CMake_dll.dir/Task_2.cpp.obj	5044357b5fea600b
+44	4282	7481200820251750	CMakeFiles/Task_CMake_dll.dir/Task_1.cpp.obj	dc61e2fb7f819b1f
+2547	3561	7481238113613746	Task_dll.lib	8c987d7cc11dce1c
+4211	4628	7481238134394855	Task_CMake_dll.exe	345c21dec840c38a

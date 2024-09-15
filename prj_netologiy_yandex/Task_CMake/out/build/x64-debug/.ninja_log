@@ -1,0 +1,18 @@
+# ninja log v5
+79	8323	7481203544230431	CMakeFiles/Task_CMake.dir/Task_3.cpp.obj	f46d408ea0c9c06d
+100	8384	7481203545324015	CMakeFiles/Task_CMake.dir/Figure.cpp.obj	80be99c87cd765b5
+56	8640	7481203547199045	CMakeFiles/Task_CMake.dir/Task_2.cpp.obj	862ed831d523d375
+38	11946	7481203580339509	CMakeFiles/Task_CMake.dir/Task_1.cpp.obj	ab58c13912e07dee
+4	12035	7481203581589705	CMakeFiles/Task_CMake.dir/Task_CMake.cpp.obj	802ea7d15785657e
+22	12118	7481203582683403	CMakeFiles/Task_CMake.dir/AllConfigTask.cpp.obj	f42cd82fc74039c0
+8385	16545	7481203626932010	CMakeFiles/Task_CMake.dir/Parallelogram.cpp.obj	b53c4abede388f27
+8334	16733	7481203628807166	CMakeFiles/Task_CMake.dir/IsoscelesTriangle.cpp.obj	bc71abf82d64ae6e
+8642	17087	7481203631775844	CMakeFiles/Task_CMake.dir/Quadrangle.cpp.obj	6fc25b7e396d00a8
+12036	20078	7481203661941663	CMakeFiles/Task_CMake.dir/Rhomb.cpp.obj	3c4fab7836a146c4
+11948	20141	7481203662722908	CMakeFiles/Task_CMake.dir/Rectangle.cpp.obj	40945175382595ce
+12119	20188	7481203663660413	CMakeFiles/Task_CMake.dir/RightAngledTriangle.cpp.obj	cd03597cfa2e1d1d
+16546	22887	7481203690852805	CMakeFiles/Task_CMake.dir/Square.cpp.obj	cde63b446cfa21a9
+16734	23036	7481203692415387	CMakeFiles/Task_CMake.dir/Triangle.cpp.obj	614152525f53bc8c
+20078	23158	7481203693665340	CMakeFiles/Task_CMake.dir/My_exception.cpp.obj	4dff43bffe583361
+17088	23552	7481203697571671	CMakeFiles/Task_CMake.dir/AnEquilateralTriangle.cpp.obj	58d85c5b7ff7411c
+23552	25574	7481203717259008	Task_CMake.exe	99da5a4ec1d7d682

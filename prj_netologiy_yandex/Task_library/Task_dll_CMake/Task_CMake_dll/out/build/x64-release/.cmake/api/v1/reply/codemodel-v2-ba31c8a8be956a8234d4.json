@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Task_CMake_dll",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Task_CMake_dll::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Task_CMake_dll-Release-9ac8cfd34a7cb7f68676.json",
+					"name" : "Task_CMake_dll",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Task_dll::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Task_dll-Release-62404f025e8cc79e402c.json",
+					"name" : "Task_dll",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Task_static::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Task_static-Release-141653299f4f74807810.json",
+					"name" : "Task_static",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/\u0421++/Project/VSC/prj_netologiy_yandex/Task_library/Task_dll_CMake/Task_CMake_dll/out/build/x64-release",
+		"source" : "D:/\u0421++/Project/VSC/prj_netologiy_yandex/Task_library/Task_dll_CMake/Task_CMake_dll"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
