@@ -14,20 +14,24 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    std::pair <int, int> x_y{ 0,0 };
+     int var_menu{ 0 };
 
     dll_lib_1::Leaver lev_1;
-    dll_lib_2::Leaver lev_2;
+    dll_lib_2::Math_Game_0 lev_2;
     dll_lib_3::Leaver lev_3;
 
     std::cout << "Hello World!\n";
-    lev_1.leave();
-    lev_2.leave();
-    lev_3.leave();
+   
 
-    x_y = lev_1.menu_var();
+    var_menu = lev_1.menu_var();
+    lev_1.get_var_type();
+    lev_1.get_var_game();
+
     
-    std::cout << lev_1.get_var_type(x_y.first,x_y.second) << std::endl;
+
+
+   
+
 
     system("pause");
 }

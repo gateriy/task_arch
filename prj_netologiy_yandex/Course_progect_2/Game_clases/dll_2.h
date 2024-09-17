@@ -3,6 +3,7 @@
 
 #include "dll_2.h"
 
+
 #include <iostream>
 #include <string>
 
@@ -10,13 +11,11 @@
 
 namespace dll_lib_2 {
 
-	class DLL_2 Leaver
+	class DLL_2  Math_Game_0 
 	{
 	public:
 
-
-
-		void leave();
+		double math_game_0(double& way, double& speed);
 	};
 }
 #endif // !TASK_DLL_H
