@@ -1,37 +1,59 @@
-п»ї// Course_prg_2.cpp
+﻿// Course_prg_2.cpp
 
 
 #include <iostream>
 #include <Windows.h>
 
-#include "dll_1.h"
+#include "Config.h"
 #include "dll_2.h"
 #include "dll_3.h"
 
 int main()
-{
-    
+{    
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
      int var_menu{ 0 };
 
-    dll_lib_1::Leaver lev_1;
+    Config_class config_game;
+
     dll_lib_2::Math_Game_0 lev_2;
     dll_lib_3::Leaver lev_3;
 
-    std::cout << "Hello World!\n";
+
+    do {
+
+        var_menu = config_game.menu_var();
+
+        if (var_menu == 4) {
+
+            config_game.get_var_type();
+            
+            bool norm = config_game.get_var_game();
+
+            if (norm == false) {
+                system("COLOR 5");
+                std::cout << std::endl;
+                std::cout << "ТС меньше 2 на гонке или не задана длина, тип гонки!!! Уточните данне!" << std::endl;
+                system("pause");
+            }
+            else {
+                system("COLOR 7");
+                std::cout << std::endl;
+                std::cout << "Играем снова!!! (1 ДА, 0 НЕТ): ";
+                var_menu = config_game.input_char_to_int({ 0,1 });
+            }          
+        }
+        if (var_menu == 0) {
+            system("cls");
+            std::cout << "До встречи в новой игре!!!" << std::endl;
+            break;
+        }
+
+    } while (true);
+
+
+
    
-
-    var_menu = lev_1.menu_var();
-    lev_1.get_var_type();
-    lev_1.get_var_game();
-
-    
-
-
-   
-
-
     system("pause");
 }

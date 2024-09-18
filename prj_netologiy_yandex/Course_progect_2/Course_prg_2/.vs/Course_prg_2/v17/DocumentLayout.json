@@ -3,20 +3,14 @@
   "WorkspaceRootPath": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Course_prg_2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2978A7E-9E94-4DC6-8841-6282C23AF514}|..\\Game_clases\\Game_clases.vcxproj|D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\dll_1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{25CF0FD4-EC6F-4674-99B3-030055285512}|Course_prg_2.vcxproj|D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\Config.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{25CF0FD4-EC6F-4674-99B3-030055285512}|Course_prg_2.vcxproj|D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Course_prg_2\\Course_prg_2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{25CF0FD4-EC6F-4674-99B3-030055285512}|Course_prg_2.vcxproj|solutionrelative:Course_prg_2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2978A7E-9E94-4DC6-8841-6282C23AF514}|..\\Game_clases\\Game_clases.vcxproj|D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\dll_2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2978A7E-9E94-4DC6-8841-6282C23AF514}|..\\Game_clases\\Game_clases.vcxproj|D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\dll_2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2978A7E-9E94-4DC6-8841-6282C23AF514}|..\\Game_clases\\Game_clases.vcxproj|D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\dll_1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{25CF0FD4-EC6F-4674-99B3-030055285512}|Course_prg_2.vcxproj|D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\Config.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,54 +40,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "dll_1.h",
-              "DocumentMoniker": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\dll_1.h",
-              "RelativeDocumentMoniker": "..\\Game_clases\\dll_1.h",
-              "ToolTip": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\dll_1.h",
-              "RelativeToolTip": "..\\Game_clases\\dll_1.h",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACQAAAAkAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Config.h",
+              "DocumentMoniker": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\Config.h",
+              "RelativeDocumentMoniker": "..\\Game_clases\\Config.h",
+              "ToolTip": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\Config.h",
+              "RelativeToolTip": "..\\Game_clases\\Config.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-16T18:01:58.266Z",
+              "WhenOpened": "2024-09-18T08:19:58.908Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "dll_1.cpp",
-              "DocumentMoniker": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\dll_1.cpp",
-              "RelativeDocumentMoniker": "..\\Game_clases\\dll_1.cpp",
-              "ToolTip": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\dll_1.cpp",
-              "RelativeToolTip": "..\\Game_clases\\dll_1.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAA==",
+              "Title": "Config.cpp",
+              "DocumentMoniker": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\Config.cpp",
+              "RelativeDocumentMoniker": "..\\Game_clases\\Config.cpp",
+              "ToolTip": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\Config.cpp",
+              "RelativeToolTip": "..\\Game_clases\\Config.cpp",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAF4AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-16T18:06:21.57Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "dll_2.h",
-              "DocumentMoniker": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\dll_2.h",
-              "RelativeDocumentMoniker": "..\\Game_clases\\dll_2.h",
-              "ToolTip": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\dll_2.h",
-              "RelativeToolTip": "..\\Game_clases\\dll_2.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-16T18:01:04.057Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "dll_2.cpp",
-              "DocumentMoniker": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\dll_2.cpp",
-              "RelativeDocumentMoniker": "..\\Game_clases\\dll_2.cpp",
-              "ToolTip": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Game_clases\\dll_2.cpp",
-              "RelativeToolTip": "..\\Game_clases\\dll_2.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-16T18:00:47.99Z",
+              "WhenOpened": "2024-09-18T08:19:45.07Z",
               "EditorCaption": ""
             },
             {
@@ -104,7 +72,7 @@
               "RelativeDocumentMoniker": "Course_prg_2.cpp",
               "ToolTip": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course_progect_2\\Course_prg_2\\Course_prg_2.cpp",
               "RelativeToolTip": "Course_prg_2.cpp",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAABkAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-16T17:52:50.09Z",
               "EditorCaption": ""
