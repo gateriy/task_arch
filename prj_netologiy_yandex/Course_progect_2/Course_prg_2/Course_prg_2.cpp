@@ -5,8 +5,9 @@
 #include <Windows.h>
 
 #include "Config.h"
-#include "dll_2.h"
-#include "dll_3.h"
+//#include "dll_1.h"
+//#include "dll_2.h"
+//#include "dll_3.h"
 
 int main()
 {    
@@ -17,8 +18,6 @@ int main()
 
     Config_class config_game;
 
-    dll_lib_2::Math_Game_0 lev_2;
-    dll_lib_3::Leaver lev_3;
 
 
     do {

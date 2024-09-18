@@ -9,7 +9,9 @@
 #include <Windows.h>
 #include <algorithm>
 
+#include "dll_1.h"
 #include "dll_2.h"
+#include "dll_3.h"
 
 	class  Config_class
 	{

@@ -1,5 +1,16 @@
 #include "Config.h"
 
+
+
+double game_math (dll_lib_1::Math_Game_0* x) { 
+	
+	   x-> math_game_0();
+	  return a;
+}
+
+
+
+
 	bool Config_class::get_var_game() {
 
 		int count_erf{ 0 }, count_air{ 0 };
@@ -25,7 +36,20 @@
 				return false;
 			}		
 
-			dll_lib_2::Math_Game_0 game_0;
+
+
+
+			dll_lib_1::Math_Game_1 game_1;
+			dll_lib_2::Math_Game_2 game_2;
+			dll_lib_3::Math_Game_3 game_3;
+
+
+
+			double x { game_math(&game_1) };
+
+
+
+
 
 			_vid_tc_time.clear();
 
@@ -35,16 +59,16 @@
 					switch (i)
 					{
 					case(1):
-						_vid_tc_time.push_back({ game_0.math_game_0(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });					
+						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });					
 						break;
 					case(2):
-						_vid_tc_time.push_back({ game_0.math_game_0(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
+						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
 						break;
 					case(3):
-						_vid_tc_time.push_back({ game_0.math_game_0(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
+						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
 						break;
 					case(4):
-						_vid_tc_time.push_back({ game_0.math_game_0(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
+						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
 						break;
 					default:
 						break;
@@ -55,13 +79,13 @@
 					switch (i)
 					{
 					case(5):
-						_vid_tc_time.push_back({ game_0.math_game_0(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
+						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
 						break;
 					case(6):
-						_vid_tc_time.push_back({ game_0.math_game_0(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
+						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
 						break;
 					case(7):
-						_vid_tc_time.push_back({ game_0.math_game_0(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
+						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
 						break;
 					default:
 						break;
@@ -84,7 +108,6 @@
 
 			for (auto& i : _vid_tc_time) {
 				//std::cout << "Время: " << i.first << "\t(час) << " << i.second << std::endl;
-
 				std::string text{ "Время: " + std::to_string(i.first) + "\t(час) << " + i.second };
 
 				for (char a : text) {
@@ -112,8 +135,6 @@
 
 		system("cls");
 		//system("COLOR 5");
-
-		dll_lib_2::Math_Game_0 game_0;
 
 		if (_var_vid_game != 0) {
 			std::cout << "Вид гонки:" << std::endl;
@@ -295,13 +316,15 @@
 		} while (true);		
 	}
 
-	/*
- 0 = Черный 8 = Серый
- 1 = Синий 9 = Светло-синий
- 2 = Зеленый A = Светло-зеленый
- 3 = Голубой B = Светло-голубой
- 4 = Красный C = Светло-красный
- 5 = Лиловый D = Светло-лиловый
- 6 = Желтый E = Светло-желтый
- 7 = Белый F = Ярко-белый
+/*
+
+ 0 = Черный		8 = Серый
+ 1 = Синий		9 = Светло-синий
+ 2 = Зеленый	A = Светло-зеленый
+ 3 = Голубой	B = Светло-голубой
+ 4 = Красный	C = Светло-красный
+ 5 = Лиловый	D = Светло-лиловый
+ 6 = Желтый		E = Светло-желтый
+ 7 = Белый		F = Ярко-белый
+
  */

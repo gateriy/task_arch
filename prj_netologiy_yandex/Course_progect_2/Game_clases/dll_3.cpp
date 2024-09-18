@@ -2,12 +2,13 @@
 
 namespace dll_lib_3 {
 
-	void Leaver::leave() {
 
+	double Math_Game_3::math_game_1(double& way, double& speed)  {
 
-		std::cout << std::endl;
-		std::cout << "DLL_3";
-		std::cout << std::endl;
+		double res{ 0 };
 
+		res = way / speed * 3;
+
+		return res;
 	}
 }
