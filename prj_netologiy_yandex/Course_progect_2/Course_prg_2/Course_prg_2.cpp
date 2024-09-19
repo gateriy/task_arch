@@ -5,9 +5,6 @@
 #include <Windows.h>
 
 #include "Config.h"
-//#include "dll_1.h"
-//#include "dll_2.h"
-//#include "dll_3.h"
 
 int main()
 {    
@@ -18,41 +15,34 @@ int main()
 
     Config_class config_game;
 
-
-
     do {
 
-        var_menu = config_game.menu_var();
+        var_menu = config_game.menu_var({ 6 }, { 0 });
 
         if (var_menu == 4) {
 
-            config_game.get_var_type();
+            config_game.get_var_type({ 3 });
             
-            bool norm = config_game.get_var_game();
+            bool norm = config_game.get_var_game({ 5 });
 
             if (norm == false) {
-                system("COLOR 5");
                 std::cout << std::endl;
-                std::cout << "ТС меньше 2 на гонке или не задана длина, тип гонки!!! Уточните данне!" << std::endl;
+                config_game.time_cout_char("ТС меньше 2 на гонке или не задана длина, тип гонки!!! Уточните данне!", "", "", "", "", true, 5, 4);
                 system("pause");
             }
             else {
-                system("COLOR 7");
                 std::cout << std::endl;
-                std::cout << "Играем снова!!! (1 ДА, 0 НЕТ): ";
+                config_game.time_cout_char("Играем снова!!! (1 да, 0 нет): ", "", "", "", "", false, 5, 5);
                 var_menu = config_game.input_char_to_int({ 0,1 });
             }          
         }
         if (var_menu == 0) {
             system("cls");
-            std::cout << "До встречи в новой игре!!!" << std::endl;
+            config_game.time_cout_char("До встречи в новой игре!!!", "", "", "", "", true, 5, 4);
             break;
         }
 
     } while (true);
-
-
-
-   
+       
     system("pause");
 }

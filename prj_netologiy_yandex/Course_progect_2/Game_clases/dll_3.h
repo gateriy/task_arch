@@ -2,20 +2,22 @@
 #define DLL_3_H
 
 #include "dll_1.h"
-//#include "dll_3.h"
 
 #include <iostream>
 #include <string>
+#include <map>
+#include <vector>
 
 #define DLL_3 __declspec(dllexport) //задается макрос связи
 
-namespace dll_lib_3 {
+namespace dll_lib {
 
-	class DLL_3 Math_Game_3 : public dll_lib_1::Math_Game_0
+	//3 метла
+	class DLL_3 Math_Game_3 : public Math_Game_0
 	{
 	public:
 
-		double math_game_1(double& way, double& speed) override;
+		double math_game(const double& way_x, const int& n_tc) override;
 
 	};
 }

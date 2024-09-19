@@ -1,17 +1,50 @@
 #include "Config.h"
 
+#define TIME 1
 
-
-double game_math (dll_lib_1::Math_Game_0* x) { 
-	
-	   x-> math_game_0();
-	  return a;
+	std::string Config_class::doubleToString(double number, int precision) {
+	std::ostringstream stream;
+	stream.precision(precision);
+	stream << std::fixed << number;
+	return stream.str();
 }
 
+	void Config_class::time_cout_char(const std::string& t1, const std::string& t2,
+					const std::string& t3, const std::string& t4,
+					const std::string& t5, bool end_l ,int time, int color) {
 
+	/*
+Name            FG  BG
+Black           30  40
+Red             31  41
+Green           32  42
+Yellow          33  43
+Blue            34  44
+Magenta         35  45
+Cyan            36  46
+White           37  47
+Bright Black    90  100
+Bright Red      91  101
+Bright Green    92  102
+Bright Yellow   93  103
+Bright Blue     94  104
+Bright Magenta  95  105
+Bright Cyan     96  106
+Bright White    97  107
+	*/
 
+	std::string text { t1 + t2 + t3 + t4 + t5 };
 
-	bool Config_class::get_var_game() {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+
+	for (char a : text) {
+		std::cout << a;
+		Sleep(time);
+	}
+	if (end_l == true) { std::cout << std::endl; }
+}
+
+	bool Config_class::get_var_game( int color) {
 
 		int count_erf{ 0 }, count_air{ 0 };
 		bool norm{ false };
@@ -34,134 +67,77 @@ double game_math (dll_lib_1::Math_Game_0* x) {
 			}
 			if (_var_vid_game == 2 && count_air < 2) {
 				return false;
-			}		
-
-
-
-
-			dll_lib_1::Math_Game_1 game_1;
-			dll_lib_2::Math_Game_2 game_2;
-			dll_lib_3::Math_Game_3 game_3;
-
-
-
-			double x { game_math(&game_1) };
-
-
-
-
-
+			}	
+	
 			_vid_tc_time.clear();
+
+			dll_lib::Math_Game_1 game_1;
+			dll_lib::Math_Game_2 game_2;
+			dll_lib::Math_Game_3 game_3;
 
 			for (int i : _var_list_vid_tc) {
 
-				if (_var_vid_game == 1 || _var_vid_game == 3) {
-					switch (i)
-					{
-					case(1):
-						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });					
-						break;
-					case(2):
-						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
-						break;
-					case(3):
-						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
-						break;
-					case(4):
-						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
-						break;
-					default:
-						break;
-					}
+				if ((_var_vid_game == 1 || _var_vid_game == 3) && i>=1 && i <=4 ) {
+					
+					_vid_tc_time.push_back({ game_1.math_game(_way, i),_vid_tc.at(i)});
 				}
+				if ((_var_vid_game == 2 || _var_vid_game == 3) && i>=5 && i<=6) {
+				
+					_vid_tc_time.push_back({ game_2.math_game(_way, i),_vid_tc.at(i) });
+				}
+				if ((_var_vid_game == 2 || _var_vid_game == 3) && i ==7 ) {
 
-				if (_var_vid_game == 2 || _var_vid_game == 3) {
-					switch (i)
-					{
-					case(5):
-						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
-						break;
-					case(6):
-						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
-						break;
-					case(7):
-						_vid_tc_time.push_back({ game_1.math_game_1(_way, _vid_tc_speed.at(i)),_vid_tc.at(i) });
-						break;
-					default:
-						break;
-					}
+					_vid_tc_time.push_back({ game_3.math_game(_way, i),_vid_tc.at(i) });					
 				}
 			}
 
-			system("COLOR 3");
-			for (int i = 0; i < 100; ++i) {
-				std::cout << "-";
-				Sleep(10);
-			}
-			std::cout << std::endl;
-
-			
+			time_cout_char("---------------------------------------------------------------", "", "", "", "", true, TIME, color);
+									
 			std::sort(_vid_tc_time.begin(), _vid_tc_time.end(),
 			[](std::pair<double, std::string>& a, std::pair<double, std::string>& b) {
 			return a.first > b.first;});
 		
-
 			for (auto& i : _vid_tc_time) {
-				//std::cout << "Время: " << i.first << "\t(час) << " << i.second << std::endl;
-				std::string text{ "Время: " + std::to_string(i.first) + "\t(час) << " + i.second };
-
-				for (char a : text) {
-
-					/*const char* a{""};
-					int xx = 3;
-
-					a = "COLOR " + xx;
-					system(a);*/
-
-					std::cout << a;
-					Sleep(30);
-				}
-				std::cout << std::endl;
-
+				time_cout_char("Время: ", doubleToString(i.first,2), "\t(час) << ", i.second, "", true, TIME, color);
 			}
-
 
 			_vid_tc_time.clear();
 		   return true;
+
 		} else { return false; }
 	}
 
-	void Config_class::get_var_type() {
+	void Config_class::get_var_type(int color) {
 
 		system("cls");
-		//system("COLOR 5");
+		time_cout_char("ИГРА ГОНКА ПРИВЕТСТВУЕТ ВАС!!!!!", "", "", "", "", true, 1, 4);
 
 		if (_var_vid_game != 0) {
-			std::cout << "Вид гонки:" << std::endl;
-			std::cout << "\t<<  " << _vid_game.at(_var_vid_game) << std::endl;
+			time_cout_char("Вид гонки:","","","","", true, TIME, color);
+			time_cout_char("\t<<  ", _vid_game.at(_var_vid_game), "", "", "", true, TIME, color);
 		}
 		if (!_var_list_vid_tc.empty()) {
-			std::cout << "Выбранные ТС:" << std::endl;
+			time_cout_char("Выбранные ТС:", "", "", "", "", true, TIME, color);
 			for (auto& i : _var_list_vid_tc) {
 
-				if (i >= 1 && i <= 4 && _var_vid_game == 1) {
-					std::cout <<  "\t<<  " << _vid_tc.at(i) << std::endl;
+				if (i >= 1 && i <= 4 && _var_vid_game == 1) {					
+					time_cout_char("\t<<  ", _vid_tc.at(i), "", "", "", true, TIME, color);
 				}
 				if (i >= 5 && i <= 7 && _var_vid_game == 2) {
-					std::cout <<  "\t<<  " << _vid_tc.at(i) << std::endl;
+					time_cout_char("\t<<  ", _vid_tc.at(i), "", "", "", true, TIME, color);
 				}
 				if (_var_vid_game == 3 || _var_vid_game == 0) {
-					std::cout <<  "\t<<  " << _vid_tc.at(i) << std::endl;
+					time_cout_char("\t<<  ", _vid_tc.at(i), "", "", "", true, TIME, color);
 				}
 			}
 		}
 		if (_way != 0) {
-			std::cout << "Длина пути гонки:" << std::endl;
-			std::cout << "\t<<  " << _way << std::endl;
+			time_cout_char("Длина пути гонки:", "", "", "", "", true, TIME, color);
+			time_cout_char("\t<<  ", doubleToString(_way, 2), "", "", "", true, TIME, color);			
 		}
 	}
 
-	int Config_class::input_char_to_int(std::vector<int> aray_var) {
+	int Config_class::input_char_to_int(const std::vector<int>& aray_var) {
 
 		std::vector <char> text{ '0','1','2','3','4','5','6','7','8','9' };
 		std::string text_var{ "" };
@@ -195,7 +171,7 @@ double game_math (dll_lib_1::Math_Game_0* x) {
 				}			 
 			}
 			if (norm == false) {
-				std::cout << "Не корректный символ или номер! Повторите ввод: ";
+				time_cout_char("Не корректный символ! Повторите ввод: ", "", "", "", "", false, 0, 4);
 			}
 		}while(norm==false);
 	}
@@ -233,23 +209,22 @@ double game_math (dll_lib_1::Math_Game_0* x) {
 				norm = false;
 			}
 			if (norm == false) {
-				std::cout << "Не корректный символ! Повторите ввод: ";
+				time_cout_char("Не корректный символ! Повторите ввод: ", "", "", "", "", false, 0, 4);
 			}
 		} while (norm == false);
 	}
 
-	int Config_class::menu_var() {
+	int Config_class::menu_var(int color, int time) {
 
 		int x{ 0 }, y{ 0 };
 		bool next_x{ false };
 				
 		do {
-			system("COLOR 6");
+						
+			get_var_type(color);
 
-			get_var_type();
-
-			std::cout << "_______________________________________________________________________________________" << std::endl;
-			std::cout << "Основное меню (0 выход, 1 выбор ТС, 2 вид гонок, 3 ввести длину пути, 4 начать гонку): ";
+			time_cout_char("_____________________________________________________________________________________", "", "", "", "", true, 0, 6);
+			time_cout_char("Основное меню (0 выход, 1 выбор ТС, 2 вид гонок, 3 ввести длину пути, 4 начать гонку): ", "", "", "", "", false, time, 6);
 			x = input_char_to_int({ 0,1,2,3,4 });
 
 			switch (x)
@@ -258,53 +233,47 @@ double game_math (dll_lib_1::Math_Game_0* x) {
 				system("COLOR 8");
 				system("cls");
 				return  x;
-			case(4):
-				system("COLOR 4");
+			case(4):				
 				system("cls");
 				return  x;
 			case(2):
-				system("COLOR 3");
 				system("cls");
-				std::cout << "Введите вид гонок (1 только для наземных ТС, 2 только для воздушных ТС, 3 для наземных и воздушных ТС): ";
+				time_cout_char("Введите вид гонок (1 только для наземных ТС, 2 только для воздушных ТС, 3 для наземных и воздушных ТС): ", "", "", "", "", false, time, 3);
 				_var_vid_game = input_char_to_int({ 1,2,3 });
 				break;
 			case(3):
-				system("COLOR 7");
 				system("cls");
-				std::cout << "Введите длину пути: ";
+				time_cout_char("Введите длину пути: ", "", "", "", "", false, time, 1);
 				_way = input_char_to_double();
 				break;
 			case(1):
-				system("COLOR 2");
 				system("cls");
-
-				std::cout << "Введите тип ТС (0 сбросить выбор ТС, 1 наземные, 2 воздушные): ";
+				time_cout_char("Введите тип ТС (0 сбросить выбор ТС, 1 наземные, 2 воздушные): ", "", "", "", "", false, time, 2);
 				_var_type_tc = input_char_to_int({ 0,1,2 });
 
 				if (_var_type_tc == 0) {
-					std::cout << "Введите тип ТС (1 наземные, 2 воздушные): ";
+					time_cout_char("Введите тип ТС (1 наземные, 2 воздушные): ", "", "", "", "", false, time, 2);
 					_var_type_tc = input_char_to_int({ 1,2 });
 					_var_list_vid_tc.clear();
 				}
 
 				do {
 					system("cls");
-
 					if (!_var_list_vid_tc.empty()) {
-						std::cout << "Выбранные ТС:" << std::endl;
+						time_cout_char("Выбранные ТС:", "", "", "", "", true, time, 2);
 						for (auto& i : _var_list_vid_tc) {
-							std::cout << "\t<<  " << _vid_tc.at(i) << std::endl;
+						time_cout_char("\t<<  ", _vid_tc.at(i), "", "", "", true, time, 2);
 						}
 					}
 
 					if (_var_type_tc == 1) {
-						std::cout << "Введите вид ТС (0 выход, 1 верблюд, 2 верблюд - быстроход, 3 кентавр, 4 ботинки - вездеходы): ";
+						time_cout_char("Введите вид ТС (0 выход, 1 верблюд, 2 верблюд - быстроход, 3 кентавр, 4 ботинки - вездеходы): ", "", "", "", "", false, time, 2);
 						y = input_char_to_int({ 0,1,2,3,4 });
 						if (y != 0) { _var_list_vid_tc.insert(y); }
 					}
 
 					if (_var_type_tc == 2) {
-						std::cout << "Введите вид ТС (0 выход, 1 ковёр-самолёт, 2 орёл, 3 метла): ";
+						time_cout_char("Введите вид ТС (0 выход, 1 ковёр-самолёт, 2 орёл, 3 метла): ", "", "", "", "", false, time, 2);
 						y = input_char_to_int({ 0,1,2,3 });
 						if (y != 0) { _var_list_vid_tc.insert(y+4); }
 					}
