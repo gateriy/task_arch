@@ -1,2 +1,2 @@
-#*.*    working-tree-encoding=CP1251    eol=CRLF
-#*.* diff=win1252
+*.*    working-tree-encoding=CP1251    eol=CRLF
+*.* diff=win1252
