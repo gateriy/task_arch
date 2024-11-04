@@ -108,17 +108,16 @@ void delete_dynamic_array(int* arr) { delete[] arr; }
 
 int* append_to_dynamic_array(int* arr, int &logical_size, int &actual_size) {
 	int* arr_var;
+	
 	++logical_size;
 	if (logical_size > actual_size) {
 
 		actual_size = actual_size * 2;
-		arr_var = create_dynamic_array(actual_size);
+		arr_var = create_dynamic_array(actual_size / 2);
 
-		for (int i = 0; i < actual_size; ++i) {
-			if (i < actual_size / 2) {
-				arr_var[i] = arr[i];
-			}
-			else arr_var[i] = 0;
+		for (int i = 0; i < actual_size / 2; ++i) {
+
+			arr_var[i] = arr[i];
 		}
 		delete_dynamic_array(arr);
 		arr = create_dynamic_array(actual_size);

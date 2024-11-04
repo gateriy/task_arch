@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{162BEC21-93C3-4A84-A311-4D8EBAD9FF7C}|Task_1_3_(arr_din_logic).vcxproj|D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{162BEC21-93C3-4A84-A311-4D8EBAD9FF7C}|Task_1_3_(arr_din_logic).vcxproj|solutionrelative:Task_3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{162BEC21-93C3-4A84-A311-4D8EBAD9FF7C}|Task_1_3_(arr_din_logic).vcxproj|D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{162BEC21-93C3-4A84-A311-4D8EBAD9FF7C}|Task_1_3_(arr_din_logic).vcxproj|solutionrelative:Task_2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -17,6 +13,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{162BEC21-93C3-4A84-A311-4D8EBAD9FF7C}|Task_1_3_(arr_din_logic).vcxproj|D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{162BEC21-93C3-4A84-A311-4D8EBAD9FF7C}|Task_1_3_(arr_din_logic).vcxproj|solutionrelative:Task_1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{162BEC21-93C3-4A84-A311-4D8EBAD9FF7C}|Task_1_3_(arr_din_logic).vcxproj|D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{162BEC21-93C3-4A84-A311-4D8EBAD9FF7C}|Task_1_3_(arr_din_logic).vcxproj|solutionrelative:Task_3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{162BEC21-93C3-4A84-A311-4D8EBAD9FF7C}|Task_1_3_(arr_din_logic).vcxproj|D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -34,21 +34,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 145,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Task_3.cpp",
-              "DocumentMoniker": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_3.cpp",
-              "RelativeDocumentMoniker": "Task_3.cpp",
-              "ToolTip": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_3.cpp",
-              "RelativeToolTip": "Task_3.cpp",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-09T20:51:37.418Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -67,25 +54,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "Task_3.cpp",
+              "DocumentMoniker": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_3.cpp",
+              "RelativeDocumentMoniker": "Task_3.cpp",
+              "ToolTip": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_3.cpp",
+              "RelativeToolTip": "Task_3.cpp",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-09T20:51:37.418Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Task_2.h",
               "DocumentMoniker": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_2.h",
               "RelativeDocumentMoniker": "Task_2.h",
               "ToolTip": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_2.h",
               "RelativeToolTip": "Task_2.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-09T19:18:24.489Z"
+              "WhenOpened": "2024-10-09T19:18:24.489Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Task_2.cpp",
               "DocumentMoniker": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_2.cpp",
               "RelativeDocumentMoniker": "Task_2.cpp",
               "ToolTip": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_2.cpp",
               "RelativeToolTip": "Task_2.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIkAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAH0AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-09T19:15:23.328Z",
               "EditorCaption": ""
@@ -104,13 +104,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Task_1.cpp",
               "DocumentMoniker": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_1.cpp",
               "RelativeDocumentMoniker": "Task_1.cpp",
               "ToolTip": "D:\\\u0421\u002B\u002B\\Project\\VSC\\prj_netologiy_yandex\\Course Algoritms\\Block_4\\Task_1_3_(arr_din_logic)\\Task_1.cpp",
               "RelativeToolTip": "Task_1.cpp",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAGAAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAqwEQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-09T18:12:02.902Z"
             },
