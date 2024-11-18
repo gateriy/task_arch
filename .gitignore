@@ -28,6 +28,8 @@
 *.dll
 *.lib
 *.exp
+*.json
+*.png
 D:/РЎ++/Project/VSC_prj_netologiy/car_darts/Game_v1/AutoDarts/x64
 D:/РЎ++/Project/VSC_prj_netologiy/car_darts/Game_v1/AutoDarts/.vs
 D:/РЎ++/Project/VSC_prj_netologiy/car_darts/Game_v1/AutoDarts/AutoDarts

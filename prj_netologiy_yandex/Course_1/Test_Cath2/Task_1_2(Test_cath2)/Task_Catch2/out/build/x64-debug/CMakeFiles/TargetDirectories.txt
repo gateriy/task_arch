@@ -1,0 +1,3 @@
+D:/РЎ++/Project/VSC/prj_netologiy_yandex/Course_1/Test_Cath2/Task_1_2(Test_cath2)/Task_Catch2/out/build/x64-debug/CMakeFiles/Task_Catch2.dir
+D:/РЎ++/Project/VSC/prj_netologiy_yandex/Course_1/Test_Cath2/Task_1_2(Test_cath2)/Task_Catch2/out/build/x64-debug/CMakeFiles/edit_cache.dir
+D:/РЎ++/Project/VSC/prj_netologiy_yandex/Course_1/Test_Cath2/Task_1_2(Test_cath2)/Task_Catch2/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
