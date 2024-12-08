@@ -24,9 +24,12 @@ bool ReadFileInVector::OupenFileWriteVector() {
 					f_in.clear(); //очистка потока ввода из файла
 					f_in.seekg(0, std::ios::beg);//возврат курсора в начало файла
 
-					for (int i = 0; i < _x_line-1; ++i) {					
+					for (int i = 0; i < _x_line; ++i) {	
+						_x_text.clear();
 						getline(f_in >> std::ws, _x_text);
-						_in_data_file.push_back(_x_text);
+						if (!_x_text.empty()) {
+							_in_data_file.push_back(_x_text);
+						}
 					};
 
 					f_in.close();
@@ -130,7 +133,7 @@ void ReadFileInVector::InputTransformWay_2(const std::string& way_text) {
 }
 
 //преобразование переменных секции и перееменной 
-void ParsingIni::ReadVar(const std::string& a) {
+void ParsingIni::_ReadVar(const std::string& a) {
 	bool first = true;
 	_section_var.first.clear();
 	_section_var.second.clear();
@@ -150,6 +153,146 @@ void ParsingIni::ReadVar(const std::string& a) {
 	}
 }
 
+//формирует название и значение переменной в строковом формате
+std::pair <std::string, std::string> ParsingIni::_Read_String(const std::string& var_str) {
+	std::string name{}, var{};
+	bool first = true;
+
+	for (const auto& i : var_str) {
+		if (i != ';') {
+
+			if (first == false) { var = var + i; }
+
+			if (i != '=' && first == true) {
+				name = name + i;
+			}
+			else { first = false; }
+		}
+		else break;
+	}
+
+	for (auto& i : name) {
+		if (name.back() == ' ') { name.pop_back(); }
+		else break;
+	}
+	for (auto& i : var) {
+		if (var.back() == ' ') { var.pop_back(); }
+		else break;
+	}
+	return { {name},{var} };
+}
+
+//определяет возможный тип переменной на основе анализа данных по строке (string, int, double)
+std::string ParsingIni::_Var_Type(const std::string& var) {
+	int count_point{ 0 }, count_min{ 0 };
+	bool str = false;
+
+	if (!var.empty()) {
+		for (const auto& i : var) {
+			str = true;
+			for (const char& f : { '-','0','1','2','3','4','5','6','7','8','9','0','.' }) {
+
+				if (i == f) {
+					str = false;
+					break;
+				}
+			}
+			if (i == '.') { ++count_point; }
+			if (i == '-') { ++count_min; }
+
+			if (str == true) { return "string"; }
+		}
+
+		if (str == false) {
+
+			if (count_min == 0 || (count_min == 1 && var.at(0) == '-')) {
+
+				if (count_point == 1) { return "double"; }
+				else if (count_point == 0) { return "int"; }
+				else { return "string"; }
+			}
+			else { return "string"; }
+		}
+	}
+	else { return "no data available!"; }
+}
+
+//находит переменную по запросу и выдает ее значение и тип на основе анализа структуры переменной в виде string
+std::pair<std::string, std::string> ParsingIni::Str_Value_Type(const std::string& text_var) {
+
+	_ReadVar(text_var);
+	std::string res{}, type_x{};;
+	bool begin_section = false;
+	bool first = false;
+
+	if (!_in_data_file.empty()) {
+
+		for (const auto& str_var : _in_data_file) {
+
+			if (str_var == ('[' + _section_var.first + ']')) {
+				//std::cout << "<<< Секция найдена! >>>" << std::endl;
+				begin_section = true;
+			}
+			else {
+				if (begin_section == true) {
+					if ((str_var.at(0) == '[') && (str_var != ('[' + _section_var.first + ']'))) {
+						begin_section = false;
+						//std::cout << "<<< Секция завершена! >>>" << std::endl;
+					}
+					else {
+
+						if (_section_var.second == _Read_String(str_var).first) {
+							res = _Read_String(str_var).second;
+							type_x = _Var_Type(_Read_String(str_var).second);
+							first = true;
+						}
+						//if (first ==false) {
+							//std::cout << "Переменная не найдена! Список всех переменных секции:" << std::endl;
+							//std::cout <<"????? ["<< _Read_String(str_var).first << "] = ["
+							//<< _Read_String(str_var).second <<"]"
+							//<< " <- " << _Var_Type(_Read_String(str_var).second) << std::endl;
+						//}
+					}
+				}
+			}
+		}
+		if (first == false) {
+			std::cout << "Переменная не найдена! Список всех переменных секции:" << std::endl;
+			for (const auto& str_var : _in_data_file) {
+
+				if (str_var == ('[' + _section_var.first + ']')) {
+					//std::cout << "<<< Секция найдена! >>>" << std::endl;
+					begin_section = true;
+				}
+				else {
+					if (begin_section == true) {
+						if ((str_var.at(0) == '[') && (str_var != ('[' + _section_var.first + ']'))) {
+							begin_section = false;
+							//std::cout << "<<< Секция завершена! >>>" << std::endl;
+						}
+						else {
+
+							std::cout << "????? [" << _Read_String(str_var).first << "] = ["
+								<< _Read_String(str_var).second << "]"
+								<< " <- " << _Var_Type(_Read_String(str_var).second) << std::endl;
+
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if (res == "" && first==true)
+	{
+		_valu_type = { {res},{"no data available!"} };
+	}
+	else
+	{
+		_valu_type = { {res},{type_x} };
+	}
+	return _valu_type;
+}
 
 
 //----------------------------------------------------------------------------------------------
@@ -163,23 +306,54 @@ void block_1() {
 	//ParsingIni parser;
 	ParsingIni parser("D:/С++/Project/VSC/prj_netologiy_yandex/Course_1/Cours_parsing_ini/data_x.ini");
 
+/*
+	if (res.second == "string") {
+		auto s = res.first;
+		std::cout << "[" << s << "]" << typeid(s).name() << "[" << res.second << "]" << std::endl;
+	}
+	else
+		if (res.second == "int") {
+			auto s = std::stoll(res.first);
+			std::cout << "[" << s << "]" << typeid(s).name() << "[" << res.second << "]" << std::endl;
+		}
+		else
+			if (res.second == "double") {
+				auto s = std::stold(res.first);	
+				std::cout << "[" << s << "]" << typeid(s).name() << "[" << res.second << "]" << std::endl;
+			}*/
+//	auto s = parser.Get_Value<std::string>("Section1.var4");
+	//std::cout << "[" << s << "][" << res.second << "]" << std::endl;	
 
+	std::cout <<"--------------------------" << std::endl;
+	auto res = parser.Str_Value_Type("Section2.var1");
+	std::cout << "["<<res.first<<"]-["<< res.second<<"]" << std::endl;
 
-	std::cout << std::endl;
-	auto res = parser.Get_value<int>("Section2.var2");
+	std::cout <<"---------------------------" << std::endl;
+	res = parser.Str_Value_Type("Section3.var2");
+	std::cout << "[" << res.first << "]-[" << res.second << "]" << std::endl;
 
-	std::cout << std::endl;
-	res = parser.Get_value<int>("Section3.var2");
+	std::cout <<"---------------------------" << std::endl;
+	res = parser.Str_Value_Type("Section1.var2");
+	std::cout << "[" << res.first << "]-[" << res.second << "]" << std::endl;
 
-	std::cout << std::endl;
-	parser.Get_value<int>("Section1.var2");
+	std::cout << "---------------------------" << std::endl;
+	res = parser.Str_Value_Type("Section1.var4");
+	std::cout << "[" << res.first << "]-[" << res.second << "]" << std::endl;
 
+	std::cout << "---------------------------" << std::endl;
+	res = parser.Str_Value_Type("Section1.var6");
+	std::cout << "[" << res.first << "]-[" << res.second << "]" << std::endl;
 
-	std::cout << std::endl;
+	std::cout << "---------------------------" << std::endl;
+	std::cout  << std::endl;
+
+	/*
+	std::cout << "--------------------------"<<std::endl;
 	std::cout << std::endl;
 	std::cout << parser._section_var.first << "<<->>" << parser._section_var.second << std::endl;
 	std::cout << std::endl;
 	for (const auto& text : parser.GetVector_1()) {
 		i_o_str.Output(0, "", "<< ", text, " >>" , 1, 4);
 	}
+	*/
 };

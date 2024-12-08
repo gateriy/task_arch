@@ -89,54 +89,79 @@ public:
 	ParsingIni(const std::string& way_file) : ReadFileInVector ( way_file){	};
 
 	~ParsingIni() {};
-
-	template <typename X_var>
-	 X_var Get_value(const std::string& text_var) {
-
-		ReadVar(text_var);
-		//X_var result{};
-		std::string text_x{};
-		bool begin_section = false;
+	
+	std::pair<std::string, std::string> Str_Value_Type(const std::string& text_var);
 
 
-		if (!_in_data_file.empty()) {
+	template<typename Y,typename X>
+	Y Get_Value( const X var) {
+		//std::pair<std::string, std::string> _valu_type = var;
+		Str_Value_Type(var);
+		//auto res{};
 
-			for (const auto& str_var : _in_data_file) {		
-
-				if (str_var == ('[' + _section_var.first + ']')) { 
-					std::cout << "<<< Секция найдена! >>>" << std::endl;
-					begin_section = true; } 
-				else{				
-					if (begin_section == true) {
-						if ((str_var.at(0) == '[') && (str_var != ('[' + _section_var.first + ']'))) {
-							begin_section = false;
-							std::cout << "<<< Секция завершена! >>>" << std::endl;
-						}
-						else {
-
-							std::string a = read_string<std::string>(str_var).first;
-							std::string b = read_string<std::string>(str_var).second;
-
-							std::cout <<"["<< a << "] = [" << b<<"]" << std::endl;
-							
-
-						}
-					}
-				}				
+	
+			if (_valu_type.second == "int") {
+				auto res = std::stoll(_valu_type.first);
+				//std::cout << "[" << res << "]" << typeid(res).name() << "[" << _valu_type.second << "]" << std::endl;
+				return res;
 			}
-		}
+			else
+				if (_valu_type.second == "double") {
+					auto res = std::stold(_valu_type.first);
+					//std::cout << "[" << res << "]" << typeid(res).name() << "[" << _valu_type.second << "]" << std::endl;
+					return res;
+				}
+				else 		
+					if (_valu_type.second == "string") {
+					auto res = std::move( _valu_type.first);
+					//std::cout << "[" << res << "]" << typeid(res).name() << "[" << _valu_type.second << "]" << std::endl;
+					return res;
+				} else { return 0; }
+				
+		//std::string res = _valu_type.first;
+		//return res;
 
-		return 0;
 	}
 
-	std::pair<std::string, std::string> _section_var;
+
+/*
+	 template<typename T, typename X>
+	 T Convert_Data(std::string& var) {
+		 T res;
+
+		 if (_type_x == "int") {
+			 res = std::stoll(var);
+		 }
+		 else
+			 if (_type_x == "double") {
+				 res = std::stold(var);
+			 }
+			 else res = var;
+
+		 return res;
+		 //return var;
+	 }
+	*/
 
 private:
 
-	void ReadVar(const std::string& a);
+	std::pair<std::string, std::string> _section_var;
+	void _ReadVar(const std::string& a);
+	std::pair<std::string, std::string> _valu_type{};
 
-	template <typename X, typename Y>
-	std::pair <Y, X> read_string(const std::string& var_str) {
+
+	//формирует название и значение переменной в строковом формате
+	std::pair <std::string, std::string> _Read_String(const std::string& var_str);
+
+	//определяет возможный тип переменной на основе анализа данных по строке (string, int, double)
+	std::string _Var_Type(const std::string& var);
+
+	
+
+
+	/*
+	template<class X>
+	X ConvertVar(std::string text){
 
 		std::string name{}, var{};
 		X res{};
@@ -216,7 +241,7 @@ private:
 		}
 		return { {name},{res} };
 	}
-
+	*/
 
 
 };
