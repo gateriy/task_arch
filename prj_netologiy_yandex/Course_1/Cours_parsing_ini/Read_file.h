@@ -3,6 +3,7 @@
 
 #include "Config.h"
 
+/*
 template <typename text, typename data>
 class Input_Output_Var
 {
@@ -32,7 +33,16 @@ public:
 private:
 
 };
+*/
 
+class My_Exception1 : public std::exception {
+public:
+	My_Exception1(const char* message) : message_(message) {}
+
+	const char* what() const noexcept { return message_; }
+private:
+	const char* message_;
+};
 
 //чтение файла ini по строчно и формирование первичного вектора строк
 class ReadFileInVector {
@@ -40,46 +50,47 @@ class ReadFileInVector {
 public:
 
 	ReadFileInVector() {
-		InputTransformWay();
-		OupenFileWriteVector();
+		_InputTransformWay();
+		_OupenFileWriteVector();
 	}
 
 	ReadFileInVector(const std::string& way_file) {
 		this->_way_file = way_file;
-		InputTransformWay_2(_way_file);
-		OupenFileWriteVector();
+		_InputTransformWay_2(_way_file);
+		_OupenFileWriteVector();
 	}
 
 	~ReadFileInVector() {};
 
 	//заполнение вторичного вектора
-	std::vector<std::string> SetVector_2(const std::vector < std::string>& a);
+	//std::vector<std::string> SetVector_2(const std::vector < std::string>& a);
 
 	//вывод первичного вектора
-	std::vector<std::string> GetVector_1();
+	//std::vector<std::string> GetVector_1();
 
 	//вывод вторичного вектора
-	std::vector<std::string> GetVector_2();
+	//std::vector<std::string> GetVector_2();
 
 	//запись данных вторичного вектора в файл
-	bool InFileWriteVetor();
+	//bool InFileWriteVetor();
 
 protected:
+	//524288000
+	const int _MAX_SISE_V { 524288000 };        //заданный максимальны размер первичного вектора в байт
 	int _x_line{};								//подсчет строк в файле
 	std::string _x_text{}, _way_file{}, _way{};	//переменная строки, путь к файлу
 	std::vector <std::string> _in_data_file{};	//вектор строк из файла
 	std::vector <std::string> _out_data_file{};	//вектор строк после обработки (вторичный)
 
 	//чтение файла и формирование первичного вектора
-	bool OupenFileWriteVector();
+	bool _OupenFileWriteVector();
 
 	//счиывание пути к файлу и преобразование / или \ в "\\" пути к файлу с консоли
-	void InputTransformWay();
+	void _InputTransformWay() noexcept;
 
-	//второй вариан счиывания пути к файлу и преобразование / или \ в "\\" пути к файлу с консоли
-	void InputTransformWay_2(const std::string& way_text);
+	//второй вариан преобразование пути к файлу / или \ в "\\" по переданной переменной
+	void _InputTransformWay_2(const std::string& way_text) noexcept;
 };
-
 
 class ParsingIni : public ReadFileInVector {
 public:
@@ -90,163 +101,58 @@ public:
 
 	~ParsingIni() {};
 	
-	std::pair<std::string, std::string> Str_Value_Type(const std::string& text_var);
+	//находит переменную по запросу и выдает ее значение и тип на основе анализа структуры переменной в виде string
+	std::pair<std::string, std::string> Str_Value_Type(const std::string& text_var) noexcept;
 
+	template<typename Y>
+	const Y Get_Value(const std::string& var) {
 
-	template<typename Y,typename X>
-	Y Get_Value( const X var) {
-		//std::pair<std::string, std::string> _valu_type = var;
 		Str_Value_Type(var);
-		//auto res{};
-
-	
-			if (_valu_type.second == "int") {
-				auto res = std::stoll(_valu_type.first);
-				//std::cout << "[" << res << "]" << typeid(res).name() << "[" << _valu_type.second << "]" << std::endl;
+		if (_valu_type.second == "int") {
+			auto res = std::stoll(_valu_type.first);
+			return res;
+		}
+		else
+			if (_valu_type.second == "double") {
+				auto res = std::stold(_valu_type.first);
 				return res;
 			}
-			else
-				if (_valu_type.second == "double") {
-					auto res = std::stold(_valu_type.first);
-					//std::cout << "[" << res << "]" << typeid(res).name() << "[" << _valu_type.second << "]" << std::endl;
-					return res;
-				}
-				else 		
-					if (_valu_type.second == "string") {
-					auto res = std::move( _valu_type.first);
-					//std::cout << "[" << res << "]" << typeid(res).name() << "[" << _valu_type.second << "]" << std::endl;
-					return res;
-				} else { return 0; }
-				
-		//std::string res = _valu_type.first;
-		//return res;
+			else throw My_Exception1("An attempt to convert an unknown variable type!");
 
 	}
 
+	template<>
+	const std::string Get_Value(const std::string& var) {
+		
+		Str_Value_Type(var);
 
-/*
-	 template<typename T, typename X>
-	 T Convert_Data(std::string& var) {
-		 T res;
-
-		 if (_type_x == "int") {
-			 res = std::stoll(var);
-		 }
-		 else
-			 if (_type_x == "double") {
-				 res = std::stold(var);
-			 }
-			 else res = var;
-
-		 return res;
-		 //return var;
-	 }
-	*/
-
+		if (_valu_type.second == "string") {
+			auto res = std::move(_valu_type.first);
+			return res;
+		}
+		else throw My_Exception1("An attempt to convert an unknown variable type!");
+	}
+		
 private:
 
 	std::pair<std::string, std::string> _section_var;
-	void _ReadVar(const std::string& a);
 	std::pair<std::string, std::string> _valu_type{};
 
-
+	//преобразование переменных секции и перееменной из переданной строки
+	void _ReadVar(const std::string& a) noexcept;
+	
 	//формирует название и значение переменной в строковом формате
-	std::pair <std::string, std::string> _Read_String(const std::string& var_str);
+	std::pair <std::string, std::string> _Read_String(const std::string& var_str) noexcept;
 
 	//определяет возможный тип переменной на основе анализа данных по строке (string, int, double)
-	std::string _Var_Type(const std::string& var);
+	std::string _Var_Type(const std::string& var) noexcept;
 
-	
-
-
-	/*
-	template<class X>
-	X ConvertVar(std::string text){
-
-		std::string name{}, var{};
-		X res{};
-		bool first = true;
-		bool var_string = false;
-		bool var_long = false;
-		bool var_double = false;
-		int count_point{ 0 }, count_min{ 0 };
-
-		for (const auto& i : var_str) {
-			if (i != ';') {
-
-				if (first == false){ var = var + i; }
-
-				if (i != '=' && first == true) {
-					name = name + i;
-				}
-				else { first = false;}
-			}
-			else break;
-		}
-
-		for (auto& i : name) {
-			if (name.back() == ' ') { name.pop_back(); }
-			else break;
-		}
-		for (auto& i : var) {
-			if (var.back() == ' ') { var.pop_back(); }
-			else break;
-		}
-
-			first = false;
-
-		for (const auto& i : var) {
-
-			for (const char& f : { '-','0','1','2','3','4','5','6','7','8','9','0','.' }) {
-
-				if (i != f) { 
-					var_string = true;
-					break; 
-				}
-				else {
-					if (i == '.') {
-						++count_point;
-					}
-					if (i == '-') {
-						++count_min;
-					}
-				}
-			}
-		}
-
-		if (count_min == 0 || (count_min == 1 && var.at(0) == '-')) {
-
-			if (count_point == 1) {
-				var_double = true;
-			}
-			else if (count_point == 0) {
-				var_long = true;
-			}
-			else {
-				var_string = true;
-			}
-		}
-		else {
-			var_string = true;
-		}
-
-		if (var_string == true) {
-			res = var;
-		}
-		else if (var_long == true) {
-			res = static_cast<long int> (var);
-		}
-		else if (var_double = true) {
-			res = static_cast<double> (var);
-		}
-		return { {name},{res} };
-	}
-	*/
-
-
+	//удаление пробелов в названии секций
+	void _Transform_Section() noexcept;
 };
 
-
 void block_1();
+
+void block_2();
 
 #endif;

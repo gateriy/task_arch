@@ -17,6 +17,9 @@ enum class Config::Task {
 	exit_0,
 	block_1,
 	block_2,
+	block_3,
+	block_4,
+	block_5
 	
 };
 
@@ -26,11 +29,10 @@ void Config::VarTaskNumber() noexcept {
 
 	do {
 
-
 		std::cin >> number_task;
 		std::cout << std::endl;
 
-		if (number_task == "1" || number_task == "2" || number_task == "3" || number_task == "0") {
+		if (number_task == "1" || number_task == "2" || number_task == "3" || number_task == "4" || number_task == "5" || number_task == "0") {
 
 			std::cout << "\033c";//очистка консоли
 
@@ -47,6 +49,18 @@ void Config::VarTaskNumber() noexcept {
 				block_2();
 				exit = false;
 				break;		
+			case(static_cast<int>(Task::block_3)):
+				block_3();
+				exit = false;
+				break;
+			case(static_cast<int>(Task::block_4)):
+				block_4();
+				exit = false;
+				break;
+			case(static_cast<int>(Task::block_5)):
+				block_5();
+				exit = false;
+				break;
 			case(static_cast<int>(Task::exit_0)):
 				std::cout << "\033c";//очистка консоли
 				exit = false;

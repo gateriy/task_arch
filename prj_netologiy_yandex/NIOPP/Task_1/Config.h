@@ -8,8 +8,14 @@
 #include <fstream>
 #include <typeinfo>
 #include <exception>
+#include <algorithm>
+
  
-#include "Read_file.h"
+#include "Block_1.h"
+#include "Block_2.h"
+#include "Block_3.h"
+#include "Block_4.h"
+#include "Block_5.h"
 
 class Config {
 
