@@ -9,6 +9,7 @@
 #include <typeinfo>
 #include <exception>
 #include <algorithm>
+#include <bitset>
 
  
 #include "Block_1.h"

@@ -2,29 +2,24 @@
 #include "Block_2.h"
 
 
-std::string math_x(const int& x, const int& y) {
+std::string math_x(const long long int& x, const int& y) {
 
-	int count{ x }, end_x{ 0 };
+	long long int count{ x }, end_x{ 0 };
 	std::string res{ "" },  var{""};
 
-	if (y > 1 && y <= 16) {
-		do {
-			
-			var = std::to_string(count % y);
-			if (var == "10") { var = "A"; }
-			if (var == "11") { var = "B"; }
-			if (var == "12") { var = "C"; }
-			if (var == "13") { var = "D"; }
-			if (var == "14") { var = "E"; }
-			if (var == "15") { var = "F"; }
+	if (y > 1 && y <= 36) {
+	
+		while (count > 0) {
+			end_x = count % y;
 
-			res.push_back(var.at(0));
-			count = count / y;
-
-		} while (count > y);
-
-		var = std::to_string(count % y);
-		res.push_back(var.at(0));
+			if (end_x < 10) {
+				res += (end_x + '0');
+			}
+			else {
+				res += (end_x - 10 + 'A');
+			}
+			count /= y;
+		}
 	}
 	else { "Некоректная система счистления!"; }
 
@@ -34,7 +29,7 @@ std::string math_x(const int& x, const int& y) {
 }
 
 void block_2() {
-	int var_x{ 0 }, var_y{ 0 };
+	long long int var_x{ 0 }, var_y{ 0 };
 	char end_x{ ' ' };
 	
 
@@ -42,7 +37,7 @@ void block_2() {
 
 		std::cout << "Ввведите число: ";
 		std::cin >> var_x;
-		std::cout << "Ввведите число системы счислени (от 2 до 16): ";
+		std::cout << "Ввведите число системы счислени (от 2 до 36): ";
 		std::cin >> var_y;
 
 		std::cout << "-----------------------------------------" << std::endl;

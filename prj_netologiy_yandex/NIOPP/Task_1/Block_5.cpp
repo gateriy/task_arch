@@ -1,34 +1,36 @@
 
 #include "Block_5.h"
 
-void Temperature::set_array(const int& nomber, const double& temp_var) {
+bool Temperature::set_array(const int& nomber, const double& temp_var) {
 
-	if ((nomber >= 0 && nomber < _quantity) && (temp_var <= _temperat_max && temp_var >= _temperat_min)) {
+	int count = (nomber - 1);
 
-		for (int i = 0; i < _quantity; ++i) {
-			_array_y[i] = false;
+	if ((count >= 0 && count < _quantity) && (temp_var <= _temperat_max && temp_var >= _temperat_min)) {
+		
+		if (_array_x[count] != temp_var) {
+
+			_array_x[count] = temp_var;
+			_sensor_end = count+1;
 		}
-		_array_x[nomber] = temp_var;
-		_array_y[nomber] = true;
+		return true;
 	}
 	else {
+		return false;
 		std::cerr << "Incorrect data nomber or temperat!" << std::endl;
 	}
 }
 
 std::pair<int, double> Temperature::get_chang_temperat() {
 
-	for (int i = 0; i < _quantity; ++i) {
-		if (_array_y[i] == true) {
-			return { (i + 1),_array_x[i] };
-		};
-	}
+	return { (_sensor_end),_array_x[(_sensor_end - 1)] };
 };
 
 double Temperature::get_temperat_i(const int& nomber) {
 
-	if ((nomber >= 0 && nomber < _quantity)) {
-		return _array_x[nomber];
+	int count{ (nomber - 1) };
+
+	if ((count >= 0 && count < _quantity)) {
+		return _array_x[count];
 	}
 	else {
 		std::cerr << "Incorrect data nomber!" << std::endl;
@@ -50,7 +52,6 @@ void block_5() {
 	int var_y{ 0 }, quantity_x{ 0 };
 	char end_x{ ' ' };
 	double max_temperat{ 0 }, min_temperat{ 0 };
-	bool first{ false };
 
 	std::cout << "Ввведите количество датчиков: ";
 	std::cin >> quantity_x;
@@ -60,22 +61,20 @@ void block_5() {
 	std::cin >> min_temperat;
 
 	auto var_temp = Temperature(quantity_x, max_temperat, min_temperat);
+
 	do {
 
-		if (first == false || (end_x != '0' && end_x != '1' && end_x != '2')) {
+		if (end_x != '0' && end_x != '1' && end_x != '2') {
 			std::cout << "Имитация опроса датчиков! Запись только при изменении значения!" << std::endl;
-			for (int i = 0; i < quantity_x; ++i) {
-				std::cout << "Ввведите значение температуры датчика [" << (i + 1) << "]: ";
+			
+			for (int i = 1; i <= quantity_x; ++i) // счет датчиков начиная с 1
+			{
+				std::cout << "Ввведите значение температуры датчика [" << (i) << "]: ";
 				std::cin >> var_y;
 
-				if (var_temp.get_temperat_i(i) != var_y) {
-					var_temp.set_array(i, var_y);
-				}
+				var_temp.set_array(i, var_y);//номер датчика от 1 заданного и значение температуры				
 			}
-			first = true;
 		}
-
-
 
 		if (end_x == '2') {
 
@@ -83,7 +82,6 @@ void block_5() {
 			std::cout << "Последнее измененное значение: датчик [" << var_temp.get_chang_temperat().first
 				<< "], значение: [" << var_temp.get_chang_temperat().second << "]" << std::endl;
 			std::cout << "-----------------------------------------" << std::endl;
-
 		}
 
 		if (end_x == '1') {
@@ -91,7 +89,6 @@ void block_5() {
 			std::cout << "-----------------------------------------" << std::endl;
 			std::cout << "Среднее значение температуры: [" << var_temp.average_temperat() << "]" << std::endl;
 			std::cout << "-----------------------------------------" << std::endl;
-
 		}
 
 		std::cout << "-----------------------------------------" << std::endl;
@@ -101,5 +98,4 @@ void block_5() {
 
 		if (end_x == '0') { break; }
 	} while (true);
-
 };

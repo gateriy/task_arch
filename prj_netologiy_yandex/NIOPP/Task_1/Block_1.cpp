@@ -1,7 +1,5 @@
 
 #include "Block_1.h"
-#include "Config.h"
-
 
 std::string name_generat(const bool workshop_a, const bool workshop_b, const bool workshop_c) {
 
@@ -21,7 +19,6 @@ std::string name_generat(const bool workshop_a, const bool workshop_b, const boo
 				return "Генератор X и Y включен!";
 			} else return "Все генераторы выключены!";	
 }
-
 
 void block_1() {
 

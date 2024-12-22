@@ -3,36 +3,59 @@
 
 int graf_x(const std::pair<double, double>& A, const std::pair<double, double>& B, const std::pair<double, double>& C) {
 
-	int X1 = A.first;
-	int Y1 = A.second;
+	double X1 = A.first;
+	double Y1 = A.second;
 
-	int X2 = B.first;
-	int Y2 = B.second;
+	double X2 = B.first;
+	double Y2 = B.second;
 
-	int Xx = C.first;
-	int Yy = C.second;
+	double Xx = C.first;
+	double Yy = C.second;
 
-	int Y{ 0 }, X{ 0 };
+	double Y{ 0 }, X{ 0 };
 
-	if ((X1 != X2) && (Y1 != Y2)) {
+	if ((X1 != X2) && (Y1!=Y2)) {
 
 		Y = (Y2 - Y1) / (X2 - X1) * Xx + Y1 - (Y2 - Y1) / (X2 - X1) * X1;
 		X = (Yy - Y1 + (Y2 - Y1) / (X2 - X1) * X1) / ((Y2 - Y1) / (X2 - X1));
 
 		if (Yy == Y) { return 0; }
-		if (X < Xx)  { return 1; }
-		if (X > Xx)  { return -1;}
-	}
-	if (Y1 == Y2) {
-		if (Y1 == Yy) {
-			return 0;
+
+		if (Y2 > Y1) //восходящая
+		{
+			if (X < Xx) { return 1; }
+			if (X > Xx) { return -1; }
 		}
-		else { return 2; }
+		if (Y2 < Y1) //нисходящая
+		{
+			if (X > Xx) { return 1; }
+			if (X < Xx) { return -1; } 
+		}
 	}
-	if ((X1 == X2)) {
-		if (Xx == X1) { return 0; }
-		if (X1 < Xx)  {	return 1; }
-		if (X1 > Xx)  {	return -1;}
+	if (Y1 == Y2) //горизонтальная линия
+	{
+		if (X1 < X2) //правое направление
+		{
+			if (Y1 > Yy) { return 1;  }
+			if (Y1 < Yy) { return -1; }
+		}
+		if (X1 > X2) //левое направление
+		{
+			if (Y1 > Yy) { return -1; }
+			if (Y1 < Yy) { return 1;  }
+		}
+	}
+	if (X1 == X2) {
+		if (Y1 < Y2) // направление в верх
+		{
+			if (X1 > Xx) { return -1; }
+			if (X1 < Xx) { return 1; }
+		}
+		if (Y1 > Y2) // направление в низ
+		{
+			if (X1 > Xx) { return 1; }
+			if (X1 < Xx) { return -1; }
+		}
 	}   
 }
 
@@ -73,14 +96,12 @@ void block_4() {
 			std::cout << "Точка С лежит на заданной прямой: " << "[" << res << "]" << std::endl;
 		}
 		if (res == -1) {
-			std::cout << "Точка С лежит на слева от заданной прямой: " << "[" << res << "]" << std::endl;
+			std::cout << "Точка С лежит слева от заданной прямой: " << "[" << res << "]" << std::endl;
 		}
 		if (res == 1) {
-			std::cout << "Точка С лежит на справа от заданной прямой: " << "[" << res << "]" << std::endl;
+			std::cout << "Точка С лежит справа от заданной прямой: " << "[" << res << "]" << std::endl;
 		}
-		if (res == 2) {
-			std::cout << "Заданная прямая паралельна оси X, значение справа/слева не коректно: " << "[" << res << "]" << std::endl;
-		}
+	
 		std::cout << "-----------------------------------------" << std::endl;
 
 		std::cout << "Выйти из программы да - 0, нет - любой символ!: ";
